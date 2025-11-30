@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Orientation - DruvaTalks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Dynamic Radial Gradient Background */
+        .radial-gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 50%, #1a1a00 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #1a1a00 100%);
+            background-size: 200% 200%;
+            animation: radialMove 20s ease infinite;
+        }
+
+        @keyframes radialMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Energy Wave Background */
+        .energy-waves {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            border-radius: 40%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: rotate 30s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation-duration: 25s;
+            animation-direction: reverse;
+            background: linear-gradient(45deg, transparent, rgba(218, 165, 32, 0.1), transparent);
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Impact Text - Professional Style */
+        .impact-text {
+            text-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Defense Card - Professional Style */
+        .defense-card {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .defense-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.8);
+        }
+
+        /* Tech Icon - Professional Style */
+        .tech-icon {
+            filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
+        }
+
+        /* Power Bar */
+        .power-bar {
+            position: relative;
+            height: 10px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .power-fill {
+            height: 100%;
+            background: #FFD700;
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar Blur */
+        .navbar-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Permanent Rotating Background for Body */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            z-index: 0;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 60deg,
+                rgba(255, 215, 0, 0.15) 120deg,
+                transparent 180deg,
+                transparent 240deg,
+                rgba(218, 165, 32, 0.12) 300deg,
+                transparent 360deg
+            );
+            animation: rotate-body-bg 50s linear infinite;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes rotate-body-bg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Stat Counter */
+        .stat-counter {
+            font-variant-numeric: tabular-nums;
+            transition: all 0.5s ease;
+        }
+
+        /* Section Separator - Professional */
+        .section-divider {
+            position: relative;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            margin: 2.5rem 0;
+        }
+
+        /* Stagger Animation for Cards */
+        .reveal-stagger {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-stagger.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger:nth-child(1) { transition-delay: 0.1s; }
+        .reveal-stagger:nth-child(2) { transition-delay: 0.2s; }
+        .reveal-stagger:nth-child(3) { transition-delay: 0.3s; }
+        .reveal-stagger:nth-child(4) { transition-delay: 0.4s; }
+        .reveal-stagger:nth-child(5) { transition-delay: 0.5s; }
+        .reveal-stagger:nth-child(6) { transition-delay: 0.6s; }
+
+        /* Tech Icon - Professional Style */
+        .tech-icon {
+            filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
+        }
+
+        /* Card Icon Subtle Lift */
+        .defense-card .w-10,
+        .defense-card .w-12 {
+            transition: transform 0.3s ease;
+        }
+
+        .defense-card:hover .w-10,
+        .defense-card:hover .w-12 {
+            transform: translateY(-4px);
+        }
+
+        /* Gradient Border Animation */
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .gradient-border:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        /* Number Counter Animation */
+        .number-slide-up {
+            display: inline-block;
+            animation: slide-up 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes slide-up {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Parallax Scroll Effect */
+        .parallax-slow {
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Enhanced Power Bar with Glow */
+        .power-bar {
+            position: relative;
+            height: 10px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            overflow: visible;
+        }
+
+        .power-fill {
+            height: 100%;
+            background: #FFD700;
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Ripple Effect Container */
+        .ripple-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 1.5s ease-out;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Elements */
+        .float-element {
+            animation: float-gentle 4s ease-in-out infinite;
+        }
+
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Section Title Underline Animation */
+        .title-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d99a00, #FFD700, #d99a00);
+            transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .title-underline.active::after {
+            width: 100%;
+        }
+
+        /* Scale In Animation */
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .scale-in.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Professional Navbar Enhancements */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Enhanced Navbar Styling */
+        nav {
+            position: relative;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
+                        0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 215, 0, 0.3) 20%, 
+                rgba(255, 215, 0, 0.6) 50%, 
+                rgba(255, 215, 0, 0.3) 80%, 
+                transparent 100%);
+            animation: navbar-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes navbar-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .action-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .action-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5), 
+                        0 0 30px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'golden': '#FFD700',
+                        'dark-gold': '#d99a00',
+                        'blackish': '#0a0a0a',
+                    },
+                }
+            }
+        }
+
+        // Scroll Reveal with Stagger Support
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Animated Counter
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 20);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+
+            // Animate stat counters when visible
+            const statElements = document.querySelectorAll('.stat-counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        animateCounter(entry.target, target);
+                        entry.target.classList.add('animated');
+                    }
+                });
+            });
+
+            statElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</head>
+<body class="text-gray-200 antialiased">
+    
+    <!-- Animated Background -->
+    <div class="radial-gradient-bg"></div>
+    <div class="energy-waves">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 shadow-2xl border-b border-golden/30" style="position: relative; z-index: 100; background: linear-gradient(135deg, rgba(92, 67, 5, 0.85) 0%, rgba(10, 10, 10, 0.95) 50%, rgba(73, 61, 30, 0.85) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20 md:h-22 lg:h-24">
+                <a href="index.html" class="flex-shrink-0 flex items-center logo-container">
+                    <img src="druvatalks-logo.png" alt="DruvaTalks Logo" class="h-7 sm:h-9 md:h-11 lg:h-13 xl:h-14 w-auto">
+                </a>
+                
+                <!-- Center Title -->
+                <div class="hidden sm:flex flex-1 justify-center px-2 md:px-4">
+                    <p class="text-golden text-xs sm:text-sm md:text-base font-semibold tracking-wide">Technical Orientation</p>
+                </div>
+                
+                <div class="flex items-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4">
+                    <a href="index.html" class="nav-link text-golden hover:text-white px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap touch-manipulation">← Back</a>
+                    <a href="index.html#contact" class="action-btn text-black bg-golden hover:bg-dark-gold px-3 sm:px-4 md:px-5 lg:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg whitespace-nowrap touch-manipulation">
+                        Join Training
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main style="position: relative; z-index: 1;">
+        <!-- Hero Section -->
+        <section class="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8 sm:mb-12 md:mb-16 reveal">
+                    <div class="inline-block mb-4 sm:mb-6 tech-icon">
+                        <svg class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight mb-4 sm:mb-6 impact-text px-4">
+                        Technical <span class="text-golden">Orientation</span>
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
+                        Stay ahead of the curve with cutting-edge technical skills. From coding to data analytics, master the tools that power the digital age.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Section Divider -->
+            <div class="section-divider max-w-4xl mx-auto"></div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Introduction -->
+                <div class="mb-12 sm:mb-16 md:mb-20 reveal">
+                    <div class="defense-card gradient-border p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl sm:rounded-2xl relative z-10">
+                        <div class="flex items-center mb-4">
+                            <div class="flex space-x-2 mb-4">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white">The Future Is <span class="text-golden">Digital</span></h2>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6 font-mono">
+                            <span class="text-golden">></span> In a world driven by technology, digital literacy isn't optional—it's essential. Whether you're looking to launch a tech career, enhance your current skills, or simply understand the tools shaping our future, our Technical Orientation workshops provide the foundation you need.
+                        </p>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed font-mono">
+                            <span class="text-golden">></span> Learn from industry experts who break down complex concepts into digestible, actionable lessons that you can apply immediately.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Section Divider -->
+                <div class="section-divider max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20"></div>
+
+                <!-- Tech Skills Grid -->
+                <div class="mb-12 sm:mb-16 md:mb-20">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-white reveal px-4">
+                        Master In-Demand <span class="text-golden">Tech Skills</span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                        
+                        <!-- Skill 1 -->
+                        <div class="defense-card gradient-border p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal-stagger relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Coding Fundamentals</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Master Python, JavaScript, and web development basics with hands-on projects.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 95%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 95%</p>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div class="defense-card gradient-border p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal-stagger relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Data Analytics</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Learn data visualization, Excel, SQL, and business intelligence tools.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 92%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 92%</p>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div class="defense-card gradient-border p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal-stagger relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Digital Marketing</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">SEO, content strategy, social media ads, and analytics for growth.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 88%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 88%</p>
+                        </div>
+
+                        <!-- Skill 4 -->
+                        <div class="defense-card gradient-border p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal-stagger relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">App Development</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Build mobile apps with modern frameworks and deployment strategies.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 90%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 90%</p>
+                        </div>
+
+                        <!-- Skill 5 -->
+                        <div class="defense-card gradient-border p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal-stagger relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Cloud Computing</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Introduction to AWS, Azure, and cloud architecture fundamentals.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 87%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 87%</p>
+                        </div>
+
+                        <!-- Skill 6 -->
+                        <div class="defense-card gradient-border p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal-stagger relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">AI & Machine Learning</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Explore AI concepts, ML algorithms, and practical applications.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 94%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 94%</p>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- Section Divider -->
+                <div class="section-divider max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20"></div>
+
+                <!-- Learning Path -->
+                <div class="mb-12 sm:mb-16 md:mb-20 reveal">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-white px-4">
+                        Your Learning <span class="text-golden">Journey</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                        <div class="defense-card gradient-border p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl text-center relative z-10 reveal-stagger">
+                            <div class="text-4xl sm:text-5xl md:text-6xl font-bold text-golden mb-3 sm:mb-4">01</div>
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Foundation</h3>
+                            <p class="text-sm sm:text-base text-gray-400">Start with core concepts and fundamental principles. No prior experience needed.</p>
+                        </div>
+                        <div class="defense-card gradient-border p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl text-center relative z-10 reveal-stagger">
+                            <div class="text-4xl sm:text-5xl md:text-6xl font-bold text-golden mb-3 sm:mb-4">02</div>
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Practice</h3>
+                            <p class="text-sm sm:text-base text-gray-400">Hands-on projects and real-world scenarios to reinforce your learning.</p>
+                        </div>
+                        <div class="defense-card gradient-border p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl text-center relative z-10 reveal-stagger">
+                            <div class="text-4xl sm:text-5xl md:text-6xl font-bold text-golden mb-3 sm:mb-4">03</div>
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Deploy</h3>
+                            <p class="text-sm sm:text-base text-gray-400">Build portfolio projects and gain confidence to enter the job market.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section Divider -->
+                <div class="section-divider max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20"></div>
+
+                <!-- Features -->
+                <div class="mb-12 sm:mb-16 md:mb-20 reveal">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-white px-4">
+                        Why Choose Our <span class="text-golden">Tech Workshops</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-5 sm:p-6 bg-blackish/60 rounded-lg sm:rounded-xl border-l-4 border-golden">
+                            <div class="flex-shrink-0">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-white">Industry-Relevant Curriculum</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm">Learn skills that employers are actively seeking in today's job market.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-5 sm:p-6 bg-blackish/60 rounded-lg sm:rounded-xl border-l-4 border-golden">
+                            <div class="flex-shrink-0">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-white">Expert Instructors</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm">Learn from working professionals with years of industry experience.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-5 sm:p-6 bg-blackish/60 rounded-lg sm:rounded-xl border-l-4 border-golden">
+                            <div class="flex-shrink-0">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-white">Hands-On Projects</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm">Build real applications and create a portfolio that showcases your skills.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 sm:space-x-4 p-5 sm:p-6 bg-blackish/60 rounded-lg sm:rounded-xl border-l-4 border-golden">
+                            <div class="flex-shrink-0">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-white">Certification</h3>
+                                <p class="text-gray-400 text-xs sm:text-sm">Receive recognized certificates upon completion to boost your resume.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section Divider -->
+                <div class="section-divider max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20"></div>
+
+                <!-- CTA Section -->
+                <div class="text-center reveal">
+                    <div class="defense-card gradient-border p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl sm:rounded-2xl relative z-10">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white px-4">Ready to Code Your <span class="text-golden">Future?</span></h2>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+                            Join thousands of learners who have transformed their careers through our technical workshops.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+                            <a href="index.html#contact" class="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base text-black bg-golden rounded-full font-semibold shadow-xl transition duration-300 transform hover:scale-105 hover:bg-dark-gold">
+                                Enroll Now
+                            </a>
+                            <a href="index.html#works" class="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base text-golden border-2 border-golden rounded-full font-semibold hover:bg-golden hover:text-black transition duration-300">
+                                View Our Impact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blackish border-t border-golden/10 mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+                <p class="text-sm text-gray-500 font-mono">&copy; 2025 DruvaTalks. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-golden text-sm transition duration-200">Home</a>
+                    <a href="index.html#services" class="text-gray-400 hover:text-golden text-sm transition duration-200">Services</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-golden text-sm transition duration-200">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

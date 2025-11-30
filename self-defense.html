@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Defense Training - DruvaTalks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Dynamic Radial Gradient Background */
+        .radial-gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 50%, #1a1a00 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #1a1a00 100%);
+            background-size: 200% 200%;
+            animation: radialMove 20s ease infinite;
+        }
+
+        @keyframes radialMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Energy Wave Background */
+        .energy-waves {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            border-radius: 40%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: rotate 30s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation-duration: 25s;
+            animation-direction: reverse;
+            background: linear-gradient(45deg, transparent, rgba(218, 165, 32, 0.1), transparent);
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Impact Text - Professional Style */
+        .impact-text {
+            text-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Shield Icon - Professional Style */
+        .shield-icon {
+            filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
+        }
+
+        /* Defense Card - No Hover Animation */
+        .defense-card {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .defense-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.8);
+        }
+
+        /* Permanent Rotating Background for Body */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            z-index: 0;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 60deg,
+                rgba(255, 215, 0, 0.15) 120deg,
+                transparent 180deg,
+                transparent 240deg,
+                rgba(218, 165, 32, 0.12) 300deg,
+                transparent 360deg
+            );
+            animation: rotate-body-bg 50s linear infinite;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes rotate-body-bg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Power Bar */
+        .power-bar {
+            position: relative;
+            height: 10px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .power-fill {
+            height: 100%;
+            background: #FFD700;
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Navbar Blur */
+        .navbar-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Combat Stats Counter */
+        .stat-counter {
+            font-variant-numeric: tabular-nums;
+            transition: all 0.5s ease;
+        }
+
+        /* Ripple Effect */
+        .ripple-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 1.5s ease-out;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Alert Badge - Professional Style */
+        .alert-badge {
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Parallax Layer */
+        .parallax-layer {
+            transform: translateZ(-1px) scale(2);
+        }
+
+        /* Professional Navbar Enhancements */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Enhanced Navbar Styling */
+        nav {
+            position: relative;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
+                        0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 215, 0, 0.3) 20%, 
+                rgba(255, 215, 0, 0.6) 50%, 
+                rgba(255, 215, 0, 0.3) 80%, 
+                transparent 100%);
+            animation: navbar-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes navbar-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .action-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .action-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5), 
+                        0 0 30px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'golden': '#FFD700',
+                        'dark-gold': '#d99a00',
+                        'blackish': '#0a0a0a',
+                    },
+                }
+            }
+        }
+
+        // Scroll Reveal
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Animated Counter
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 20);
+        }
+
+        // Create Ripple Effect
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const ripple = document.createElement('span');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+
+            button.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 1500);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+
+            // Animate stat counters when visible
+            const statElements = document.querySelectorAll('.stat-counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        animateCounter(entry.target, target);
+                        entry.target.classList.add('animated');
+                    }
+                });
+            });
+
+            statElements.forEach(el => observer.observe(el));
+
+            // Add ripple effect to buttons
+            document.querySelectorAll('.ripple-container').forEach(button => {
+                button.addEventListener('click', createRipple);
+            });
+        });
+    </script>
+</head>
+<body class="text-gray-200 antialiased">
+    
+    <!-- Animated Background -->
+    <div class="radial-gradient-bg"></div>
+    <div class="energy-waves">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 shadow-2xl border-b border-golden/30" style="position: relative; z-index: 100; background: linear-gradient(135deg, rgba(92, 67, 5, 0.85) 0%, rgba(10, 10, 10, 0.95) 50%, rgba(73, 61, 30, 0.85) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20 md:h-22 lg:h-24">
+                <a href="index.html" class="flex-shrink-0 flex items-center logo-container">
+                    <img src="druvatalks-logo.png" alt="DruvaTalks Logo" class="h-7 sm:h-9 md:h-11 lg:h-13 xl:h-14 w-auto">
+                </a>
+                
+                <!-- Center Title -->
+                <div class="hidden sm:flex flex-1 justify-center px-2 md:px-4">
+                    <p class="text-golden text-xs sm:text-sm md:text-base font-semibold tracking-wide">Self-Defense Training</p>
+                </div>
+                
+                <div class="flex items-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4">
+                    <a href="index.html" class="nav-link text-golden hover:text-white px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap touch-manipulation">← Back</a>
+                    <a href="index.html#contact" class="action-btn text-black bg-golden hover:bg-dark-gold px-3 sm:px-4 md:px-5 lg:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg ripple-container whitespace-nowrap touch-manipulation">
+                        Join Training
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main style="position: relative; z-index: 1;">
+        <!-- Hero Section -->
+        <section class="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8 sm:mb-12 md:mb-16 reveal">
+                    <div class="inline-block mb-4 sm:mb-6 shield-icon">
+                        <svg class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight mb-4 sm:mb-6 impact-text px-4">
+                        Practical <span class="text-golden">Self-Defense</span>
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
+                        Empower yourself with practical self-defense techniques, situational awareness, and confidence-building strategies for real-world safety.
+                    </p>
+                    <div class="inline-flex flex-wrap items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-golden/20 border border-golden rounded-full alert-badge max-w-xs sm:max-w-md mx-4">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-golden flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-xs sm:text-sm font-semibold text-golden text-center">Safety First - Prevention Over Confrontation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="py-12 sm:py-16 md:py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Introduction -->
+                <div class="mb-12 sm:mb-16 md:mb-20 reveal">
+                    <div class="defense-card p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl sm:rounded-2xl relative z-10">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white">Why Self-Defense <span class="text-golden">Matters</span></h2>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
+                            Personal safety is a fundamental right, not a luxury. Our self-defense workshops go beyond physical techniques—we teach awareness, prevention, de-escalation, and confidence. Whether you're walking alone at night, traveling, or simply want peace of mind, these skills are invaluable.
+                        </p>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
+                            Designed for all ages, fitness levels, and backgrounds, our approach emphasizes practical, easy-to-remember techniques that work in real-world situations. You don't need to be an athlete to protect yourself effectively.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="mb-12 sm:mb-16 md:mb-20 reveal">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
+                        <div class="defense-card p-6 sm:p-8 rounded-lg sm:rounded-xl">
+                            <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 stat-counter" data-target="3000">0</div>
+                            <p class="text-base sm:text-lg md:text-xl font-medium text-gray-300">Participants Trained</p>
+                        </div>
+                        <div class="defense-card p-6 sm:p-8 rounded-lg sm:rounded-xl">
+                            <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 stat-counter" data-target="98">0</div>
+                            <p class="text-base sm:text-lg md:text-xl font-medium text-gray-300">Confidence Boost %</p>
+                        </div>
+                        <div class="defense-card p-6 sm:p-8 rounded-lg sm:rounded-xl">
+                            <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 stat-counter" data-target="50">0</div>
+                            <p class="text-base sm:text-lg md:text-xl font-medium text-gray-300">Sessions Conducted</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Techniques -->
+                <div class="mb-12 sm:mb-16 md:mb-20">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-white reveal px-4">
+                        What You'll <span class="text-golden">Learn</span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                        
+                        <!-- Technique 1 -->
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Situational Awareness</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Learn to read environments, identify potential threats, and stay alert in any situation.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 95%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 95%</p>
+                        </div>
+
+                        <!-- Technique 2 -->
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Verbal De-escalation</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Master communication techniques to defuse tense situations before they become physical.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 88%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 88%</p>
+                        </div>
+
+                        <!-- Technique 3 -->
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Quick Strike Techniques</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Simple, effective physical responses for escaping dangerous situations quickly.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 92%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 92%</p>
+                        </div>
+
+                        <!-- Technique 4 -->
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Escape & Evasion</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Learn proven methods to break free from grabs, holds, and dangerous situations.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 94%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 94%</p>
+                        </div>
+
+                        <!-- Technique 5 -->
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Ground Defense</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Techniques to protect yourself and get back on your feet if you're taken to the ground.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 90%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 90%</p>
+                        </div>
+
+                        <!-- Technique 6 -->
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Mental Resilience</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Build confidence, control fear, and develop the mindset to act decisively under pressure.</p>
+                            <div class="power-bar mb-2">
+                                <div class="power-fill" style="width: 96%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Effectiveness: 96%</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Training Approach -->
+                <div class="mb-12 sm:mb-16 md:mb-20 reveal">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-white px-4">
+                        Our Training <span class="text-golden">Approach</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-golden">Realistic Scenarios</h3>
+                            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                                Train in situations you might actually face—not choreographed demonstrations. We use role-playing and scenario-based training to prepare you for real-world threats.
+                            </p>
+                        </div>
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-golden">Safe Environment</h3>
+                            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                                Practice techniques in a controlled, supportive setting. Our certified instructors ensure everyone learns at their own pace without risk of injury.
+                            </p>
+                        </div>
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-golden">Inclusive for All</h3>
+                            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                                Regardless of age, gender, size, or fitness level, our techniques work for everyone. We adapt training to individual needs and capabilities.
+                            </p>
+                        </div>
+                        <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-golden">Continuous Practice</h3>
+                            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                                Get access to ongoing training resources, practice drills, and refresher sessions to maintain your skills over time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety Principles -->
+                <div class="mb-12 sm:mb-16 md:mb-20 reveal">
+                    <div class="defense-card p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl sm:rounded-2xl relative z-10">
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center text-white px-4">Core Safety <span class="text-golden">Principles</span></h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-golden flex items-center justify-center text-black text-sm sm:text-base font-bold">1</div>
+                                <div>
+                                    <h4 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Avoid the Fight</h4>
+                                    <p class="text-gray-400 text-xs sm:text-sm">The best defense is not being there. Learn threat assessment and avoidance strategies.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-golden flex items-center justify-center text-black text-sm sm:text-base font-bold">2</div>
+                                <div>
+                                    <h4 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Trust Your Instincts</h4>
+                                    <p class="text-gray-400 text-xs sm:text-sm">If something feels wrong, it probably is. Never ignore your gut feelings.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-golden flex items-center justify-center text-black text-sm sm:text-base font-bold">3</div>
+                                <div>
+                                    <h4 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Escape is Victory</h4>
+                                    <p class="text-gray-400 text-xs sm:text-sm">The goal isn't to win a fight—it's to get away safely. Always prioritize escape.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-golden flex items-center justify-center text-black text-sm sm:text-base font-bold">4</div>
+                                <div>
+                                    <h4 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Use Your Voice</h4>
+                                    <p class="text-gray-400 text-xs sm:text-sm">Shouting and drawing attention can deter attackers and summon help.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="text-center reveal">
+                    <div class="defense-card p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl sm:rounded-2xl relative z-10">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white px-4">Empower Yourself <span class="text-golden">Today</span></h2>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+                            Don't wait for a dangerous situation to wish you had these skills. Join our next self-defense workshop and gain the confidence to protect yourself and your loved ones.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+                            <a href="index.html#contact" class="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base text-black bg-golden rounded-full font-semibold shadow-xl transition duration-300 transform hover:scale-105 hover:bg-dark-gold ripple-container">
+                                Register for Training
+                            </a>
+                            <a href="index.html#feedback" class="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base text-golden border-2 border-golden rounded-full font-semibold hover:bg-golden hover:text-black transition duration-300">
+                                Read Testimonials
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blackish border-t border-golden/10 mt-12 sm:mt-16 md:mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+                <p class="text-sm text-gray-500">&copy; 2024 DruvaTalks. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-golden text-sm transition duration-200">Home</a>
+                    <a href="index.html#services" class="text-gray-400 hover:text-golden text-sm transition duration-200">Services</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-golden text-sm transition duration-200">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

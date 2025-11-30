@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Skills Mastery - DruvaTalks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Dynamic Radial Gradient Background */
+        .animated-gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 50%, #1a1a00 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #1a1a00 100%);
+            background-size: 200% 200%;
+            animation: radialMove 20s ease infinite;
+        }
+
+        @keyframes radialMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Permanent Rotating Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            z-index: 0;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 60deg,
+                rgba(255, 215, 0, 0.15) 120deg,
+                transparent 180deg,
+                transparent 240deg,
+                rgba(218, 165, 32, 0.12) 300deg,
+                transparent 360deg
+            );
+            animation: rotate-body-bg 50s linear infinite;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes rotate-body-bg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Floating Particles Background */
+        .particles-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing Golden Text Effect */
+        .glow-text {
+            text-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Card Hover Effects with 3D Transform */
+        .skill-card {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.8);
+        }
+
+        /* Ripple Effect on Buttons */
+        .ripple-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ripple-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Smooth Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Progress Bar Animation */
+        .progress-bar {
+            position: relative;
+            height: 10px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #FFD700;
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Floating Icon Animation */
+        .float-icon {
+            animation: floatIcon 3s ease-in-out infinite;
+            filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Mobile Responsive Optimizations */
+        @media (max-width: 640px) {
+            html {
+                font-size: 14px;
+            }
+            
+            body::before {
+                opacity: 0.7;
+            }
+            
+            .particle {
+                display: none;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            html {
+                font-size: 16px;
+            }
+        }
+
+        /* Prevent horizontal overflow */
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        /* Custom Navbar Blur */
+        .navbar-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Professional Navbar Enhancements */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Enhanced Navbar Styling */
+        nav {
+            position: relative;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
+                        0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        nav::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 215, 0, 0.3) 20%, 
+                rgba(255, 215, 0, 0.6) 50%, 
+                rgba(255, 215, 0, 0.3) 80%, 
+                transparent 100%);
+            animation: navbar-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes navbar-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .action-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .action-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5), 
+                        0 0 30px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'golden': '#FFD700',
+                        'dark-gold': '#d99a00',
+                        'blackish': '#0a0a0a',
+                    },
+                }
+            }
+        }
+
+        // Generate Floating Particles
+        function createParticles() {
+            const container = document.querySelector('.particles-bg');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 4 + 2;
+                const startX = Math.random() * 100;
+                const duration = Math.random() * 10 + 10;
+                const delay = Math.random() * 5;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${startX}%`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+        });
+    </script>
+</head>
+<body class="text-gray-200 antialiased">
+    
+    <!-- Animated Background -->
+    <div class="animated-gradient-bg"></div>
+    <div class="particles-bg"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 shadow-2xl border-b border-golden/30" style="position: relative; z-index: 100; background: linear-gradient(135deg, rgba(92, 67, 5, 0.85) 0%, rgba(10, 10, 10, 0.95) 50%, rgba(73, 61, 30, 0.85) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20 md:h-22 lg:h-24">
+                <a href="index.html" class="flex-shrink-0 flex items-center logo-container">
+                    <img src="druvatalks-logo.png" alt="DruvaTalks Logo" class="h-7 sm:h-9 md:h-11 lg:h-13 xl:h-14 w-auto">
+                </a>
+                
+                <!-- Center Title -->
+                <div class="hidden sm:flex flex-1 justify-center px-2 md:px-4">
+                    <p class="text-golden text-xs sm:text-sm md:text-base font-semibold tracking-wide">Life Skills Mastery</p>
+                </div>
+                
+                <div class="flex items-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4">
+                    <a href="index.html" class="nav-link text-golden hover:text-white px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap touch-manipulation">← Back</a>
+                    <a href="index.html#contact" class="action-btn text-black bg-golden hover:bg-dark-gold px-3 sm:px-4 md:px-5 lg:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg whitespace-nowrap touch-manipulation">
+                        Book Workshop
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main style="position: relative; z-index: 1;">
+        <!-- Hero Section -->
+        <section class="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8 sm:mb-12 md:mb-16 reveal">
+                    <div class="inline-block mb-4 sm:mb-6 float-icon">
+                        <svg class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight mb-4 sm:mb-6 glow-text px-4">
+                        Life Skills <span class="text-golden">Mastery</span>
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
+                        Transform your life with essential skills that go beyond the classroom. Master communication, finance, leadership, and more.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="py-12 sm:py-16 md:py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Introduction -->
+                <div class="mb-12 sm:mb-16 md:mb-20 reveal">
+                    <div class="skill-card p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl sm:rounded-2xl relative z-10">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white">Why Life Skills <span class="text-golden">Matter</span></h2>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mb-4 sm:mb-6">
+                            In today's fast-paced world, technical knowledge alone isn't enough. The ability to communicate effectively, manage your finances, think critically, and lead with confidence are the true differentiators between success and mediocrity.
+                        </p>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
+                            Our Life Skills Mastery workshops are carefully designed to bridge the gap between academic learning and real-world application, equipping you with practical tools you can use immediately.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Core Skills Grid -->
+                <div class="mb-12 sm:mb-16 md:mb-20">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-white reveal px-4">
+                        What You'll <span class="text-golden">Master</span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                        
+                        <!-- Skill 1 -->
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Effective Communication</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Master public speaking, active listening, and persuasive communication techniques.</p>
+                            <div class="progress-bar mb-2">
+                                <div class="progress-fill" style="width: 95%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Impact Score: 95%</p>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Financial Literacy</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Learn budgeting, investing basics, and smart money management strategies.</p>
+                            <div class="progress-bar mb-2">
+                                <div class="progress-fill" style="width: 90%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Impact Score: 90%</p>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Critical Thinking</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Develop analytical skills, problem-solving frameworks, and decision-making abilities.</p>
+                            <div class="progress-bar mb-2">
+                                <div class="progress-fill" style="width: 88%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Impact Score: 88%</p>
+                        </div>
+
+                        <!-- Skill 4 -->
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Time Management</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Master productivity techniques, goal-setting, and work-life balance strategies.</p>
+                            <div class="progress-bar mb-2">
+                                <div class="progress-fill" style="width: 92%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Impact Score: 92%</p>
+                        </div>
+
+                        <!-- Skill 5 -->
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Leadership & Teamwork</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Build leadership qualities, collaboration skills, and team management expertise.</p>
+                            <div class="progress-bar mb-2">
+                                <div class="progress-fill" style="width: 94%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Impact Score: 94%</p>
+                        </div>
+
+                        <!-- Skill 6 -->
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl reveal relative z-10">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-white">Emotional Intelligence</h3>
+                            <p class="text-gray-400 mb-3 sm:mb-4 text-xs sm:text-sm">Enhance self-awareness, empathy, and emotional regulation for better relationships.</p>
+                            <div class="progress-bar mb-2">
+                                <div class="progress-fill" style="width: 89%;"></div>
+                            </div>
+                            <p class="text-xs text-golden">Impact Score: 89%</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Workshop Format -->
+                <div class="mb-12 sm:mb-16 md:mb-20 reveal">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-white px-4">
+                        Workshop <span class="text-golden">Format</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl border-l-4 border-golden relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-golden">Interactive Sessions</h3>
+                            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                                Learn through hands-on activities, real-world case studies, and group exercises. No boring lectures—just practical, engaging learning.
+                            </p>
+                        </div>
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl border-l-4 border-golden relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-golden">Expert Facilitators</h3>
+                            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                                Trained professionals with industry experience guide each session, sharing insider insights and proven strategies.
+                            </p>
+                        </div>
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl border-l-4 border-golden relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-golden">Small Groups</h3>
+                            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                                Intimate class sizes ensure personalized attention and plenty of opportunities for questions and discussion.
+                            </p>
+                        </div>
+                        <div class="skill-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl border-l-4 border-golden relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-golden">Takeaway Resources</h3>
+                            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                                Receive workbooks, templates, and digital resources to continue your learning journey beyond the workshop.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="text-center reveal">
+                    <div class="skill-card p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl sm:rounded-2xl relative z-10">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white px-4">Ready to Transform <span class="text-golden">Your Life</span>?</h2>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+                            Join thousands who have already unlocked their potential through our Life Skills Mastery workshops. Book your seat today.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+                            <a href="index.html#contact" class="ripple-btn px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base text-black bg-golden rounded-full font-semibold shadow-xl transition duration-300 transform hover:scale-105 hover:bg-dark-gold">
+                                Register Now
+                            </a>
+                            <a href="index.html#feedback" class="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base text-golden border-2 border-golden rounded-full font-semibold hover:bg-golden hover:text-black transition duration-300">
+                                Read Success Stories
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                            <h3 class="text-2xl font-bold mb-4 text-golden">Interactive Sessions</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                Every workshop is highly interactive with live demonstrations, group activities, and real-world case studies. You'll practice what you learn in a safe, supportive environment.
+                            </p>
+                        </div>
+                        <div class="bg-blackish/60 p-8 rounded-xl border-l-4 border-golden backdrop-blur-sm">
+                            <h3 class="text-2xl font-bold mb-4 text-golden">Expert Facilitators</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                Learn from industry professionals and certified trainers who bring years of practical experience and proven methodologies to each session.
+                            </p>
+                        </div>
+                        <div class="bg-blackish/60 p-8 rounded-xl border-l-4 border-golden backdrop-blur-sm">
+                            <h3 class="text-2xl font-bold mb-4 text-golden">Actionable Takeaways</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                Walk away with practical tools, frameworks, and resources you can implement immediately in your personal and professional life.
+                            </p>
+                        </div>
+                        <div class="bg-blackish/60 p-8 rounded-xl border-l-4 border-golden backdrop-blur-sm">
+                            <h3 class="text-2xl font-bold mb-4 text-golden">Ongoing Support</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                Get access to exclusive resources, follow-up materials, and community support to ensure continuous growth beyond the workshop.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="text-center reveal">
+                    <div class="bg-gradient-to-r from-golden/10 to-transparent p-12 rounded-2xl border border-golden/30">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Transform Your Life?</h2>
+                        <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                            Join thousands of participants who have already mastered essential life skills with DruvaTalks.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="index.html#contact" class="px-8 py-4 text-black bg-golden rounded-full font-semibold shadow-xl transition duration-300 transform hover:scale-105 ripple-btn">
+                                Book a Workshop
+                            </a>
+                            <a href="index.html#feedback" class="px-8 py-4 text-golden border-2 border-golden rounded-full font-semibold hover:bg-golden hover:text-black transition duration-300">
+                                Read Success Stories
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blackish border-t border-golden/10 mt-12 sm:mt-16 md:mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+                <p class="text-sm text-gray-500">&copy; 2024 DruvaTalks. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-golden text-sm transition duration-200">Home</a>
+                    <a href="index.html#services" class="text-gray-400 hover:text-golden text-sm transition duration-200">Services</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-golden text-sm transition duration-200">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
