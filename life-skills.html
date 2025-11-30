@@ -221,35 +221,6 @@
             }
         }
 
-        /* Mobile-Only Brightness Boost */
-        @media (max-width: 768px) {
-            body::before {
-                background: conic-gradient(
-                    from 0deg,
-                    transparent 0deg,
-                    transparent 60deg,
-                    rgba(255, 215, 0, 0.6) 120deg,
-                    transparent 180deg,
-                    transparent 240deg,
-                    rgba(218, 165, 32, 0.55) 300deg,
-                    transparent 360deg
-                ) !important;
-            }
-
-            .particle {
-                background: rgba(255, 215, 0, 0.5) !important;
-            }
-
-            .skill-card {
-                border: 2px solid rgba(255, 215, 0, 0.5) !important;
-            }
-
-            nav {
-                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
-                            0 0 30px rgba(255, 215, 0, 0.5) !important;
-            }
-        }
-
         /* Custom Navbar Blur */
         .navbar-blur {
             backdrop-filter: blur(20px);
