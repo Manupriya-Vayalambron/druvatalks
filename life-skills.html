@@ -182,25 +182,6 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Mobile Responsive Optimizations */
-        @media (max-width: 640px) {
-            html {
-                font-size: 14px;
-            }
-        }
-
-        @media (min-width: 641px) and (max-width: 768px) {
-            html {
-                font-size: 15px;
-            }
-        }
-
-        @media (min-width: 769px) {
-            html {
-                font-size: 16px;
-            }
-        }
-
         /* Prevent horizontal overflow */
         * {
             box-sizing: border-box;
@@ -209,6 +190,35 @@
         html, body {
             max-width: 100vw;
             overflow-x: hidden;
+        }
+
+        /* Touch support for hover effects */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-link:active::after {
+                transform: translateX(-50%) scaleX(1);
+            }
+            
+            .nav-link:active {
+                transform: translateY(-2px);
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            }
+            
+            .action-btn:active::before {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .action-btn:active {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5), 
+                            0 0 30px rgba(255, 215, 0, 0.3);
+            }
+            
+            .skill-card:active {
+                transform: translateY(-12px) scale(1.03);
+                box-shadow: 0 25px 60px rgba(255, 215, 0, 0.4);
+                border-color: rgba(255, 215, 0, 0.8);
+            }
         }
 
         /* Custom Navbar Blur */
