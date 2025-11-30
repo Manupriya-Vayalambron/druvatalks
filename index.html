@@ -16,6 +16,7 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            touch-action: pan-y pan-x;
         }
 
         .contact-button {
@@ -44,17 +45,17 @@
             height: 100%;
             background: radial-gradient(
                 ellipse at 20% 30%, 
-                rgba(255, 215, 0, 0.25) 0%, 
+                rgba(255, 215, 0, 0.45) 0%, 
                 transparent 50%
             ),
             radial-gradient(
                 ellipse at 80% 70%, 
-                rgba(218, 165, 32, 0.22) 0%, 
+                rgba(218, 165, 32, 0.40) 0%, 
                 transparent 50%
             ),
             radial-gradient(
                 circle at 50% 50%, 
-                rgba(255, 215, 0, 0.18) 0%, 
+                rgba(255, 215, 0, 0.35) 0%, 
                 rgba(0, 0, 0, 1) 100%
             );
             background-size: 200% 200%, 150% 150%, 100% 100%;
@@ -170,8 +171,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(255, 215, 0, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 215, 0, 0.06) 1px, transparent 1px);
+                linear-gradient(rgba(255, 215, 0, 0.12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 215, 0, 0.12) 1px, transparent 1px);
             background-size: 100px 100px;
             pointer-events: none;
             z-index: -2;
@@ -190,19 +191,18 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(
-                circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                rgba(255, 215, 0, 0.5) 0%,
+                circle 500px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(255, 215, 0, 0.8) 0%,
                 transparent 80%
             );
             pointer-events: none;
             z-index: -1;
             transition: background 0.3s ease;
-            opacity: 0;
-            animation: spotlightFade 3s ease-in-out infinite;
+            opacity: 1;
         }
 
         @keyframes spotlightFade {
-            0%, 100% { opacity: 0; }
+            0%, 100% { opacity: 0.7; }
             50% { opacity: 1; }
         }
 
@@ -214,11 +214,11 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(at 15% 15%, rgba(255, 215, 0, 0.12) 0px, transparent 50%),
-                radial-gradient(at 85% 20%, rgba(218, 165, 32, 0.10) 0px, transparent 50%),
-                radial-gradient(at 25% 75%, rgba(255, 215, 0, 0.14) 0px, transparent 50%),
-                radial-gradient(at 75% 85%, rgba(184, 134, 11, 0.12) 0px, transparent 50%),
-                radial-gradient(at 50% 50%, rgba(255, 215, 0, 0.08) 0px, transparent 50%);
+                radial-gradient(at 15% 15%, rgba(255, 215, 0, 0.25) 0px, transparent 50%),
+                radial-gradient(at 85% 20%, rgba(218, 165, 32, 0.22) 0px, transparent 50%),
+                radial-gradient(at 25% 75%, rgba(255, 215, 0, 0.28) 0px, transparent 50%),
+                radial-gradient(at 75% 85%, rgba(184, 134, 11, 0.25) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(255, 215, 0, 0.18) 0px, transparent 50%);
             background-size: 300% 300%;
             animation: meshMove 25s ease infinite;
             pointer-events: none;
@@ -358,7 +358,7 @@
         nav {
             position: relative;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
-                        0 0 20px rgba(255, 215, 0, 0.1);
+                        0 0 20px rgba(255, 215, 0, 0.3);
         }
 
         nav::before {
@@ -367,12 +367,12 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 1px;
+            height: 2px;
             background: linear-gradient(90deg, 
                 transparent 0%, 
-                rgba(255, 215, 0, 0.3) 20%, 
-                rgba(255, 215, 0, 0.6) 50%, 
-                rgba(255, 215, 0, 0.3) 80%, 
+                rgba(255, 215, 0, 0.6) 20%, 
+                rgba(255, 215, 0, 1.0) 50%, 
+                rgba(255, 215, 0, 0.6) 80%, 
                 transparent 100%);
             animation: navbar-glow 3s ease-in-out infinite;
         }
@@ -505,6 +505,73 @@
             text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
             box-shadow: inset 4px 0 0 #FFD700;
         }
+
+        /* Mobile-Only Brightness Boost */
+        @media (max-width: 768px) {
+            body::before {
+                background: radial-gradient(
+                    ellipse at 20% 30%, 
+                    rgba(255, 215, 0, 0.6) 0%, 
+                    transparent 50%
+                ),
+                radial-gradient(
+                    ellipse at 80% 70%, 
+                    rgba(218, 165, 32, 0.55) 0%, 
+                    transparent 50%
+                ),
+                radial-gradient(
+                    circle at 50% 50%, 
+                    rgba(255, 215, 0, 0.5) 0%, 
+                    rgba(0, 0, 0, 1) 100%
+                ) !important;
+            }
+
+            .mesh-gradient {
+                background: 
+                    radial-gradient(at 15% 15%, rgba(255, 215, 0, 0.35) 0px, transparent 50%),
+                    radial-gradient(at 85% 20%, rgba(218, 165, 32, 0.30) 0px, transparent 50%),
+                    radial-gradient(at 25% 75%, rgba(255, 215, 0, 0.38) 0px, transparent 50%),
+                    radial-gradient(at 75% 85%, rgba(184, 134, 11, 0.35) 0px, transparent 50%),
+                    radial-gradient(at 50% 50%, rgba(255, 215, 0, 0.25) 0px, transparent 50%) !important;
+            }
+
+            .spotlight-overlay {
+                background: radial-gradient(
+                    circle 600px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                    rgba(255, 215, 0, 1) 0%,
+                    rgba(255, 215, 0, 0.5) 30%,
+                    transparent 70%
+                ) !important;
+                opacity: 1 !important;
+                pointer-events: none !important;
+                z-index: 10 !important;
+            }
+
+            .grid-overlay {
+                background-image: 
+                    linear-gradient(rgba(255, 215, 0, 0.15) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 215, 0, 0.15) 1px, transparent 1px) !important;
+            }
+
+            .particle {
+                background: radial-gradient(circle, rgba(255, 215, 0, 1) 0%, transparent 70%) !important;
+            }
+
+            nav {
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
+                            0 0 30px rgba(255, 215, 0, 0.5) !important;
+            }
+
+            nav::before {
+                height: 3px !important;
+                background: linear-gradient(90deg, 
+                    transparent 0%, 
+                    rgba(255, 215, 0, 0.8) 20%, 
+                    rgba(255, 215, 0, 1.0) 50%, 
+                    rgba(255, 215, 0, 0.8) 80%, 
+                    transparent 100%) !important;
+            }
+        }
     </style>
     <script>
         tailwind.config = {
@@ -606,14 +673,14 @@
                 mouseY = (e.clientY / window.innerHeight) * 100;
             });
 
-            // Touch movement tracking for mobile
+            // Touch movement tracking for mobile - more aggressive
             document.addEventListener('touchmove', (e) => {
                 if (e.touches.length > 0) {
                     const touch = e.touches[0];
                     mouseX = (touch.clientX / window.innerWidth) * 100;
                     mouseY = (touch.clientY / window.innerHeight) * 100;
                 }
-            });
+            }, { passive: true });
 
             // Touch start tracking for mobile
             document.addEventListener('touchstart', (e) => {
@@ -622,12 +689,17 @@
                     mouseX = (touch.clientX / window.innerWidth) * 100;
                     mouseY = (touch.clientY / window.innerHeight) * 100;
                 }
-            });
+            }, { passive: true });
+
+            // Touch end tracking for mobile
+            document.addEventListener('touchend', (e) => {
+                // Keep the last position on touch end
+            }, { passive: true });
 
             // Smooth animation loop
             function animate() {
-                currentX += (mouseX - currentX) * 0.1;
-                currentY += (mouseY - currentY) * 0.1;
+                currentX += (mouseX - currentX) * 0.15; // Faster response
+                currentY += (mouseY - currentY) * 0.15;
                 
                 spotlight.style.setProperty('--mouse-x', `${currentX}%`);
                 spotlight.style.setProperty('--mouse-y', `${currentY}%`);
@@ -678,7 +750,7 @@
     <div class="diagonal-lines"></div>
 
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 border-b border-golden/30" style="background: linear-gradient(135deg, rgba(92, 67, 5, 0.85) 0%, rgba(10, 10, 10, 0.95) 50%, rgba(73, 61, 30, 0.85) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+    <nav class="sticky top-0 z-50 border-b border-golden/30" style="background: linear-gradient(135deg, rgba(92, 67, 5, 0.95) 0%, rgba(10, 10, 10, 0.98) 50%, rgba(73, 61, 30, 0.95) 100%); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);">
         <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 sm:h-20 md:h-24">
                 <!-- Logo/Brand -->
@@ -713,7 +785,7 @@
         </div>
         
         <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-golden/30" style="background: linear-gradient(180deg, rgba(92, 67, 5, 0.85) 0%, rgba(10, 10, 10, 0.95) 100%);">
+        <div id="mobile-menu" class="hidden md:hidden border-t border-golden/30" style="background: linear-gradient(180deg, rgba(92, 67, 5, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);">
             <div class="px-3 pt-3 pb-4 space-y-2">
                 <a href="#services" onclick="scrollToSection('services'); toggleMenu();" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Services</a>
                 <a href="#works" onclick="scrollToSection('works'); toggleMenu();" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Highlights</a>
