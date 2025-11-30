@@ -46,10 +46,10 @@
                 from 0deg,
                 transparent 0deg,
                 transparent 60deg,
-                rgba(255, 215, 0, 0.15) 120deg,
+                rgba(255, 215, 0, 0.25) 120deg,
                 transparent 180deg,
                 transparent 240deg,
-                rgba(218, 165, 32, 0.12) 300deg,
+                rgba(218, 165, 32, 0.22) 300deg,
                 transparent 360deg
             );
             animation: rotate-body-bg 50s linear infinite;
@@ -75,7 +75,7 @@
 
         .particle {
             position: absolute;
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(255, 215, 0, 0.2);
             border-radius: 50%;
             animation: float linear infinite;
         }
@@ -101,20 +101,20 @@
         .glow-text {
             text-shadow: 
                 0 2px 4px rgba(0, 0, 0, 0.5),
-                0 0 20px rgba(255, 215, 0, 0.2);
+                0 0 20px rgba(255, 215, 0, 0.4);
         }
 
         /* Card Hover Effects with 3D Transform */
         .skill-card {
             position: relative;
             background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-            border: 2px solid rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.4);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .skill-card:hover {
             transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.6);
             border-color: rgba(255, 215, 0, 0.8);
         }
 
