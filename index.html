@@ -301,18 +301,6 @@
             html {
                 font-size: 14px;
             }
-            
-            .spotlight-overlay {
-                opacity: 0.5 !important;
-            }
-            
-            .mesh-gradient {
-                filter: blur(30px);
-            }
-            
-            .particle {
-                display: none; /* Hide particles on very small screens for performance */
-            }
         }
 
         @media (min-width: 641px) and (max-width: 768px) {
@@ -374,25 +362,12 @@
 
         /* Responsive Background Layers for Mobile */
         @media (max-width: 640px) {
-            body::before,
-            body::after {
-                opacity: 0.7;
-            }
-            
-            .mesh-gradient {
-                opacity: 0.7;
-            }
+            /* All effects and animations visible on mobile */
         }
 
         /* Touch Device Optimizations */
         @media (hover: none) and (pointer: coarse) {
-            .card-hover:hover {
-                transform: none;
-            }
-            
-            .btn-golden:hover {
-                transform: none;
-            }
+            /* All hover effects enabled on touch devices */
         }
 
         /* Enhanced Navbar Styling */
