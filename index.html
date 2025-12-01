@@ -248,6 +248,35 @@
         .slideshow-wrapper {
             position: relative;
             width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(184, 134, 11, 0.5) rgba(0, 0, 0, 0.3);
+            cursor: grab;
+        }
+
+        .slideshow-wrapper:active {
+            cursor: grabbing;
+        }
+
+        /* Webkit scrollbar styling */
+        .slideshow-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .slideshow-wrapper::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+
+        .slideshow-wrapper::-webkit-scrollbar-thumb {
+            background: rgba(184, 134, 11, 0.5);
+            border-radius: 4px;
+        }
+
+        .slideshow-wrapper::-webkit-scrollbar-thumb:hover {
+            background: rgba(184, 134, 11, 0.7);
         }
 
         .slideshow-track {
@@ -922,7 +951,7 @@
                 
                 <!-- Slideshow Container -->
                 <div class="relative">
-                    <div class="slideshow-wrapper overflow-hidden">
+                    <div class="slideshow-wrapper">
                         <div class="slideshow-track flex gap-6 sm:gap-8" id="eventSlideshow">
                             <!-- Event 1 -->
                             <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 bg-gradient-to-br from-golden/10 to-transparent p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer">
