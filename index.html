@@ -640,8 +640,37 @@
 
             /* Slide item cards */
             .slide-item {
-                background: linear-gradient(to bottom right, rgba(184, 134, 11, 0.1), transparent) !important;
+                position: relative;
+                background-size: 100% 100% !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                height: 280px !important;
                 border-color: rgba(184, 134, 11, 0.4) !important;
+            }
+
+            .slide-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                border-radius: 0.75rem;
+                z-index: 0;
+            }
+
+            .slide-content {
+                position: relative;
+                z-index: 1;
+            }
+
+            .slide-content h3 {
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8) !important;
+            }
+
+            .slide-content p {
+                text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7) !important;
             }
 
             .slide-item:hover {
@@ -880,11 +909,11 @@
                     
                     <!-- Left Column - Image -->
                     <div class="flex justify-center lg:justify-end order-2 lg:order-1">
-                        <div class="relative group">
+                        <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="relative group cursor-pointer">
                             <img src="index-page-header.png" alt="DruvaTalks" class="w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain" style="filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3));">
                             <!-- Background effect on hover -->
                             <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="background: radial-gradient(circle at center, rgba(255, 215, 0, 0.15) 0%, transparent 70%); filter: blur(40px); transform: scale(1.2);"></div>
-                        </div>
+                        </a>
                     </div>
                     
                     <!-- Right Column - Content -->
@@ -954,57 +983,67 @@
                     <div class="slideshow-wrapper">
                         <div class="slideshow-track flex gap-6 sm:gap-8" id="eventSlideshow">
                             <!-- Event 1 -->
-                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 bg-gradient-to-br from-golden/10 to-transparent p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer">
-                                <div class="text-3xl sm:text-4xl font-bold text-golden mb-2">🎓</div>
-                                <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">Marian College</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Life Skills Workshop</p>
+                            <a href="https://drive.google.com/drive/folders/15SpmlxKs6YRBEE7KnLjkvma8SEPKB8k1?usp=drive_link" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background-image: url('slideshow/trinity.jpg'); background-size: cover; background-position: center;">
+                                <div class="slide-content">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 mt-16" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">Marian College</h3>
+                                    <p class="text-xs sm:text-sm text-gray-400" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">Click to View Chatbot Building Session</p>
+                                </div>
                             </a>
                             
                             <!-- Event 2 -->
-                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 bg-gradient-to-br from-golden/10 to-transparent p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer">
-                                <div class="text-3xl sm:text-4xl font-bold text-golden mb-2">💡</div>
-                                <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">IEDC Summit</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Innovation & Entrepreneurship</p>
+                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background: linear-gradient(to bottom right, rgba(184, 134, 11, 0.1), transparent);">
+                                <div class="slide-content">
+                                    <div class="text-3xl sm:text-4xl font-bold text-golden mb-2 mt-16">💡</div>
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">IEDC Summit 2025</h3>
+                                    <p class="text-xs sm:text-sm text-gray-400" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">COMING SOON</p>
+                                </div>
                             </a>
                             
                             <!-- Event 3 -->
-                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 bg-gradient-to-br from-golden/10 to-transparent p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer">
-                                <div class="text-3xl sm:text-4xl font-bold text-golden mb-2">🏛️</div>
-                                <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">Trinity College</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Technical Orientation</p>
+                            <a href="https://drive.google.com/drive/folders/11hC6slgaliDCWYcqiK-nlL1O9AaFG0o2?usp=drive_link" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background-image: url('slideshow/marian.jpg'); background-size: cover; background-position: center;">
+                                <div class="slide-content">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 mt-16" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">Trinity College</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">Technical Orientation</p>
+                                </div>
                             </a>
                             
                             <!-- Event 4 -->
-                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 bg-gradient-to-br from-golden/10 to-transparent p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer">
-                                <div class="text-3xl sm:text-4xl font-bold text-golden mb-2">📊</div>
-                                <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">Rajadhani Business School</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Leadership & Management</p>
+                            <a href="https://drive.google.com/drive/folders/1KwZDp8Fz8oR751mNmW-Wan_0zzUvM_Gz?usp=drive_link" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background-image: url('slideshow/rajadhani.jpg'); background-size: cover; background-position: center;">
+                                <div class="slide-content">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 mt-16" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">Rajadhani Business School</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">Click to View MBA Orientation</p>
+                                </div>
                             </a>
                             
                             <!-- Event 5 -->
-                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 bg-gradient-to-br from-golden/10 to-transparent p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer">
-                                <div class="text-3xl sm:text-4xl font-bold text-golden mb-2">🎯</div>
-                                <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">LBS Institute</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Self-Defense Training</p>
+                            <a href="https://drive.google.com/drive/folders/10C_QN-yr8pfgdwWPqDrZsIBsvzGqYiVE?usp=drive_link" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background-image: url('slideshow/lbsitw.jpg'); background-size: cover; background-position: center;">
+                                <div class="slide-content">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 mt-16" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">LBS Institute</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">Click to View Object Deetection and Ideation Session</p>
+                                </div>
                             </a>
                             
                             <!-- Duplicate slides for seamless loop -->
-                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 bg-gradient-to-br from-golden/10 to-transparent p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer">
-                                <div class="text-3xl sm:text-4xl font-bold text-golden mb-2">🎓</div>
-                                <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">Marian College</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Life Skills Workshop</p>
+                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background-image: url('slideshow/marian.jpg'); background-size: cover; background-position: center;">
+                                <div class="slide-content">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 mt-16" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">Marian College</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">Click to View Chatbot Building Session</p>
+                                </div>
                             </a>
                             
-                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 bg-gradient-to-br from-golden/10 to-transparent p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer">
-                                <div class="text-3xl sm:text-4xl font-bold text-golden mb-2">💡</div>
-                                <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">IEDC Summit</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Innovation & Entrepreneurship</p>
+                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background: linear-gradient(to bottom right, rgba(184, 134, 11, 0.1), transparent);">
+                                <div class="slide-content">
+                                    <div class="text-3xl sm:text-4xl font-bold text-golden mb-2 mt-16">💡</div>
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">IEDC Summit 2025</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">COMING SOON</p>
+                                </div>
                             </a>
                             
-                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 bg-gradient-to-br from-golden/10 to-transparent p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer">
-                                <div class="text-3xl sm:text-4xl font-bold text-golden mb-2">🏛️</div>
-                                <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">Trinity College</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Technical Orientation</p>
+                            <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background-image: url('slideshow/trinity.jpg'); background-size: cover; background-position: center;">
+                                <div class="slide-content">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 mt-16" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">Trinity College</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">Click to View Technical Orientation</p>
+                                </div>
                             </a>
                         </div>
                     </div>
