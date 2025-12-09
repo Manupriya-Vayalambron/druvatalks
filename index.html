@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior: smooth;">
+<html lang="en" style="scroll-behavior: smooth; margin: 0;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +18,7 @@
             position: relative;
             overflow-x: hidden;
             touch-action: pan-y pan-x;
+            margin: 0;
         }
 
         .contact-button {
@@ -545,393 +546,213 @@
             box-shadow: inset 4px 0 0 #FFD700;
         }
 
-        /* ========================================
-           🔥 MOBILE-ONLY ULTRA USER-FRIENDLY CSS
-           Inspired by modern touch interfaces
-           ======================================== */
+        /* Mobile-Only Styling */
         @media (max-width: 768px) {
-            
-            /* Reset all transitions for smoother mobile */
-            * {
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            /* Clean, simple background - no complex gradients */
-            body {
-                background: #000 !important;
-                touch-action: pan-y pan-x !important;
-                -webkit-overflow-scrolling: touch !important;
-            }
-
             body::before {
-                content: '';
-                position: fixed;
-                inset: 0;
                 background: radial-gradient(
-                    circle at 50% 20%, 
-                    rgba(255, 215, 0, 0.08) 0%, 
+                    ellipse at 20% 30%, 
+                    rgba(218, 165, 32, 0.22) 0%, 
                     transparent 50%
                 ),
                 radial-gradient(
-                    circle at 80% 80%, 
-                    rgba(218, 165, 32, 0.06) 0%, 
-                    transparent 40%
-                );
-                z-index: -5;
-                pointer-events: none;
+                    ellipse at 80% 70%, 
+                    rgba(255, 215, 0, 0.18) 0%, 
+                    transparent 50%
+                ),
+                radial-gradient(
+                    circle at 50% 50%, 
+                    rgba(218, 165, 32, 0.14) 0%, 
+                    rgba(0, 0, 0, 1) 100%
+                ) !important;
             }
 
-            /* Hide complex desktop effects */
-            .mesh-gradient,
-            .spotlight-overlay,
-            .diagonal-lines,
-            .grid-overlay,
-            .bg-particles {
+            .mesh-gradient {
+                background: 
+                    radial-gradient(at 15% 15%, rgba(218, 165, 32, 0.12) 0px, transparent 50%),
+                    radial-gradient(at 85% 20%, rgba(255, 215, 0, 0.10) 0px, transparent 50%),
+                    radial-gradient(at 25% 75%, rgba(218, 165, 32, 0.11) 0px, transparent 50%),
+                    radial-gradient(at 75% 85%, rgba(255, 215, 0, 0.12) 0px, transparent 50%),
+                    radial-gradient(at 50% 50%, rgba(218, 165, 32, 0.08) 0px, transparent 50%) !important;
+            }
+
+            .spotlight-overlay {
                 display: none !important;
             }
 
-            /* 🌟 Interactive Touch Glow Background */
-            .mobile-parallax-bg {
-                position: fixed;
-                inset: 0;
-                pointer-events: none;
-                background: radial-gradient(
-                    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                    rgba(255, 215, 0, 0.15),
-                    rgba(218, 165, 32, 0.08) 40%,
-                    transparent 80%
-                );
-                transition: opacity 0.3s ease;
-                z-index: 1;
-                opacity: 0;
-            }
-
-            .mobile-parallax-bg.active {
-                opacity: 1;
-            }
-
-            /* Touch Trail Container */
+            /* Mobile Touch Streak Effect */
             .mobile-touch-trail {
                 position: fixed;
-                inset: 0;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
                 pointer-events: none;
-                z-index: 2;
+                z-index: 10;
                 overflow: hidden;
             }
 
-            /* Individual touch points */
-            .touch-point {
+            .touch-streak-line {
                 position: absolute;
-                width: 80px;
-                height: 80px;
-                margin: -40px 0 0 -40px;
-                background: radial-gradient(
-                    circle,
-                    rgba(255, 215, 0, 0.4) 0%,
-                    rgba(255, 215, 0, 0.2) 30%,
-                    transparent 70%
-                );
-                border-radius: 50%;
+                height: 3px;
                 pointer-events: none;
-                animation: touchExpand 0.6s ease-out forwards;
+                background: linear-gradient(90deg, 
+                    transparent 0%, 
+                    rgba(255, 215, 0, 0.6) 10%, 
+                    rgba(255, 215, 0, 1) 50%, 
+                    rgba(255, 215, 0, 0.6) 90%, 
+                    transparent 100%);
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.9),
+                            0 0 20px rgba(255, 215, 0, 0.6);
+                border-radius: 2px;
+                transition: all 0.05s linear;
             }
 
-            @keyframes touchExpand {
-                0% {
-                    transform: scale(0);
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0.6;
-                }
-                100% {
-                    transform: scale(2);
-                    opacity: 0;
-                }
+            .grid-overlay {
+                background-image: 
+                    linear-gradient(rgba(218, 165, 32, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(218, 165, 32, 0.05) 1px, transparent 1px) !important;
             }
 
-            /* ==================
-               NAVIGATION MOBILE
-               ================== */
-            
-            nav {
-                background: rgba(10, 10, 10, 0.95) !important;
-                backdrop-filter: blur(20px) !important;
-                -webkit-backdrop-filter: blur(20px) !important;
-                border-bottom: 1px solid rgba(255, 215, 0, 0.15) !important;
-                padding: 0.75rem 0 !important;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+            .particle {
+                background: radial-gradient(circle, rgba(255, 215, 0, 0.25) 0%, transparent 70%) !important;
             }
 
-            nav::before {
-                display: none !important;
-            }
-
-            /* Brand Name - Bigger and Readable */
+            /* Mobile Brand Name Sizing */
             .nav-tagline {
-                font-size: 0.7rem !important;
-                letter-spacing: 0.05em !important;
-                font-weight: 600 !important;
-                line-height: 1.3 !important;
+                font-size: 0.65rem !important;
+                letter-spacing: 0.08em !important;
             }
 
             @media (min-width: 400px) and (max-width: 768px) {
                 .nav-tagline {
-                    font-size: 0.8rem !important;
+                    font-size: 0.75rem !important;
                 }
             }
 
-            /* Mobile Menu - Large Touch Targets */
-            #mobile-menu {
-                background: rgba(10, 10, 10, 0.98) !important;
-                backdrop-filter: blur(25px) !important;
-                border-top: 1px solid rgba(255, 215, 0, 0.15) !important;
+            nav {
+                background: linear-gradient(135deg, 
+                    rgba(92, 67, 5, 0.98) 0%, 
+                    rgba(40, 30, 10, 0.98) 50%, 
+                    rgba(73, 61, 30, 0.98) 100%) !important;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
+                            0 0 20px rgba(218, 165, 32, 0.35) !important;
             }
 
-            #mobile-menu a {
-                font-size: 1.1rem !important;
-                padding: 1.25rem 1.5rem !important;
-                margin: 0.25rem 0 !important;
-                border-radius: 0.75rem !important;
-                transition: all 0.2s ease !important;
-                display: block;
+            nav::before {
+                height: 2px !important;
+                background: linear-gradient(90deg, 
+                    transparent 0%, 
+                    rgba(218, 165, 32, 0.6) 20%, 
+                    rgba(255, 215, 0, 0.8) 50%, 
+                    rgba(218, 165, 32, 0.6) 80%, 
+                    transparent 100%) !important;
             }
 
-            .mobile-menu-item {
-                background: rgba(255, 215, 0, 0.02) !important;
-                border: 1px solid rgba(255, 215, 0, 0.1) !important;
-                border-left: 3px solid transparent !important;
-            }
-
-            .mobile-menu-item:active {
-                background: rgba(255, 215, 0, 0.1) !important;
-                border-left-color: #FFD700 !important;
-                transform: translateX(4px) !important;
-            }
-
-            /* ==================
-               BUTTONS & INTERACTIONS
-               ================== */
-            
-            button, 
-            a.explore, 
-            .contact-button, 
-            .contact-btn {
-                position: relative;
-                overflow: hidden;
-                touch-action: manipulation;
-                -webkit-user-select: none;
-                user-select: none;
-                cursor: pointer;
-                min-height: 48px !important; /* Apple's recommended touch target */
-            }
-
-            /* Ripple Effect */
-            button::after, 
-            a.explore::after, 
-            .contact-button::after,
-            .contact-btn::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 0;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.5);
-                transform: translate(-50%, -50%);
-                pointer-events: none;
-            }
-
-            button:active::after, 
-            a.explore:active::after, 
-            .contact-button:active::after,
-            .contact-btn:active::after {
-                width: 300px;
-                height: 300px;
-                opacity: 0;
-                transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
-                top: var(--ripple-y, 50%);
-                left: var(--ripple-x, 50%);
-            }
-
-            /* Contact Buttons */
+            /* Mobile Button & Card Overrides */
             .contact-button,
             .contact-btn {
-                background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
-                color: #000 !important;
-                font-weight: 600 !important;
-                font-size: 1rem !important;
-                padding: 1rem 2rem !important;
-                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3) !important;
-                border: none !important;
+                background-color: #E5B800 !important;
+                box-shadow: 0 10px 15px -3px rgba(218, 165, 32, 0.45), 0 4px 6px -4px rgba(218, 165, 32, 0.35) !important;
             }
 
-            .contact-button:active,
-            .contact-btn:active {
-                transform: scale(0.98);
-                box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4) !important;
+            .contact-button:hover,
+            .contact-btn:hover {
+                background-color: #B8860B !important;
             }
 
-            /* Explore Button */
             .explore {
-                background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
-                border: none !important;
-                padding: 1.25rem 2.5rem !important;
-                font-size: 1.1rem !important;
-                font-weight: 600 !important;
-                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4) !important;
-                color: #000 !important;
+                border-color: #FFD700 !important;
+                background-color: #FFD700 !important;
+                box-shadow: 0px 10px 25px rgba(255, 215, 0, 0.55) !important;
             }
 
-            .explore:active {
-                transform: scale(0.98);
-                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5) !important;
+            .explore:hover {
+                background-color: #DAA520 !important;
             }
 
-            /* ==================
-               TYPOGRAPHY MOBILE
-               ================== */
-            
-            h1 {
-                font-size: 2rem !important;
-                line-height: 1.2 !important;
-                letter-spacing: -0.02em !important;
-                margin-bottom: 1rem !important;
+            /* Card borders and hover effects */
+            .card-hover:hover {
+                border-color: rgba(218, 165, 32, 0.85) !important;
+                box-shadow: 0 10px 30px rgba(218, 165, 32, 0.45) !important;
             }
 
-            h2 {
-                font-size: 1.75rem !important;
-                line-height: 1.3 !important;
-                letter-spacing: -0.01em !important;
+            .group:hover .group-hover\:text-golden {
+                color: #DAA520 !important;
             }
 
-            p {
-                font-size: 1rem !important;
-                line-height: 1.6 !important;
+            /* Image borders */
+            .border-golden\/50 {
+                border-color: rgba(218, 165, 32, 0.6) !important;
             }
 
-            /* ==================
-               CARDS & CONTENT
-               ================== */
-            
-            .card-hover {
-                border: 1px solid rgba(255, 215, 0, 0.2) !important;
-                transition: all 0.2s ease !important;
-                touch-action: manipulation;
-            }
-
-            .card-hover:active {
-                transform: scale(0.98);
-                border-color: rgba(255, 215, 0, 0.5) !important;
-                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2) !important;
-            }
-
-            /* ==================
-               SLIDESHOW MOBILE
-               ================== */
-            
-            .slideshow-wrapper {
-                scroll-snap-type: x mandatory !important;
-                -webkit-overflow-scrolling: touch !important;
-                scrollbar-width: none !important;
-                padding: 1rem 0 !important;
-            }
-
-            .slideshow-wrapper::-webkit-scrollbar {
-                display: none !important;
-            }
-
+            /* Slide item cards */
             .slide-item {
-                scroll-snap-align: center !important;
-                min-width: 280px !important;
-                max-width: 320px !important;
-                height: 320px !important;
-                border: 1px solid rgba(255, 215, 0, 0.2) !important;
-                border-radius: 1rem !important;
-                transition: transform 0.2s ease !important;
-            }
-
-            .slide-item:active {
-                transform: scale(0.95);
+                position: relative;
+                background-size: 100% 100% !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                height: 280px !important;
+                border-color: rgba(184, 134, 11, 0.4) !important;
             }
 
             .slide-item::before {
-                background: linear-gradient(
-                    to bottom,
-                    rgba(0, 0, 0, 0.3) 0%,
-                    rgba(0, 0, 0, 0.8) 100%
-                ) !important;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                border-radius: 0.75rem;
+                z-index: 0;
+            }
+
+            .slide-content {
+                position: relative;
+                z-index: 1;
             }
 
             .slide-content h3 {
-                font-size: 1.25rem !important;
-                text-shadow: 2px 2px 10px rgba(0,0,0,0.9) !important;
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8) !important;
             }
 
             .slide-content p {
-                font-size: 0.95rem !important;
-                text-shadow: 1px 1px 8px rgba(0,0,0,0.9) !important;
+                text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7) !important;
             }
 
-            /* ==================
-               SECTIONS SPACING
-               ================== */
-            
-            section {
-                padding: 3rem 1rem !important;
+            .slide-item:hover {
+                border-color: #B8860B !important;
             }
 
-            .max-w-7xl,
-            .max-w-6xl {
-                padding-left: 1.25rem !important;
-                padding-right: 1.25rem !important;
+            /* Hero section background for visibility */
+            section.relative:first-of-type {
+                background: linear-gradient(to bottom, 
+                    rgba(40, 30, 10, 0.6) 0%, 
+                    rgba(20, 15, 5, 0.4) 50%, 
+                    transparent 100%) !important;
+                position: relative;
             }
 
-            /* ==================
-               FEEDBACK CARDS
-               ================== */
-            
-            .feedback-scroll-container {
-                gap: 1rem !important;
-                padding: 1rem 0 1.5rem 0 !important;
+            section.relative:first-of-type::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                background: radial-gradient(
+                    ellipse at center top,
+                    rgba(255, 215, 0, 0.15) 0%,
+                    rgba(218, 165, 32, 0.1) 30%,
+                    transparent 70%
+                );
+                pointer-events: none;
+                z-index: 0;
             }
 
-            .feedback-scroll-container > div {
-                min-width: 280px !important;
-                max-width: 320px !important;
-                padding: 1.5rem !important;
-            }
-
-            /* ==================
-               FORM INPUTS
-               ================== */
-            
-            input,
-            textarea {
-                font-size: 16px !important; /* Prevents zoom on iOS */
-                padding: 1rem !important;
-                border-radius: 0.75rem !important;
-                border: 1px solid rgba(255, 215, 0, 0.2) !important;
-                background: rgba(255, 215, 0, 0.03) !important;
-            }
-
-            input:focus,
-            textarea:focus {
-                outline: none !important;
-                border-color: rgba(255, 215, 0, 0.5) !important;
-                box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1) !important;
-            }
-
-            /* ==================
-               STATS SECTION
-               ================== */
-            
-            .grid.grid-cols-1.sm\\:grid-cols-3 > div {
-                padding: 2rem 1.5rem !important;
-                border-radius: 1rem !important;
-            }
-
-            .grid.grid-cols-1.sm\\:grid-cols-3 p:first-child {
-                font-size: 3rem !important;
+            section.relative:first-of-type > div {
+                position: relative;
+                z-index: 1;
             }
         }
     </style>
@@ -1170,41 +991,36 @@
             });
         }
 
-        /* --------------------------
-        📱 Mobile Parallax Glow Effect
-        --------------------------- */
-        function initMobileParallax() {
-            if (window.innerWidth > 768) return;
+        // Parallax scroll effect for background layers
+        function initParallaxScroll() {
+            const meshGradient = document.querySelector('.mesh-gradient');
+            const gridOverlay = document.querySelector('.grid-overlay');
+            const diagonalLines = document.querySelector('.diagonal-lines');
 
-            document.addEventListener("touchmove", (e) => {
-                const t = e.touches[0];
-                const x = t.clientX / window.innerWidth * 100;
-                const y = t.clientY / window.innerHeight * 100;
-                document.documentElement.style.setProperty("--x", x + "%");
-                document.documentElement.style.setProperty("--y", y + "%");
-            }, { passive: true });
+            if (!meshGradient || !gridOverlay || !diagonalLines) return;
 
-            /* Tap ripple coordinates */
-            document.addEventListener("touchstart", (e) => {
-                const rect = e.target.getBoundingClientRect();
-                const x = (e.touches[0].clientX - rect.left) + "px";
-                const y = (e.touches[0].clientY - rect.top) + "px";
-                e.target.style.setProperty("--tap-x", x);
-                e.target.style.setProperty("--tap-y", y);
-            }, { passive: true });
+            let ticking = false;
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        const scrolled = window.pageYOffset;
+                        
+                        // Different parallax speeds for different layers
+                        meshGradient.style.transform = `translateY(${scrolled * 0.3}px)`;
+                        gridOverlay.style.transform = `translateY(${scrolled * 0.15}px)`;
+                        diagonalLines.style.transform = `translateY(${scrolled * 0.1}px) translateX(${scrolled * 0.05}px)`;
+                        
+                        ticking = false;
+                    });
+                    
+                    ticking = true;
+                }
+            });
         }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            initMobileParallax();
-        });
     </script>
 </head>
 <body class="text-gray-200 antialiased">
-    
-    <!-- Mobile Parallax Background Layer -->
-    <div class="mobile-parallax-bg"></div>
-    
     <!-- Enhanced Multi-Layer Background System -->
     <div class="animated-bg-overlay"></div>
     <div class="bg-particles"></div>
