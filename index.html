@@ -671,18 +671,23 @@
             }
 
             /* Card borders and hover effects */
+            .card-hover {
+                background-color: #0a0a0a !important;
+                border-color: rgba(184, 134, 11, 0.25) !important;
+            }
+
             .card-hover:hover {
-                border-color: rgba(218, 165, 32, 0.85) !important;
-                box-shadow: 0 10px 30px rgba(218, 165, 32, 0.45) !important;
+                border-color: rgba(184, 134, 11, 0.5) !important;
+                box-shadow: 0 10px 30px rgba(184, 134, 11, 0.3) !important;
             }
 
             .group:hover .group-hover\:text-golden {
-                color: #DAA520 !important;
+                color: #B8860B !important;
             }
 
             /* Image borders */
             .border-golden\/50 {
-                border-color: rgba(218, 165, 32, 0.6) !important;
+                border-color: rgba(184, 134, 11, 0.4) !important;
             }
 
             /* Slide item cards */
@@ -753,6 +758,11 @@
             section.relative:first-of-type > div {
                 position: relative;
                 z-index: 1;
+            }
+
+            /* Faster slideshow animation on mobile */
+            .slideshow-track {
+                animation: slideshow 15s linear infinite !important;
             }
         }
     </style>
