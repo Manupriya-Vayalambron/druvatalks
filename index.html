@@ -566,15 +566,45 @@
             }
 
             .spotlight-overlay {
-                background: radial-gradient(
-                    circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                    rgba(234, 185, 7, 0.659) 0%,
-                    rgba(184, 155, 11, 0.564) 50%,
-                    transparent 100%
-                ) !important;
-                opacity: 1 !important;
-                pointer-events: none !important;
-                z-index: -1 !important;
+                display: none !important;
+            }
+
+            /* Mobile Sparkle Effect Container */
+            .mobile-sparkles {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 10;
+                overflow: hidden;
+            }
+
+            .sparkle {
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: radial-gradient(circle, rgba(255, 215, 0, 1) 0%, rgba(255, 215, 0, 0.8) 30%, transparent 70%);
+                border-radius: 50%;
+                pointer-events: none;
+                animation: sparkleAnimation 0.8s ease-out forwards;
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.4);
+            }
+
+            @keyframes sparkleAnimation {
+                0% {
+                    transform: scale(0) rotate(0deg);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1.2) rotate(180deg);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: scale(0.3) rotate(360deg);
+                    opacity: 0;
+                }
             }
 
             .grid-overlay {
@@ -730,6 +760,9 @@
             // Mouse tracking for spotlight effect
             trackMouseForSpotlight();
 
+            // Mobile sparkle effect
+            initMobileSparkles();
+
             // Parallax scroll effect for background layers
             initParallaxScroll();
         }
@@ -773,38 +806,15 @@
             let currentX = 50;
             let currentY = 50;
 
-            // Mouse movement tracking
+            // Mouse movement tracking (desktop only)
             document.addEventListener('mousemove', (e) => {
                 mouseX = (e.clientX / window.innerWidth) * 100;
                 mouseY = (e.clientY / window.innerHeight) * 100;
             });
 
-            // Touch movement tracking for mobile - more aggressive
-            document.addEventListener('touchmove', (e) => {
-                if (e.touches.length > 0) {
-                    const touch = e.touches[0];
-                    mouseX = (touch.clientX / window.innerWidth) * 100;
-                    mouseY = (touch.clientY / window.innerHeight) * 100;
-                }
-            }, { passive: true });
-
-            // Touch start tracking for mobile
-            document.addEventListener('touchstart', (e) => {
-                if (e.touches.length > 0) {
-                    const touch = e.touches[0];
-                    mouseX = (touch.clientX / window.innerWidth) * 100;
-                    mouseY = (touch.clientY / window.innerHeight) * 100;
-                }
-            }, { passive: true });
-
-            // Touch end tracking for mobile
-            document.addEventListener('touchend', (e) => {
-                // Keep the last position on touch end
-            }, { passive: true });
-
-            // Smooth animation loop
+            // Smooth animation loop for desktop
             function animate() {
-                currentX += (mouseX - currentX) * 0.15; // Faster response
+                currentX += (mouseX - currentX) * 0.15;
                 currentY += (mouseY - currentY) * 0.15;
                 
                 spotlight.style.setProperty('--mouse-x', `${currentX}%`);
@@ -814,6 +824,60 @@
             }
             
             animate();
+        }
+
+        // Mobile sparkle effect
+        function initMobileSparkles() {
+            if (window.innerWidth > 768) return; // Only on mobile
+
+            // Create sparkle container
+            let sparkleContainer = document.querySelector('.mobile-sparkles');
+            if (!sparkleContainer) {
+                sparkleContainer = document.createElement('div');
+                sparkleContainer.className = 'mobile-sparkles';
+                document.body.appendChild(sparkleContainer);
+            }
+
+            let lastSparkleTime = 0;
+            const sparkleInterval = 50; // Limit sparkle creation rate
+
+            function createSparkle(x, y) {
+                const now = Date.now();
+                if (now - lastSparkleTime < sparkleInterval) return;
+                lastSparkleTime = now;
+
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = `${x}px`;
+                sparkle.style.top = `${y}px`;
+                
+                // Random size variation
+                const size = 6 + Math.random() * 6;
+                sparkle.style.width = `${size}px`;
+                sparkle.style.height = `${size}px`;
+                
+                sparkleContainer.appendChild(sparkle);
+
+                // Remove sparkle after animation
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 800);
+            }
+
+            // Touch event handlers
+            document.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    const touch = e.touches[0];
+                    createSparkle(touch.clientX, touch.clientY);
+                }
+            }, { passive: true });
+
+            document.addEventListener('touchstart', (e) => {
+                if (e.touches.length > 0) {
+                    const touch = e.touches[0];
+                    createSparkle(touch.clientX, touch.clientY);
+                }
+            }, { passive: true });
         }
 
         // Parallax scroll effect for background layers
