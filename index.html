@@ -550,36 +550,36 @@
             body::before {
                 background: radial-gradient(
                     ellipse at 20% 30%, 
-                    rgba(184, 134, 11, 0.15) 0%, 
+                    rgba(218, 165, 32, 0.18) 0%, 
                     transparent 50%
                 ),
                 radial-gradient(
                     ellipse at 80% 70%, 
-                    rgba(218, 165, 32, 0.12) 0%, 
+                    rgba(255, 215, 0, 0.14) 0%, 
                     transparent 50%
                 ),
                 radial-gradient(
                     circle at 50% 50%, 
-                    rgba(184, 134, 11, 0.08) 0%, 
+                    rgba(218, 165, 32, 0.10) 0%, 
                     rgba(0, 0, 0, 1) 100%
                 ) !important;
             }
 
             .mesh-gradient {
                 background: 
-                    radial-gradient(at 15% 15%, rgba(184, 134, 11, 0.08) 0px, transparent 50%),
-                    radial-gradient(at 85% 20%, rgba(218, 165, 32, 0.06) 0px, transparent 50%),
-                    radial-gradient(at 25% 75%, rgba(184, 134, 11, 0.07) 0px, transparent 50%),
-                    radial-gradient(at 75% 85%, rgba(184, 134, 11, 0.08) 0px, transparent 50%),
-                    radial-gradient(at 50% 50%, rgba(218, 165, 32, 0.05) 0px, transparent 50%) !important;
+                    radial-gradient(at 15% 15%, rgba(218, 165, 32, 0.10) 0px, transparent 50%),
+                    radial-gradient(at 85% 20%, rgba(255, 215, 0, 0.08) 0px, transparent 50%),
+                    radial-gradient(at 25% 75%, rgba(218, 165, 32, 0.09) 0px, transparent 50%),
+                    radial-gradient(at 75% 85%, rgba(255, 215, 0, 0.10) 0px, transparent 50%),
+                    radial-gradient(at 50% 50%, rgba(218, 165, 32, 0.06) 0px, transparent 50%) !important;
             }
 
             .spotlight-overlay {
                 display: none !important;
             }
 
-            /* Mobile Sparkle Effect Container */
-            .mobile-sparkles {
+            /* Mobile Touch Trail Effect */
+            .mobile-touch-trail {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -590,92 +590,92 @@
                 overflow: hidden;
             }
 
-            .sparkle {
+            .touch-trail {
                 position: absolute;
-                width: 8px;
-                height: 8px;
-                background: radial-gradient(circle, rgba(255, 215, 0, 1) 0%, rgba(255, 215, 0, 0.8) 30%, transparent 70%);
+                width: 60px;
+                height: 60px;
                 border-radius: 50%;
                 pointer-events: none;
-                animation: sparkleAnimation 0.8s ease-out forwards;
-                box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.4);
+                animation: trailFade 1.2s ease-out forwards;
+                background: radial-gradient(circle, rgba(255, 215, 0, 0.35) 0%, rgba(255, 215, 0, 0.18) 40%, transparent 70%);
+                border: 1px solid rgba(255, 215, 0, 0.5);
             }
 
-            @keyframes sparkleAnimation {
+            @keyframes trailFade {
                 0% {
-                    transform: scale(0) rotate(0deg);
+                    transform: scale(0.3);
                     opacity: 1;
                 }
                 50% {
-                    transform: scale(1.2) rotate(180deg);
-                    opacity: 0.8;
+                    transform: scale(1);
+                    opacity: 0.6;
                 }
                 100% {
-                    transform: scale(0.3) rotate(360deg);
+                    transform: scale(1.5);
                     opacity: 0;
                 }
             }
 
             .grid-overlay {
                 background-image: 
-                    linear-gradient(rgba(184, 134, 11, 0.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(184, 134, 11, 0.05) 1px, transparent 1px) !important;
+                    linear-gradient(rgba(218, 165, 32, 0.07) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(218, 165, 32, 0.07) 1px, transparent 1px) !important;
             }
 
             .particle {
-                background: radial-gradient(circle, rgba(218, 165, 32, 0.3) 0%, transparent 70%) !important;
+                background: radial-gradient(circle, rgba(255, 215, 0, 0.35) 0%, transparent 70%) !important;
             }
 
             nav {
                 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
-                            0 0 20px rgba(184, 134, 11, 0.3) !important;
+                            0 0 20px rgba(218, 165, 32, 0.35) !important;
             }
 
             nav::before {
                 height: 2px !important;
                 background: linear-gradient(90deg, 
                     transparent 0%, 
-                    rgba(184, 134, 11, 0.5) 20%, 
-                    rgba(218, 165, 32, 0.7) 50%, 
-                    rgba(184, 134, 11, 0.5) 80%, 
+                    rgba(218, 165, 32, 0.6) 20%, 
+                    rgba(255, 215, 0, 0.8) 50%, 
+                    rgba(218, 165, 32, 0.6) 80%, 
                     transparent 100%) !important;
             }
 
             /* Mobile Button & Card Overrides */
             .contact-button,
             .contact-btn {
-                background-color: #dcc410e2 !important; /* dark-gold */
-                box-shadow: 0 10px 15px -3px rgba(184, 134, 11, 0.4), 0 4px 6px -4px rgba(184, 134, 11, 0.3) !important;
+                background-color: #E5B800 !important; /* brighter gold */
+                box-shadow: 0 10px 15px -3px rgba(218, 165, 32, 0.45), 0 4px 6px -4px rgba(218, 165, 32, 0.35) !important;
             }
 
             .contact-button:hover,
             .contact-btn:hover {
-                background-color: #8B6914 !important; /* darker gold */
+                background-color: #B8860B !important; /* darker gold on hover */
             }
 
             .explore {
-                border-color: #ffd900d1 !important;
+                border-color: #FFD700 !important;
                 background-color: #FFD700 !important;
-                box-shadow: 0px 10px 25px rgba(255, 215, 0, 0.5) !important;
+                box-shadow: 0px 10px 25px rgba(255, 215, 0, 0.55) !important;
             }
 
             .explore:hover {
-                background-color: #B8860B !important;
+                background-color: #DAA520 !important;
             }
 
             /* Card borders and hover effects */
             .card-hover:hover {
-                border-color: rgba(184, 134, 11, 0.8) !important;
-                box-shadow: 0 10px 30px rgba(184, 134, 11, 0.4) !important;
+                border-color: rgba(218, 165, 32, 0.85) !important;
+                box-shadow: 0 10px 30px rgba(218, 165, 32, 0.45) !important;
             }
 
             .group:hover .group-hover\:text-golden {
-                color: #B8860B !important;
+                color: #DAA520 !important;
             }
 
             /* Image borders */
             .border-golden\/50 {
-                border-color: rgba(184, 134, 11, 0.5) !important;
+                border-color: rgba(218, 165, 32, 0.6) !important;
             }
 
             /* Slide item cards */
@@ -835,56 +835,51 @@
             animate();
         }
 
-        // Mobile sparkle effect
+        // Mobile touch trail effect
         function initMobileSparkles() {
             if (window.innerWidth > 768) return; // Only on mobile
 
-            // Create sparkle container
-            let sparkleContainer = document.querySelector('.mobile-sparkles');
-            if (!sparkleContainer) {
-                sparkleContainer = document.createElement('div');
-                sparkleContainer.className = 'mobile-sparkles';
-                document.body.appendChild(sparkleContainer);
+            // Create trail container
+            let trailContainer = document.querySelector('.mobile-touch-trail');
+            if (!trailContainer) {
+                trailContainer = document.createElement('div');
+                trailContainer.className = 'mobile-touch-trail';
+                document.body.appendChild(trailContainer);
             }
 
-            let lastSparkleTime = 0;
-            const sparkleInterval = 50; // Limit sparkle creation rate
+            let lastTrailTime = 0;
+            const trailInterval = 80; // Smoother, less frequent trails
 
-            function createSparkle(x, y) {
+            function createTrail(x, y) {
                 const now = Date.now();
-                if (now - lastSparkleTime < sparkleInterval) return;
-                lastSparkleTime = now;
+                if (now - lastTrailTime < trailInterval) return;
+                lastTrailTime = now;
 
-                const sparkle = document.createElement('div');
-                sparkle.className = 'sparkle';
-                sparkle.style.left = `${x}px`;
-                sparkle.style.top = `${y}px`;
+                const trail = document.createElement('div');
+                trail.className = 'touch-trail';
+                trail.style.left = `${x - 30}px`; // Center the circle
+                trail.style.top = `${y - 30}px`;
                 
-                // Random size variation
-                const size = 6 + Math.random() * 6;
-                sparkle.style.width = `${size}px`;
-                sparkle.style.height = `${size}px`;
-                
-                sparkleContainer.appendChild(sparkle);
+                trailContainer.appendChild(trail);
 
-                // Remove sparkle after animation
+                // Remove trail after animation
                 setTimeout(() => {
-                    sparkle.remove();
-                }, 800);
+                    trail.remove();
+                }, 1200);
             }
 
             // Touch event handlers
             document.addEventListener('touchmove', (e) => {
                 if (e.touches.length > 0) {
                     const touch = e.touches[0];
-                    createSparkle(touch.clientX, touch.clientY);
+                    createTrail(touch.clientX, touch.clientY);
                 }
             }, { passive: true });
 
             document.addEventListener('touchstart', (e) => {
                 if (e.touches.length > 0) {
                     const touch = e.touches[0];
-                    createSparkle(touch.clientX, touch.clientY);
+                    createTrail(touch.clientX, touch.clientY);
                 }
             }, { passive: true });
         }
