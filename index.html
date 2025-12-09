@@ -9,6 +9,7 @@
     <!-- Use Inter font -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
             /* Enhanced Multi-Layer Animated Background */
@@ -415,17 +416,25 @@
 
         /* Enhanced Tagline */
         .nav-tagline {
-            background: linear-gradient(90deg, #6b6025, #b49818, #FFD700);
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: tagline-shimmer 3s ease-in-out infinite;
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.1em !important;
+            color: #FFD700;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
         }
-
-        @keyframes tagline-shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        
+        .nav-tagline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            opacity: 0.6;
         }
 
         /* Mobile Menu Enhanced */
@@ -930,7 +939,7 @@
                 
                 <!-- Center Tagline -->
                 <div class="flex flex-1 justify-center px-2 md:px-4">
-                    <p class="nav-tagline text-[0.65rem] sm:text-xs lg:text-sm xl:text-base font-bold tracking-wider">Empower • Transform • Defend</p>
+                    <p class="nav-tagline text-[0.7rem] sm:text-sm md:text-base lg:text-lg xl:text-xl">DruvaTalks: All Round Skill Hub</p>
                 </div>
                 
                 <!-- Desktop Menu -->
