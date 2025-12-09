@@ -628,6 +628,86 @@
                 }
             }
 
+            /* 🔥 Mobile Parallax Glow Layer */
+            body {
+                touch-action: manipulation !important;
+            }
+
+            .mobile-parallax-bg {
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                background: radial-gradient(
+                    circle at var(--x, 50%) var(--y, 50%),
+                    rgba(255, 215, 0, 0.18),
+                    transparent 65%
+                );
+                transition: background 0.2s ease-out;
+                z-index: -1;
+            }
+
+            /* Improve nav spacing */
+            nav {
+                padding: 0.6rem 0 !important;
+            }
+
+            /* Bigger mobile menu options */
+            #mobile-menu a {
+                font-size: 1.05rem !important;
+                padding: 1rem 1.25rem !important;
+            }
+
+            /* Improve text readability */
+            h1, h2 {
+                line-height: 1.2 !important;
+                letter-spacing: -0.5px !important;
+            }
+
+            /* 🔥 Mobile Buttons = Large + Ripple */
+            button, a.explore, .contact-button, .contact-btn {
+                position: relative;
+                overflow: hidden;
+            }
+
+            button:active::after, 
+            a.explore:active::after, 
+            .contact-button:active::after,
+            .contact-btn:active::after {
+                content: '';
+                position: absolute;
+                width: 120px;
+                height: 120px;
+                background: rgba(255, 215, 0, 0.4);
+                top: var(--tap-y, 50%);
+                left: var(--tap-x, 50%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                animation: mobileRipple 0.4s ease-out forwards;
+                z-index: 0;
+            }
+
+            @keyframes mobileRipple {
+                from { 
+                    opacity: 0.4; 
+                    transform: translate(-50%, -50%) scale(0.3); 
+                }
+                to { 
+                    opacity: 0; 
+                    transform: translate(-50%, -50%) scale(2.2); 
+                }
+            }
+
+            /* Slideshow touch improvements */
+            .slideshow-wrapper {
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            .slide-item {
+                scroll-snap-align: center !important;
+                min-width: 270px !important;
+            }
+
             nav {
                 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
                             0 0 20px rgba(218, 165, 32, 0.35) !important;
@@ -954,9 +1034,41 @@
                 }
             });
         }
+
+        /* --------------------------
+        📱 Mobile Parallax Glow Effect
+        --------------------------- */
+        function initMobileParallax() {
+            if (window.innerWidth > 768) return;
+
+            document.addEventListener("touchmove", (e) => {
+                const t = e.touches[0];
+                const x = t.clientX / window.innerWidth * 100;
+                const y = t.clientY / window.innerHeight * 100;
+                document.documentElement.style.setProperty("--x", x + "%");
+                document.documentElement.style.setProperty("--y", y + "%");
+            }, { passive: true });
+
+            /* Tap ripple coordinates */
+            document.addEventListener("touchstart", (e) => {
+                const rect = e.target.getBoundingClientRect();
+                const x = (e.touches[0].clientX - rect.left) + "px";
+                const y = (e.touches[0].clientY - rect.top) + "px";
+                e.target.style.setProperty("--tap-x", x);
+                e.target.style.setProperty("--tap-y", y);
+            }, { passive: true });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initMobileParallax();
+        });
     </script>
 </head>
 <body class="text-gray-200 antialiased">
+    
+    <!-- Mobile Parallax Background Layer -->
+    <div class="mobile-parallax-bg"></div>
     
     <!-- Enhanced Multi-Layer Background System -->
     <div class="animated-bg-overlay"></div>
