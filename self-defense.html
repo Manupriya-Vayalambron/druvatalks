@@ -376,9 +376,36 @@
                 padding-right: 1rem !important;
             }
 
-            .defense-card h3,
-            .defense-card p,
+            .defense-card h2,
+            .defense-card h3 {
+                text-align: center !important;
+            }
+
+            .defense-card > p,
+            .defense-card p.text-gray-300,
+            .defense-card p.text-gray-400 {
+                text-align: justify !important;
+            }
+
             .defense-card li {
+                text-align: left !important;
+            }
+
+            .defense-card p.text-golden,
+            .defense-card p[class*="stat-"],
+            .defense-card .text-xs {
+                text-align: center !important;
+            }
+
+            /* Stats section - center align all content */
+            .stat-counter,
+            .defense-card .text-4xl,
+            .defense-card .text-5xl,
+            .defense-card .text-6xl {
+                text-align: center !important;
+            }
+
+            .defense-card p.font-medium {
                 text-align: center !important;
             }
 
@@ -402,6 +429,58 @@
             ul, ol {
                 padding-left: 2rem !important;
                 text-align: left !important;
+            }
+        }
+
+        /* Desktop optimization - Reduce oversized elements */
+        @media (min-width: 768px) {
+            .max-w-7xl {
+                max-width: 1200px !important;
+            }
+            
+            .max-w-6xl {
+                max-width: 1000px !important;
+            }
+
+            .max-w-4xl {
+                max-width: 800px !important;
+            }
+
+            /* Reduce hero section text sizes */
+            section h1 {
+                font-size: clamp(2rem, 4vw, 3rem) !important;
+            }
+
+            section h2 {
+                font-size: clamp(1.5rem, 3vw, 2.25rem) !important;
+            }
+
+            /* Reduce card padding */
+            .defense-card {
+                padding: clamp(1.5rem, 3vw, 2.5rem) !important;
+            }
+
+            /* Optimize icon sizes */
+            .shield-icon svg {
+                width: clamp(3rem, 5vw, 4rem) !important;
+                height: clamp(3rem, 5vw, 4rem) !important;
+            }
+
+            /* Reduce stat numbers */
+            .stat-counter,
+            .text-6xl {
+                font-size: clamp(2.5rem, 4vw, 3.5rem) !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            /* Further optimization for large screens */
+            section h1 {
+                font-size: clamp(2.25rem, 3.5vw, 3.25rem) !important;
+            }
+
+            .defense-card {
+                padding: clamp(1.75rem, 2.5vw, 2.25rem) !important;
             }
         }
 
@@ -609,7 +688,7 @@
                 <div class="mb-12 sm:mb-16 md:mb-20 reveal">
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
                         <div class="defense-card p-6 sm:p-8 rounded-lg sm:rounded-xl">
-                            <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 stat-counter" data-target="3000">0</div>
+                            <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 stat-counter" data-target="300+">0</div>
                             <p class="text-base sm:text-lg md:text-xl font-medium text-gray-300">Participants Trained</p>
                         </div>
                         <div class="defense-card p-6 sm:p-8 rounded-lg sm:rounded-xl">
@@ -617,7 +696,7 @@
                             <p class="text-base sm:text-lg md:text-xl font-medium text-gray-300">Confidence Boost %</p>
                         </div>
                         <div class="defense-card p-6 sm:p-8 rounded-lg sm:rounded-xl">
-                            <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 stat-counter" data-target="50">0</div>
+                            <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 stat-counter" data-target="5+">0</div>
                             <p class="text-base sm:text-lg md:text-xl font-medium text-gray-300">Sessions Conducted</p>
                         </div>
                     </div>
@@ -734,7 +813,7 @@
                         <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl relative z-10">
                             <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-golden">Realistic Scenarios</h3>
                             <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
-                                Train in situations you might actually face—not choreographed demonstrations. We use role-playing and scenario-based training to prepare you for real-world threats.
+                                Train in situations you might actually face, not choreographed demonstrations. We use role-playing and scenario-based training to prepare you for real-world threats.
                             </p>
                         </div>
                         <div class="defense-card p-5 sm:p-6 md:p-8 rounded-lg sm:rounded-xl relative z-10">
@@ -821,7 +900,7 @@
     <footer class="bg-blackish border-t border-golden/10 mt-12 sm:mt-16 md:mt-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
-                <p class="text-sm text-gray-500">&copy; 2024 DruvaTalks. All rights reserved.</p>
+                <p class="text-sm text-gray-500">&copy; 2025 DruvaTalks. All rights reserved.</p>
                 <div class="flex space-x-4">
                     <a href="index.html" class="text-gray-400 hover:text-golden text-sm transition duration-200">Home</a>
                     <a href="index.html#services" class="text-gray-400 hover:text-golden text-sm transition duration-200">Services</a>
