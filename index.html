@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DruvaTalks offers transformative workshops in life skills, technical training, and self-defense. Empower yourself with essential skills for success.">
+    <meta name="keywords" content="DruvaTalks, life skills workshops, technical training, self defense classes, personal development, leadership, communication skills">
+    <meta name="author" content="DruvaTalks">
+    <meta name="theme-color" content="#E5C45C">
+    <meta property="og:title" content="DruvaTalks - Life Skills, Technical & Self-Defense Workshops">
+    <meta property="og:description" content="High-impact workshops in essential life skills, cutting-edge technology, and practical self-defense">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="druvatalks-logo.png">
     <title>DruvaTalks - Life Skills, Technical & Self-Defense Workshops</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -546,35 +554,40 @@
             box-shadow: inset 4px 0 0 #FFD700;
         }
 
-        /* Mobile-Only Styling */
+        /* Mobile-Only Styling - Enhanced Professional Theme */
         @media (max-width: 768px) {
+            /* Optimized for performance and aesthetics */
             body::before {
                 background: radial-gradient(
                     ellipse at 20% 30%, 
-                    rgba(212, 175, 55, 0.35) 0%, 
-                    rgba(184, 134, 11, 0.15) 40%,
-                    transparent 70%
+                    rgba(229, 196, 92, 0.28) 0%,
+                    rgba(212, 175, 55, 0.18) 35%,
+                    rgba(184, 134, 11, 0.10) 60%,
+                    transparent 85%
                 ),
                 radial-gradient(
                     ellipse at 80% 70%, 
-                    rgba(218, 165, 32, 0.28) 0%, 
-                    rgba(212, 175, 55, 0.12) 40%,
-                    transparent 70%
+                    rgba(218, 165, 32, 0.22) 0%,
+                    rgba(212, 175, 55, 0.14) 40%,
+                    transparent 75%
                 ),
                 radial-gradient(
                     circle at 50% 50%, 
-                    rgba(212, 175, 55, 0.20) 0%, 
-                    rgba(20, 15, 5, 0.95) 100%
+                    rgba(229, 196, 92, 0.15) 0%,
+                    rgba(40, 30, 10, 0.90) 70%,
+                    rgba(10, 8, 3, 0.98) 100%
                 ) !important;
+                will-change: background-position;
             }
 
             .mesh-gradient {
                 background: 
-                    radial-gradient(at 15% 15%, rgba(212, 175, 55, 0.18) 0px, transparent 50%),
-                    radial-gradient(at 85% 20%, rgba(218, 165, 32, 0.16) 0px, transparent 50%),
-                    radial-gradient(at 25% 75%, rgba(212, 175, 55, 0.15) 0px, transparent 50%),
-                    radial-gradient(at 75% 85%, rgba(184, 134, 11, 0.14) 0px, transparent 50%),
-                    radial-gradient(at 50% 50%, rgba(212, 175, 55, 0.12) 0px, transparent 50%) !important;
+                    radial-gradient(at 15% 15%, rgba(229, 196, 92, 0.14) 0px, transparent 55%),
+                    radial-gradient(at 85% 20%, rgba(218, 165, 32, 0.12) 0px, transparent 55%),
+                    radial-gradient(at 25% 75%, rgba(212, 175, 55, 0.13) 0px, transparent 55%),
+                    radial-gradient(at 75% 85%, rgba(184, 134, 11, 0.11) 0px, transparent 55%),
+                    radial-gradient(at 50% 50%, rgba(229, 196, 92, 0.10) 0px, transparent 60%) !important;
+                filter: blur(45px);
             }
 
             .spotlight-overlay {
@@ -633,54 +646,102 @@
 
             nav {
                 background: linear-gradient(135deg, 
-                    rgba(92, 67, 5, 0.98) 0%, 
-                    rgba(40, 30, 10, 0.98) 50%, 
-                    rgba(73, 61, 30, 0.98) 100%) !important;
-                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
-                            0 0 20px rgba(218, 165, 32, 0.35) !important;
+                    rgba(60, 45, 8, 0.96) 0%,
+                    rgba(80, 60, 12, 0.94) 25%,
+                    rgba(50, 38, 8, 0.96) 50%,
+                    rgba(70, 52, 10, 0.94) 75%,
+                    rgba(60, 45, 8, 0.96) 100%) !important;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 
+                            0 4px 16px rgba(229, 196, 92, 0.25),
+                            inset 0 1px 0 rgba(229, 196, 92, 0.15) !important;
+                border-bottom: 1px solid rgba(229, 196, 92, 0.3) !important;
             }
 
             nav::before {
                 height: 2px !important;
                 background: linear-gradient(90deg, 
                     transparent 0%, 
-                    rgba(218, 165, 32, 0.6) 20%, 
-                    rgba(255, 215, 0, 0.8) 50%, 
-                    rgba(218, 165, 32, 0.6) 80%, 
+                    rgba(229, 196, 92, 0.5) 15%,
+                    rgba(255, 215, 0, 0.7) 35%,
+                    rgba(229, 196, 92, 0.9) 50%,
+                    rgba(255, 215, 0, 0.7) 65%,
+                    rgba(229, 196, 92, 0.5) 85%,
                     transparent 100%) !important;
+                animation: navbar-shimmer 4s ease-in-out infinite !important;
             }
 
-            /* Mobile Button & Card Overrides */
+            @keyframes navbar-shimmer {
+                0%, 100% { opacity: 0.6; transform: scaleX(1); }
+                50% { opacity: 1; transform: scaleX(1.02); }
+            }
+
+            /* Mobile Button & Card Overrides - Premium Golden Theme */
             .contact-button,
             .contact-btn {
-                background-color: #E5B800 !important;
-                box-shadow: 0 10px 15px -3px rgba(218, 165, 32, 0.45), 0 4px 6px -4px rgba(218, 165, 32, 0.35) !important;
+                background: linear-gradient(135deg,
+                    #E5C45C 0%,
+                    #D4AF37 50%,
+                    #E5C45C 100%) !important;
+                box-shadow: 0 6px 20px rgba(229, 196, 92, 0.35),
+                            0 3px 10px rgba(212, 175, 55, 0.25),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+                border: 1px solid rgba(255, 215, 0, 0.3) !important;
+                font-weight: 600 !important;
             }
 
             .contact-button:hover,
-            .contact-btn:hover {
-                background-color: #B8860B !important;
+            .contact-btn:hover,
+            .contact-button:active,
+            .contact-btn:active {
+                background: linear-gradient(135deg,
+                    #D4AF37 0%,
+                    #B8860B 50%,
+                    #D4AF37 100%) !important;
+                box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45),
+                            0 4px 14px rgba(184, 134, 11, 0.35),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+                transform: translateY(-2px) !important;
             }
 
             .explore {
-                border-color: #FFD700 !important;
-                background-color: #FFD700 !important;
-                box-shadow: 0px 10px 25px rgba(255, 215, 0, 0.55) !important;
+                background: linear-gradient(135deg,
+                    #E5C45C 0%,
+                    #D4AF37 50%,
+                    #E5C45C 100%) !important;
+                border: 2px solid rgba(229, 196, 92, 0.6) !important;
+                box-shadow: 0 8px 32px rgba(229, 196, 92, 0.40),
+                            0 4px 16px rgba(212, 175, 55, 0.30),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
             }
 
-            .explore:hover {
-                background-color: #DAA520 !important;
+            .explore:hover,
+            .explore:active {
+                background: linear-gradient(135deg,
+                    #D4AF37 0%,
+                    #B8860B 50%,
+                    #D4AF37 100%) !important;
+                box-shadow: 0 12px 40px rgba(212, 175, 55, 0.50),
+                            0 6px 20px rgba(184, 134, 11, 0.40) !important;
+                transform: translateY(-3px) scale(1.02) !important;
             }
 
-            /* Card borders and hover effects */
+            /* Card borders and hover effects - Premium design */
             .card-hover {
-                background-color: #0a0a0a !important;
-                border-color: rgba(184, 134, 11, 0.25) !important;
+                background: linear-gradient(145deg, 
+                    rgba(15, 12, 5, 0.95) 0%,
+                    rgba(10, 8, 3, 0.98) 50%,
+                    rgba(18, 14, 6, 0.95) 100%) !important;
+                border: 1.5px solid rgba(212, 175, 55, 0.25) !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4),
+                            inset 0 1px 0 rgba(229, 196, 92, 0.08) !important;
             }
 
             .card-hover:hover {
-                border-color: rgba(184, 134, 11, 0.5) !important;
-                box-shadow: 0 10px 30px rgba(184, 134, 11, 0.3) !important;
+                border-color: rgba(229, 196, 92, 0.50) !important;
+                box-shadow: 0 12px 32px rgba(212, 175, 55, 0.25),
+                            0 4px 16px rgba(229, 196, 92, 0.15),
+                            inset 0 1px 0 rgba(229, 196, 92, 0.15) !important;
+                transform: translateY(-4px) !important;
             }
 
             .group:hover .group-hover\:text-golden {
@@ -692,14 +753,16 @@
                 border-color: rgba(184, 134, 11, 0.4) !important;
             }
 
-            /* Slide item cards */
+            /* Slide item cards - Enhanced */
             .slide-item {
                 position: relative;
-                background-size: 100% 100% !important;
+                background-size: cover !important;
                 background-position: center !important;
                 background-repeat: no-repeat !important;
-                height: 280px !important;
-                border-color: rgba(184, 134, 11, 0.4) !important;
+                height: 300px !important;
+                border: 1.5px solid rgba(229, 196, 92, 0.35) !important;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4),
+                            inset 0 1px 0 rgba(229, 196, 92, 0.10) !important;
             }
 
             .slide-item::before {
@@ -709,7 +772,10 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(0, 0, 0, 0.7);
+                background: linear-gradient(to bottom,
+                    rgba(10, 8, 3, 0.60) 0%,
+                    rgba(20, 15, 5, 0.70) 50%,
+                    rgba(15, 12, 5, 0.85) 100%);
                 border-radius: 0.75rem;
                 z-index: 0;
             }
@@ -720,22 +786,51 @@
             }
 
             .slide-content h3 {
-                text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8) !important;
+                text-shadow: 2px 2px 10px rgba(0,0,0,0.95), 
+                            0 0 20px rgba(229, 196, 92, 0.30),
+                            0 0 15px rgba(0,0,0,0.9) !important;
+                color: #E5C45C !important;
             }
 
             .slide-content p {
-                text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7) !important;
+                text-shadow: 1px 1px 8px rgba(0,0,0,0.95), 
+                            0 0 12px rgba(0,0,0,0.85),
+                            0 0 8px rgba(212, 175, 55, 0.20) !important;
             }
 
             .slide-item:hover {
-                border-color: #B8860B !important;
+                border-color: rgba(229, 196, 92, 0.65) !important;
+                box-shadow: 0 8px 24px rgba(229, 196, 92, 0.30),
+                            0 4px 12px rgba(212, 175, 55, 0.20) !important;
             }
 
-            /* Hero section background for visibility */
+            /* Enhanced Typography for Mobile */
+            h1, h2, h3 {
+                letter-spacing: -0.02em !important;
+            }
+
+            .text-golden {
+                color: #E5C45C !important;
+                text-shadow: 0 0 15px rgba(229, 196, 92, 0.25) !important;
+            }
+
+            /* Improved touch targets */
+            a, button {
+                min-height: 44px !important;
+                min-width: 44px !important;
+            }
+
+            /* Smoother animations */
+            * {
+                -webkit-tap-highlight-color: rgba(229, 196, 92, 0.2) !important;
+            }
+
+            /* Hero section - Enhanced visibility for black header/logo */
             section.relative:first-of-type {
                 background: linear-gradient(to bottom, 
-                    rgba(40, 30, 10, 0.6) 0%, 
-                    rgba(20, 15, 5, 0.4) 50%, 
+                    rgba(60, 45, 8, 0.50) 0%,
+                    rgba(45, 35, 7, 0.35) 30%,
+                    rgba(30, 22, 5, 0.20) 60%,
                     transparent 100%) !important;
                 position: relative;
             }
@@ -748,10 +843,28 @@
                 right: 0;
                 height: 100%;
                 background: radial-gradient(
-                    ellipse at center top,
-                    rgba(255, 215, 0, 0.15) 0%,
-                    rgba(218, 165, 32, 0.1) 30%,
-                    transparent 70%
+                    ellipse 80% 60% at 50% 30%,
+                    rgba(229, 196, 92, 0.18) 0%,
+                    rgba(212, 175, 55, 0.12) 25%,
+                    rgba(184, 134, 11, 0.08) 50%,
+                    transparent 80%
+                );
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            section.relative:first-of-type::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                background: linear-gradient(135deg,
+                    rgba(229, 196, 92, 0.05) 0%,
+                    transparent 40%,
+                    transparent 60%,
+                    rgba(212, 175, 55, 0.05) 100%
                 );
                 pointer-events: none;
                 z-index: 0;
@@ -765,6 +878,45 @@
             /* Faster slideshow animation on mobile */
             .slideshow-track {
                 animation: slideshow 10s linear infinite !important;
+            }
+
+            /* Fix text alignment issues in mobile */
+            section h1,
+            section h2,
+            section h3 {
+                text-align: center !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            .service-card,
+            .slide-item,
+            .feedback-card {
+                text-align: center !important;
+            }
+
+            .service-card h3,
+            .service-card p,
+            .slide-content h3,
+            .slide-content p {
+                text-align: center !important;
+            }
+
+            /* Ensure proper container padding */
+            .max-w-7xl,
+            .max-w-6xl,
+            .max-w-4xl {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            /* Fix button alignment */
+            .explore,
+            .contact-button,
+            .contact-btn {
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
             }
         }
     </style>
@@ -1414,7 +1566,7 @@
     <footer class="bg-blackish border-t border-golden/10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
-                <p class="text-sm text-gray-500">&copy; 2024 DruvaTalks. All rights reserved.</p>
+                <p class="text-sm text-gray-500">&copy; 2025 DruvaTalks. All rights reserved.</p>
                 <div class="flex space-x-4">
                     <a href="#services" onclick="scrollToSection('services')" class="text-gray-400 hover:text-golden text-sm">Services</a>
                     <a href="#works" onclick="scrollToSection('works')" class="text-gray-400 hover:text-golden text-sm">Highlights</a>

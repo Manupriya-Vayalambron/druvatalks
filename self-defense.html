@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn practical self-defense techniques with DruvaTalks - Situational awareness, de-escalation, and physical defense training">
+    <meta name="keywords" content="self defense, self defense training, situational awareness, personal safety, martial arts, DruvaTalks">
+    <meta name="theme-color" content="#E5C45C">
     <title>Self-Defense Training - DruvaTalks</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -13,9 +16,10 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            background: #000000;
         }
 
-        /* Dynamic Radial Gradient Background */
+        /* Enhanced Dynamic Radial Gradient Background */
         .radial-gradient-bg {
             position: fixed;
             top: 0;
@@ -23,9 +27,15 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: radial-gradient(circle at 20% 50%, #1a1a00 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #1a1a00 100%);
+            background: radial-gradient(
+                ellipse at 30% 40%,
+                rgba(60, 45, 8, 0.5) 0%,
+                rgba(35, 26, 5, 0.6) 30%,
+                rgba(10, 8, 3, 0.85) 60%,
+                #000000 100%
+            );
             background-size: 200% 200%;
-            animation: radialMove 20s ease infinite;
+            animation: radialMove 22s ease infinite;
         }
 
         @keyframes radialMove {
@@ -33,7 +43,7 @@
             50% { background-position: 100% 50%; }
         }
 
-        /* Energy Wave Background */
+        /* Enhanced Energy Wave Background */
         .energy-waves {
             position: fixed;
             top: 0;
@@ -41,7 +51,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.1;
+            opacity: 0.12;
         }
 
         .wave {
@@ -51,14 +61,22 @@
             top: -50%;
             left: -50%;
             border-radius: 40%;
-            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            animation: rotate 30s linear infinite;
+            background: linear-gradient(45deg, 
+                transparent, 
+                rgba(229, 196, 92, 0.15), 
+                rgba(212, 175, 55, 0.12),
+                transparent);
+            animation: rotate 35s linear infinite;
         }
 
         .wave:nth-child(2) {
-            animation-duration: 25s;
+            animation-duration: 28s;
             animation-direction: reverse;
-            background: linear-gradient(45deg, transparent, rgba(218, 165, 32, 0.1), transparent);
+            background: linear-gradient(45deg, 
+                transparent, 
+                rgba(218, 165, 32, 0.12), 
+                rgba(229, 196, 92, 0.10),
+                transparent);
         }
 
         @keyframes rotate {
@@ -66,33 +84,42 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Impact Text - Professional Style */
+        /* Enhanced Impact Text - Professional Style */
         .impact-text {
             text-shadow: 
-                0 2px 4px rgba(0, 0, 0, 0.5),
-                0 0 20px rgba(255, 215, 0, 0.2);
+                0 2px 4px rgba(0, 0, 0, 0.7),
+                0 0 25px rgba(229, 196, 92, 0.3),
+                0 0 45px rgba(212, 175, 55, 0.15);
         }
 
-        /* Shield Icon - Professional Style */
+        /* Enhanced Shield Icon - Professional Style */
         .shield-icon {
-            filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
+            filter: drop-shadow(0 4px 12px rgba(229, 196, 92, 0.35))
+                    drop-shadow(0 2px 6px rgba(212, 175, 55, 0.25));
         }
 
-        /* Defense Card - No Hover Animation */
+        /* Enhanced Defense Card - Premium Hover Animation */
         .defense-card {
             position: relative;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-            border: 2px solid rgba(255, 215, 0, 0.2);
+            background: linear-gradient(145deg, 
+                rgba(25, 19, 8, 0.90) 0%, 
+                rgba(15, 12, 5, 0.94) 50%,
+                rgba(20, 16, 7, 0.92) 100%);
+            border: 1.5px solid rgba(229, 196, 92, 0.28);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5),
+                        inset 0 1px 0 rgba(229, 196, 92, 0.10);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .defense-card:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.4);
-            border-color: rgba(255, 215, 0, 0.8);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 24px 56px rgba(229, 196, 92, 0.28),
+                        0 12px 28px rgba(212, 175, 55, 0.18),
+                        inset 0 1px 0 rgba(229, 196, 92, 0.18);
+            border-color: rgba(229, 196, 92, 0.65);
         }
 
-        /* Permanent Rotating Background for Body */
+        /* Enhanced Permanent Rotating Background for Body */
         body::before {
             content: '';
             position: fixed;
@@ -104,14 +131,14 @@
             background: conic-gradient(
                 from 0deg,
                 transparent 0deg,
-                transparent 60deg,
-                rgba(255, 215, 0, 0.15) 120deg,
-                transparent 180deg,
-                transparent 240deg,
-                rgba(218, 165, 32, 0.12) 300deg,
-                transparent 360deg
+                transparent 55deg,
+                rgba(229, 196, 92, 0.10) 115deg,
+                transparent 175deg,
+                transparent 235deg,
+                rgba(212, 175, 55, 0.08) 295deg,
+                transparent 355deg
             );
-            animation: rotate-body-bg 50s linear infinite;
+            animation: rotate-body-bg 60s linear infinite;
             pointer-events: none;
             mix-blend-mode: screen;
         }
@@ -224,8 +251,15 @@
         /* Enhanced Navbar Styling */
         nav {
             position: relative;
+            background: linear-gradient(135deg, 
+                rgba(60, 45, 8, 0.96) 0%, 
+                rgba(80, 60, 12, 0.94) 50%,
+                rgba(50, 38, 8, 0.96) 100%) !important;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
-                        0 0 20px rgba(255, 215, 0, 0.1);
+                        0 0 20px rgba(229, 196, 92, 0.15),
+                        inset 0 1px 0 rgba(229, 196, 92, 0.10);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
 
         nav::before {
@@ -237,11 +271,138 @@
             height: 1px;
             background: linear-gradient(90deg, 
                 transparent 0%, 
-                rgba(255, 215, 0, 0.3) 20%, 
-                rgba(255, 215, 0, 0.6) 50%, 
-                rgba(255, 215, 0, 0.3) 80%, 
+                rgba(229, 196, 92, 0.3) 20%, 
+                rgba(229, 196, 92, 0.6) 50%, 
+                rgba(229, 196, 92, 0.3) 80%, 
                 transparent 100%);
             animation: navbar-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes navbar-glow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Mobile-Specific Enhancements */
+        @media (max-width: 768px) {
+            nav {
+                background: linear-gradient(135deg, rgba(92, 67, 5, 0.85) 0%, rgba(10, 10, 10, 0.95) 50%, rgba(73, 61, 30, 0.85) 100%) !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 
+                            0 0 30px rgba(229, 196, 92, 0.20) !important;
+            }
+
+            /* Match technical.html navbar structure */
+            nav .flex.justify-between {
+                height: 4rem !important; /* h-16 */
+            }
+
+            nav img {
+                height: 1.75rem !important; /* h-7 */
+            }
+
+            nav .hidden.sm\:flex {
+                display: none !important;
+            }
+
+            nav .flex.items-center.gap-1\.5 a:first-child,
+            nav .nav-link {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                font-size: 0.75rem !important;
+                line-height: 1rem !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            nav .action-btn {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                font-size: 0.75rem !important;
+                line-height: 1rem !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            .defense-card {
+                background: linear-gradient(145deg, 
+                    rgba(20, 15, 6, 0.94) 0%, 
+                    rgba(12, 10, 4, 0.97) 50%,
+                    rgba(18, 14, 6, 0.95) 100%);
+                border: 1.5px solid rgba(229, 196, 92, 0.35);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5),
+                            inset 0 1px 0 rgba(229, 196, 92, 0.12);
+            }
+
+            .action-btn, a[class*="bg-golden"] {
+                background: linear-gradient(135deg, #E5C45C 0%, #D4AF37 100%) !important;
+                box-shadow: 0 4px 16px rgba(229, 196, 92, 0.35),
+                            0 2px 8px rgba(212, 175, 55, 0.25) !important;
+                color: #000 !important;
+                font-weight: 600 !important;
+            }
+
+            .text-golden, span[class*="text-golden"] {
+                color: #E5C45C !important;
+                text-shadow: 0 0 15px rgba(229, 196, 92, 0.30) !important;
+            }
+
+            h1, h2, h3 {
+                letter-spacing: -0.02em !important;
+            }
+
+            /* Improved touch targets */
+            a, button {
+                min-height: 44px !important;
+                min-width: 44px !important;
+            }
+
+            /* Tap highlight color */
+            * {
+                -webkit-tap-highlight-color: rgba(229, 196, 92, 0.2) !important;
+            }
+
+            /* Fix text alignment issues in mobile */
+            section h1,
+            section h2,
+            section h3 {
+                text-align: center !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            .defense-card h3,
+            .defense-card p,
+            .defense-card li {
+                text-align: center !important;
+            }
+
+            /* Ensure proper container padding */
+            .max-w-7xl,
+            .max-w-6xl {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            /* Fix button alignment */
+            .action-btn,
+            a[class*="bg-golden"] {
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            /* Fix list alignment */
+            ul, ol {
+                padding-left: 2rem !important;
+                text-align: left !important;
+            }
         }
 
         @keyframes navbar-glow {
