@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /launch.html
+
+Sitemap: https://druvatalks.in/sitemap.xml
