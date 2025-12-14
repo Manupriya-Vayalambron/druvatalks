@@ -183,19 +183,15 @@
         @keyframes gradientFlow {
             0%, 100% { 
                 background-position: 0% 0%, 100% 100%, 50% 50%;
-                opacity: 1;
             }
             25% { 
                 background-position: 50% 25%, 75% 50%, 50% 50%;
-                opacity: 0.8;
             }
             50% { 
                 background-position: 100% 50%, 25% 75%, 50% 50%;
-                opacity: 1;
             }
             75% { 
                 background-position: 50% 75%, 50% 25%, 50% 50%;
-                opacity: 0.9;
             }
         }
 
@@ -640,12 +636,16 @@
             box-shadow: inset 4px 0 0 #FFD700;
         }
 
-        /* Mobile-Only Styling - Enhanced Professional Theme */
-        @media (max-width: 768px) {
-            /* Keep desktop colors, only responsive adjustments */
+        /* Disable spotlight on non-desktop views (tablets, mobile, portrait) */
+        @media (max-width: 1024px), (max-height: 768px) and (orientation: portrait) {
             .spotlight-overlay {
                 display: none !important;
             }
+        }
+
+        /* Mobile-Only Styling - Enhanced Professional Theme */
+        @media (max-width: 768px) {
+            /* Keep desktop colors, only responsive adjustments */
 
             /* Mobile Touch Streak Effect */
             .mobile-touch-trail {
@@ -832,17 +832,21 @@
             }
         }
 
-        // Track mouse position for spotlight effect
+        // Track mouse position for spotlight effect (desktop landscape only)
         function trackMouseForSpotlight() {
             const spotlight = document.querySelector('.spotlight-overlay');
             if (!spotlight) return;
+
+            // Check if desktop landscape
+            const isDesktopLandscape = window.innerWidth > 1024 && window.innerHeight > 768 && window.innerWidth > window.innerHeight;
+            if (!isDesktopLandscape) return; // Only enable on proper desktop
 
             let mouseX = 50;
             let mouseY = 50;
             let currentX = 50;
             let currentY = 50;
 
-            // Mouse movement tracking (desktop only)
+            // Mouse movement tracking (desktop landscape only)
             document.addEventListener('mousemove', (e) => {
                 mouseX = (e.clientX / window.innerWidth) * 100;
                 mouseY = (e.clientY / window.innerHeight) * 100;
@@ -862,9 +866,11 @@
             animate();
         }
 
-        // Mobile touch streak effect
+        // Touch streak effect for non-desktop views (mobile, tablets, portrait)
         function initMobileSparkles() {
-            if (window.innerWidth > 768) return; // Only on mobile
+            // Enable streak on: mobile, tablets, or any portrait orientation
+            const isDesktopLandscape = window.innerWidth > 1024 && window.innerHeight > 768 && window.innerWidth > window.innerHeight;
+            if (isDesktopLandscape) return; // Skip on proper desktop landscape
 
             // Create trail container
             let trailContainer = document.querySelector('.mobile-touch-trail');
