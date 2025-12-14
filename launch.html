@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DruvaTalks - Official Launch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        /* Animated Golden Background with Rays */
+        .launch-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                repeating-conic-gradient(from 0deg at 50% 50%, 
+                    transparent 0deg, 
+                    transparent 2deg, 
+                    rgba(212, 175, 55, 0.03) 2deg, 
+                    rgba(212, 175, 55, 0.03) 3deg),
+                radial-gradient(ellipse at center, 
+                    rgba(212, 175, 55, 0.25) 0%, 
+                    rgba(212, 175, 55, 0.12) 30%,
+                    transparent 70%),
+                linear-gradient(135deg, #000000 0%, #0d0d0d 50%, #000000 100%);
+            animation: rotateRays 60s linear infinite;
+        }
+        
+        @keyframes rotateRays {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Geometric Pattern Overlay */
+        .launch-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(30deg, transparent 48%, rgba(212, 175, 55, 0.02) 49%, rgba(212, 175, 55, 0.02) 51%, transparent 52%),
+                linear-gradient(150deg, transparent 48%, rgba(212, 175, 55, 0.02) 49%, rgba(212, 175, 55, 0.02) 51%, transparent 52%);
+            background-size: 60px 60px;
+        }
+        
+        /* Floating Golden Particles */
+        .launch-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle, rgba(212, 175, 55, 0.4) 1px, transparent 1px),
+                radial-gradient(circle, rgba(212, 175, 55, 0.3) 1px, transparent 1px);
+            background-size: 200px 200px, 150px 150px;
+            background-position: 0 0, 50px 50px;
+            animation: particleFloat 20s linear infinite;
+        }
+        
+        @keyframes particleFloat {
+            0% { background-position: 0 0, 50px 50px; }
+            100% { background-position: 200px 200px, 250px 250px; }
+        }
+
+        /* Launch Button Styles */
+        .launch-button {
+            position: relative;
+            background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+            border: 3px solid #8B7355;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #D4AF37;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .launch-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            border-color: #B8860B;
+        }
+
+        .launch-button:active {
+            transform: translateY(-1px);
+        }
+
+        .launch-button.launched {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%);
+            border-color: #B8860B;
+            color: #FFD700;
+            pointer-events: none;
+        }
+
+        /* Ribbon Effect */
+        .ribbon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .ribbon.active {
+            animation: ribbonCut 2s ease forwards;
+        }
+
+        @keyframes ribbonCut {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5) translateY(-200px);
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .success-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glow Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5),
+                        0 0 40px rgba(255, 215, 0, 0.3),
+                        0 0 60px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Sparkle Effect */
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: sparkle 1.5s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+        }
+        
+        html {
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center relative">
+    
+    <!-- Animated Background -->
+    <div class="launch-bg"></div>
+
+    <!-- Main Content -->
+    <div class="text-center px-6 max-w-4xl mx-auto relative z-10">
+        
+        <!-- Logo -->
+        <div class="mb-5">
+            <img src="druvatalks-logo.png" alt="DruvaTalks Logo" class="h-20 sm:h-24 md:h-28 mx-auto" style="filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.6)) drop-shadow(0 2px 6px rgba(212, 175, 55, 0.4));">
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3" style="color: #B8860B; text-shadow: 3px 3px 8px rgba(0, 0, 0, 1), -1px -1px 4px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.8); -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.5);">
+            Official Website Launch
+        </h1>
+        <!-- Description -->
+        <div class="backdrop-blur-sm border-2 rounded-xl p-6 sm:p-8 mb-6 max-w-2xl mx-auto" style="background: rgba(0, 0, 0, 0.6); border-color: #8B7355;">
+            <p class="text-sm sm:text-base leading-relaxed mb-4" style="color: #D4AF37;">
+                Today marks the beginning of a transformative journey. DruvaTalks is dedicated to empowering individuals through 
+                comprehensive workshops in <span class="font-semibold" style="color: #B8860B;">Life Skills</span>, 
+                <span class="font-semibold" style="color: #B8860B;">Technical Training</span>, and 
+                <span class="font-semibold" style="color: #B8860B;">Self-Defense</span>.
+            </p>
+            <p class="text-xs italic" style="color: #C0A676;">
+                Click the button below to officially launch the DruvaTalks platform
+            </p>
+        </div>
+
+        <!-- Launch Button -->
+        <div class="mb-5 relative">
+            <button id="launchBtn" class="launch-button" onclick="launchWebsite()">
+                <span id="btnText">Launch Website</span>
+            </button>
+            
+            <!-- Ribbon Effect -->
+            <div id="ribbon" class="ribbon">
+                <svg width="100%" height="100%" viewBox="0 0 600 300">
+                    <path d="M 50 150 Q 150 50, 300 150 T 550 150" stroke="#FFD700" stroke-width="8" fill="none" opacity="0.8"/>
+                    <path d="M 50 150 Q 150 250, 300 150 T 550 150" stroke="#FFD700" stroke-width="8" fill="none" opacity="0.8"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message">
+            <div class="rounded-xl p-4 max-w-xl mx-auto" style="background: rgba(0, 0, 0, 0.7); border: 2px solid #8B7355;">
+                <svg class="w-12 h-12 mx-auto mb-3" style="color: #B8860B;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h2 class="text-xl sm:text-2xl font-bold mb-2" style="color: #D4AF37;">Website Launched Successfully!</h2>
+                <p class="text-xs sm:text-sm mb-2" style="color: #C0A676;">
+                    DruvaTalks is now live and ready to transform lives
+                </p>
+                <p class="text-xs mt-3 mb-2" style="color: #A0916A;">
+                    Redirecting to the main website...
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let launched = false;
+
+        function launchWebsite() {
+            if (launched) return;
+            launched = true;
+
+            const btn = document.getElementById('launchBtn');
+            const btnText = document.getElementById('btnText');
+            const ribbon = document.getElementById('ribbon');
+            const successMessage = document.getElementById('successMessage');
+
+            // Change button text
+            btnText.textContent = 'Launching...';
+            btn.classList.add('launched');
+
+            // Simple confetti burst
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#D4AF37', '#000000'],
+                disableForReducedMotion: true
+            });
+
+            // Show success message after 1 second
+            setTimeout(() => {
+                btnText.textContent = '✓ Launched!';
+                successMessage.classList.add('show');
+
+                // Redirect to main website after 2 seconds with fade
+                setTimeout(() => {
+                    // Add fade out effect
+                    document.body.style.transition = 'opacity 0.5s ease';
+                    document.body.style.opacity = '0';
+                    
+                    // Redirect after fade completes
+                    setTimeout(() => {
+                        window.location.href = 'https://druvatalks.in';
+                    }, 500);
+                }, 2000);
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
