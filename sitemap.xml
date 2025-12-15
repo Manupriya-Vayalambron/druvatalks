@@ -2,32 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://druvatalks.in/</loc>
-    <lastmod>2025-12-11</lastmod>
+    <lastmod>2025-12-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://druvatalks.in/index.html</loc>
-    <lastmod>2025-12-11</lastmod>
+    <lastmod>2025-12-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://druvatalks.in/life-skills.html</loc>
-    <lastmod>2025-12-11</lastmod>
+    <lastmod>2025-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://druvatalks.in/technical.html</loc>
-    <lastmod>2025-12-11</lastmod>
+    <lastmod>2025-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://druvatalks.in/self-defense.html</loc>
-    <lastmod>2025-12-11</lastmod>
+    <lastmod>2025-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://druvatalks.in/team.html</loc>
+    <lastmod>2025-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://druvatalks.in/launch.html</loc>
+    <lastmod>2025-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
