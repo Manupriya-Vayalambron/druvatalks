@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth; margin: 0;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <title>Startup Arena - Student Ventures | DruvaTalks</title>
+    <meta name="description" content="Discover amazing student entrepreneurship ventures and innovative projects launched by students inspired by DruvaTalks' coaching and training services. See how young minds are transforming ideas into reality.">
+    <meta name="keywords" content="student ventures, student entrepreneurship, DruvaTalks students, innovation, student startups, young entrepreneurs, student projects, DhruvaTalks impact">
+    <meta name="author" content="DruvaTalks">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://druvatalks.in/innovation-launchpad.html">
+    <meta property="og:title" content="Startup Arena - Student Ventures | DruvaTalks">
+    <meta property="og:description" content="Discover amazing student entrepreneurship ventures inspired by DruvaTalks.">
+    <meta property="og:image" content="https://druvatalks.in/druvatalks-logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://druvatalks.in/innovation-launchpad.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="druvatalks-logo.png">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#E5C45C">
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        /* Animated Gradient Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                ellipse at 20% 30%, 
+                rgba(255, 215, 0, 0.25) 0%, 
+                transparent 50%
+            ),
+            radial-gradient(
+                ellipse at 80% 70%, 
+                rgba(218, 165, 32, 0.20) 0%, 
+                transparent 50%
+            ),
+            radial-gradient(
+                circle at 50% 50%, 
+                rgba(255, 215, 0, 0.15) 0%, 
+                rgba(0, 0, 0, 1) 100%
+            );
+            background-size: 200% 200%, 150% 150%, 100% 100%;
+            animation: gradientFlow 20s ease infinite;
+            z-index: -5;
+            pointer-events: none;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { 
+                background-position: 0% 0%, 100% 100%, 50% 50%;
+            }
+            25% { 
+                background-position: 50% 25%, 75% 50%, 50% 50%;
+            }
+            50% { 
+                background-position: 100% 50%, 25% 75%, 50% 50%;
+            }
+            75% { 
+                background-position: 50% 75%, 50% 25%, 50% 50%;
+            }
+        }
+
+        /* Enhanced Navbar Styling */
+        nav {
+            background: linear-gradient(135deg, rgba(92, 67, 5, 0.95) 0%, rgba(10, 10, 10, 0.98) 50%, rgba(73, 61, 30, 0.95) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+        }
+
+        /* Golden hover effects */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: black;
+            font-weight: 600;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+            color: white;
+        }
+
+        /* Venture Card Styling */
+        .venture-card {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(40, 40, 40, 0.8) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .venture-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .venture-card:hover {
+            border-color: rgba(255, 215, 0, 0.8);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .venture-card:hover::before {
+            left: 100%;
+        }
+
+        /* Badge styling */
+        .venture-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Hero section styling */
+        .hero-title {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Stats counter styling */
+        .stat-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.05));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFD700;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #9CA3AF;
+            margin-top: 0.5rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .stat-number {
+                font-size: 1.75rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .venture-card {
+                padding: 1rem;
+            }
+
+            .back-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            nav .h-20 {
+                height: auto;
+                min-height: 4rem;
+                padding: 0.75rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .stat-box {
+                padding: 0.875rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .venture-badge {
+                font-size: 0.625rem;
+                padding: 0.2rem 0.5rem;
+            }
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'golden': '#FFD700',
+                        'dark-gold': '#d99a00',
+                        'blackish': '#0a0a0a',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-200 antialiased">
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 border-b border-golden/30">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20 py-3 sm:py-0">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center">
+                    <img src="druvatalks-logo.png" alt="DruvaTalks Logo" class="h-10 sm:h-12 md:h-14 w-auto">
+                </a>
+                
+                <!-- Back Button -->
+                <a href="index.html" class="back-button text-xs sm:text-sm md:text-base">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10 md:pb-12 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 sm:mb-6 hero-title">
+                        Startup Arena
+                    </h1>
+                    <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 mb-4 sm:mb-6 max-w-4xl mx-auto px-2">
+                        Empowering the next generation of entrepreneurs and innovators through 
+                        <span class="text-golden font-semibold">DruvaTalks</span> coaching and training services
+                    </p>
+                    <div class="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-golden/20 to-orange-500/20 border border-golden/40 rounded-full">
+                        <p class="text-xs sm:text-sm md:text-base text-gray-300">
+                            🚀 <span class="font-semibold text-golden">Showcasing Student Success Stories</span> - From Ideas to Reality
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-8 sm:py-10 md:py-12 border-t border-golden/10">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="stat-box">
+                        <div class="stat-number">🚀</div>
+                        <div class="stat-label">Student Ventures In Progress</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">💡</div>
+                        <div class="stat-label">Ideas Being Nurtured</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Potential Unleashed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="py-8 sm:py-10 md:py-12 border-t border-golden/10">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8 sm:mb-10 md:mb-12">
+                    <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-white">
+                        Building Tomorrow's <span class="text-golden">Changemakers</span>
+                    </h2>
+                    <p class="text-sm sm:text-base md:text-lg text-gray-400 max-w-3xl mx-auto">
+                        At DruvaTalks, we don't just teach skills – we ignite entrepreneurial spirits. 
+                        Through our comprehensive coaching services in life skills, technical training, 
+                        and personal development, we're empowering students to transform their 
+                        innovative ideas into real-world ventures and prototypes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Ventures Section -->
+        <section class="py-10 sm:py-12 md:py-16 border-t border-golden/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 sm:mb-4 text-white">
+                    Innovations <span class="text-golden">In The Making</span>
+                </h2>
+                <p class="text-center text-sm sm:text-base text-gray-400 mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto px-2">
+                    Our students are currently working on exciting ventures across various domains. 
+                    This space will showcase their entrepreneurial journeys as they unfold.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    
+                    <!-- Coming Soon Card 1 - Tech Innovation -->
+                    <div class="venture-card opacity-75">
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="venture-badge">Tech Innovation</span>
+                                <span class="text-golden text-2xl">🔬</span>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Technology Solutions</h3>
+                            <p class="text-xs sm:text-sm text-golden mb-2 sm:mb-3">Students Working on Projects</p>
+                        </div>
+                        <p class="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4">
+                            Our students are developing innovative technology solutions after completing 
+                            Technical Orientation workshops. Projects range from web applications to AI/ML prototypes.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-golden/10 text-golden rounded">In Development</span>
+                            <span class="text-xs px-2 py-1 bg-golden/10 text-golden rounded">Tech</span>
+                            <span class="text-xs px-2 py-1 bg-golden/10 text-golden rounded">Coming Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- Coming Soon Card 2 - Social Impact -->
+                    <div class="venture-card opacity-75">
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="venture-badge">Social Impact</span>
+                                <span class="text-golden text-2xl">🌍</span>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Community Projects</h3>
+                            <p class="text-xs sm:text-sm text-golden mb-2 sm:mb-3">Ideas Taking Shape</p>
+                        </div>
+                        <p class="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4">
+                            Students inspired by our Life Skills workshops are working on social impact 
+                            initiatives aimed at creating positive change in their communities.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-golden/10 text-golden rounded">In Development</span>
+                            <span class="text-xs px-2 py-1 bg-golden/10 text-golden rounded">Social</span>
+                            <span class="text-xs px-2 py-1 bg-golden/10 text-golden rounded">Coming Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- Coming Soon Card 3 - Entrepreneurship -->
+                    <div class="venture-card opacity-75">
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="venture-badge">Business Ventures</span>
+                                <span class="text-golden text-2xl">💼</span>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Startup Ideas</h3>
+                            <p class="text-xs sm:text-sm text-golden mb-2 sm:mb-3">Prototyping Phase</p>
+                        </div>
+                        <p class="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4">
+                            Armed with communication and leadership skills from DruvaTalks training, 
+                            students are conceptualizing business ventures and developing prototypes.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-golden/10 text-golden rounded">In Development</span>
+                            <span class="text-xs px-2 py-1 bg-golden/10 text-golden rounded">Business</span>
+                            <span class="text-xs px-2 py-1 bg-golden/10 text-golden rounded">Coming Soon</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Call to Students -->
+                <div class="mt-10 sm:mt-12 md:mt-16 text-center">
+                    <div class="max-w-3xl mx-auto p-4 sm:p-6 md:p-8 bg-gradient-to-br from-golden/10 to-transparent border-2 border-golden/40 rounded-xl">
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
+                            Are You Building Something Amazing?
+                        </h3>
+                        <p class="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6">
+                            If you're a DruvaTalks student working on an innovative project or venture, 
+                            we'd love to feature your journey here! Share your story with us.
+                        </p>
+                        <a href="index.html#contact" class="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 border-2 border-golden bg-golden text-black font-semibold rounded-full hover:bg-dark-gold hover:text-white transition duration-300 shadow-lg shadow-golden/40 text-sm sm:text-base">
+                            Share Your Innovation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="py-10 sm:py-12 md:py-16 border-t border-golden/10">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8 sm:mb-10 md:mb-12">
+                    <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-white">
+                        The <span class="text-golden">DruvaTalks</span> Impact
+                    </h2>
+                    <p class="text-sm sm:text-base md:text-lg text-gray-400 max-w-3xl mx-auto mb-6 sm:mb-8">
+                        Our holistic approach to skill development creates well-rounded entrepreneurs who are 
+                        not only technically proficient but also possess strong leadership, communication, 
+                        and critical thinking abilities.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="p-4 sm:p-5 md:p-6 bg-gradient-to-br from-golden/10 to-transparent border border-golden/20 rounded-lg">
+                        <div class="text-golden text-2xl sm:text-3xl mb-2 sm:mb-3">🎯</div>
+                        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Life Skills Foundation</h3>
+                        <p class="text-sm sm:text-base text-gray-400">
+                            Communication, financial literacy, and leadership training provide the essential 
+                            foundation for entrepreneurial success.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-gradient-to-br from-golden/10 to-transparent border border-golden/20 rounded-lg">
+                        <div class="text-golden text-3xl mb-3">💻</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Technical Excellence</h3>
+                        <p class="text-gray-400">
+                            Hands-on training in coding, emerging technologies, and digital tools empowers 
+                            students to build their innovations.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-gradient-to-br from-golden/10 to-transparent border border-golden/20 rounded-lg">
+                        <div class="text-golden text-3xl mb-3">🛡️</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Confidence Building</h3>
+                        <p class="text-gray-400">
+                            Self-defense and situational awareness workshops build the confidence needed 
+                            to take bold entrepreneurial risks.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-gradient-to-br from-golden/10 to-transparent border border-golden/20 rounded-lg">
+                        <div class="text-golden text-3xl mb-3">🤝</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Mentorship & Support</h3>
+                        <p class="text-gray-400">
+                            Ongoing guidance and a supportive community help students navigate challenges 
+                            and celebrate successes together.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-10 sm:py-12 md:py-16 border-t border-golden/10">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-white">
+                    Ready to Launch <span class="text-golden">Your Venture?</span>
+                </h2>
+                <p class="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto">
+                    Join DruvaTalks and transform your innovative ideas into successful ventures. 
+                    Our comprehensive training programs are designed to equip you with all the 
+                    skills you need to succeed.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                    <a href="index.html#services" class="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-golden bg-golden text-black font-semibold rounded-full hover:bg-dark-gold hover:text-white transition duration-300 shadow-lg shadow-golden/40 text-sm sm:text-base">
+                        Explore Our Services
+                    </a>
+                    <a href="index.html#contact" class="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-golden text-golden font-semibold rounded-full hover:bg-golden hover:text-black transition duration-300 text-sm sm:text-base">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="py-10 sm:py-12 md:py-16 border-t border-golden/10 bg-gradient-to-b from-transparent to-blackish/50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-white">
+                    Join The <span class="text-golden">Innovation Journey</span>
+                </h2>
+                
+                <div class="text-center">
+                    <div class="p-6 sm:p-8 bg-gradient-to-br from-blackish to-gray-900 border border-golden/30 rounded-lg max-w-2xl mx-auto">
+                        <div class="text-golden text-4xl sm:text-5xl mb-3 sm:mb-4">🚀</div>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-300 mb-4 sm:mb-6">
+                            This is where your story begins. The Innovation Launchpad is being built 
+                            by students like you who dare to dream, learn, and create.
+                        </p>
+                        <p class="text-sm sm:text-base text-gray-400 italic">
+                            "Every great entrepreneur started with a single idea and the courage to pursue it. 
+                            At DruvaTalks, we provide the skills, support, and community to help you transform 
+                            your vision into reality."
+                        </p>
+                        <p class="text-golden font-semibold mt-4">- DruvaTalks Team</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-golden/20 py-6 sm:py-8 bg-blackish">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 DruvaTalks. All rights reserved. | Empowering Future Entrepreneurs
+                </p>
+                <div class="mt-4">
+                    <a href="index.html" class="text-golden hover:text-white transition duration-200 text-sm">
+                        Back to Homepage
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

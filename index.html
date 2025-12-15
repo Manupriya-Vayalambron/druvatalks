@@ -566,7 +566,26 @@
 
         .logo-container {
             position: relative;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Desktop navbar spacing enhancements */
+        @media (min-width: 768px) {
+            .logo-container {
+                margin-right: 2rem;
+                flex-shrink: 0;
+            }
+            
+            .nav-tagline-wrapper {
+                margin-right: auto;
+                margin-left: 0;
+            }
+            
+            .desktop-menu-wrapper {
+                margin-left: 2rem;
+                flex-shrink: 0;
+            }
         }
 
         .contact-btn {
@@ -1034,15 +1053,16 @@
                 </a>
                 
                 <!-- Center Tagline -->
-                <div class="flex flex-1 justify-center px-2 md:px-4">
-                    <p class="nav-tagline text-[0.7rem] sm:text-sm md:text-base lg:text-lg xl:text-xl">DruvaTalks: All Round Skill Hub</p>
+                <div class="flex justify-start px-2 min-w-0 nav-tagline-wrapper">
+                    <p class="nav-tagline text-[0.7rem] sm:text-sm md:text-sm lg:text-base xl:text-lg whitespace-nowrap">DruvaTalks: All Round Skill Hub</p>
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-2 lg:space-x-4 xl:space-x-6">
-                    <div class="flex items-baseline space-x-2 lg:space-x-4">
+                <div class="hidden md:flex desktop-menu-wrapper">
+                    <div class="flex items-baseline space-x-2 lg:space-x-3 xl:space-x-4">
                         <a href="#services" onclick="scrollToSection('services')" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Services</a>
                         <a href="#works" onclick="scrollToSection('works')" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Highlights</a>
+                        <a href="innovation-launchpad.html" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Students' Corner</a>
                         <a href="team.html" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Team</a>
                         <a href="#feedback" onclick="scrollToSection('feedback')" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Feedback</a>
                         <a href="#contact" onclick="scrollToSection('contact')" class="contact-button contact-btn text-xs lg:text-sm whitespace-nowrap">Contact Us</a>
@@ -1064,6 +1084,7 @@
             <div class="px-3 pt-3 pb-4 space-y-2">
                 <a href="#services" onclick="scrollToSection('services'); toggleMenu();" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Services</a>
                 <a href="#works" onclick="scrollToSection('works'); toggleMenu();" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Highlights</a>
+                <a href="innovation-launchpad.html" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Students' Corner</a>
                 <a href="team.html" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Team</a>
                 <a href="#feedback" onclick="scrollToSection('feedback'); toggleMenu();" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Feedback</a>
                 <a href="#contact" onclick="scrollToSection('contact'); toggleMenu();" class="contact-btn block text-black bg-golden hover:bg-dark-gold px-4 py-3 mt-2 rounded-full text-base font-semibold text-center touch-manipulation">Contact Us</a>
