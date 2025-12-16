@@ -286,6 +286,7 @@
             z-index: -1;
             transition: background 0.1s ease;
             opacity: 1;
+            will-change: background;
         }
 
         @keyframes spotlightFade {
@@ -649,8 +650,15 @@
             box-shadow: inset 4px 0 0 #FFD700;
         }
 
-        /* Disable spotlight on non-desktop views (tablets, mobile, portrait) */
-        @media (max-width: 1024px), (max-height: 768px) and (orientation: portrait) {
+        /* Show spotlight ONLY on devices with mouse + hover (laptops & desktops) */
+        @media (hover: hover) and (pointer: fine) {
+            .spotlight-overlay {
+                display: block;
+            }
+        }
+
+        /* Hide spotlight on touch devices */
+        @media (hover: none) and (pointer: coarse) {
             .spotlight-overlay {
                 display: none !important;
             }
@@ -845,37 +853,37 @@
             }
         }
 
-        // Track mouse position for spotlight effect (desktop landscape only)
+        // Track mouse position for spotlight effect (desktop/laptop only)
         function trackMouseForSpotlight() {
             const spotlight = document.querySelector('.spotlight-overlay');
             if (!spotlight) return;
 
-            // Check if desktop landscape
-            const isDesktopLandscape = window.innerWidth > 1024 && window.innerHeight > 768 && window.innerWidth > window.innerHeight;
-            if (!isDesktopLandscape) return; // Only enable on proper desktop
+            // Enable ONLY on devices with mouse & hover (laptop/desktop)
+            const canHover = window.matchMedia('(hover: hover)').matches;
+            const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+            if (!canHover || !finePointer) return;
 
             let mouseX = 50;
             let mouseY = 50;
             let currentX = 50;
             let currentY = 50;
 
-            // Mouse movement tracking (desktop landscape only)
             document.addEventListener('mousemove', (e) => {
                 mouseX = (e.clientX / window.innerWidth) * 100;
                 mouseY = (e.clientY / window.innerHeight) * 100;
             });
 
-            // Smooth animation loop for desktop
             function animate() {
-                currentX += (mouseX - currentX) * 0.15;
-                currentY += (mouseY - currentY) * 0.15;
-                
+                currentX += (mouseX - currentX) * 0.12;
+                currentY += (mouseY - currentY) * 0.12;
+
                 spotlight.style.setProperty('--mouse-x', `${currentX}%`);
                 spotlight.style.setProperty('--mouse-y', `${currentY}%`);
-                
+
                 requestAnimationFrame(animate);
             }
-            
+
             animate();
         }
 
