@@ -38,7 +38,7 @@
     <link rel="apple-touch-icon" href="druvatalks-seal.png">
     
     <!-- Theme Color -->
-    <meta name="theme-color" content="#E5C45C">
+    <meta name="theme-color" content="#C9A24A">
     
     <!-- Structured Data - Organization Schema (Optimized for Google Logo Display) -->
     <script type="application/ld+json">
@@ -105,8 +105,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            /* Enhanced Multi-Layer Animated Background */
-            background: #000000;
+            /* Calm, single-layer vignette background (previously multiple animated layers) */
+            background: radial-gradient(ellipse at top, #1B140B 0%, #0B0906 55%, #0B0906 100%);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -116,88 +116,45 @@
 
         .contact-button {
     color: black;
-    background-color: #FFD700; /* golden */
+    background-color: #C9A24A; /* golden */
     padding: 0.5rem 1rem; /* py-2 px-4 */
     border-radius: 9999px; /* rounded-full */
     font-size: 0.875rem; /* text-sm */
     font-weight: 600; /* font-semibold */
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); /* shadow-lg */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
     transition: background-color 0.3s, transform 0.3s;
   }
 
   .contact-button:hover {
-    background-color: #B8860B;
+    background-color: #8B5E2E;
     color: white /* dark-gold */
   }
-
-        /* Layer 1: Animated Gradient Base */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(
-                ellipse at 20% 30%, 
-                rgba(255, 215, 0, 0.25) 0%, 
-                transparent 50%
-            ),
-            radial-gradient(
-                ellipse at 80% 70%, 
-                rgba(218, 165, 32, 0.20) 0%, 
-                transparent 50%
-            ),
-            radial-gradient(
-                circle at 50% 50%, 
-                rgba(255, 215, 0, 0.15) 0%, 
-                rgba(0, 0, 0, 1) 100%
-            );
-            background-size: 200% 200%, 150% 150%, 100% 100%;
-            animation: gradientFlow 20s ease infinite;
-            z-index: -5;
-            pointer-events: none;
-        }
 
   .explore {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0.75rem 2rem; /* px-8 py-3 - same for all screens */
-    border: 2px solid #FFD700; /* border-golden */
+    border: 2px solid #C9A24A; /* border-golden */
     font-size: 1rem; /* base size - same for all screens */
     font-weight: 600; /* font-semibold */
     border-radius: 9999px; /* rounded-full */
     color: black;
-    background-color: #FFD700; /* golden */
-    box-shadow: 0px 10px 25px rgba(255, 215, 0, 0.6); /* shadow-2xl + golden/60 */
-    transition: transform 0.5s ease-in-out;
+    background-color: #C9A24A; /* golden */
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
   .explore:hover {
-    transform: scale(1.05);
+    transform: translateY(-2px);
     color: white;
-    background-color: #B8860B;
+    background-color: #8B5E2E;
   }
-        @keyframes gradientFlow {
-            0%, 100% { 
-                background-position: 0% 0%, 100% 100%, 50% 50%;
-            }
-            25% { 
-                background-position: 50% 25%, 75% 50%, 50% 50%;
-            }
-            50% { 
-                background-position: 100% 50%, 25% 75%, 50% 50%;
-            }
-            75% { 
-                background-position: 50% 75%, 50% 25%, 50% 50%;
-            }
-        }
 
         /* Custom golden hover effect for buttons */
         .btn-golden:hover {
-            background-color: #947a38;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            background-color: #6B4A22;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         /* Style for the feedback scroll container */
         .feedback-scroll-container {
@@ -219,10 +176,10 @@
 
         /* Hover animation for service cards */
         .card-hover:hover {
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
         }
 
-        /* Enhanced Multi-Layer Animated Background Overlay System */
+        /* Background Overlay System (simplified: static, low-opacity, no layered blur) */
         .animated-bg-overlay {
             position: fixed;
             top: 0;
@@ -235,9 +192,8 @@
 
         .particle {
             position: absolute;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.9) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(201, 162, 74, 0.45) 0%, transparent 70%);
             border-radius: 50%;
-            filter: blur(2px);
             animation: floatParticles linear infinite;
         }
 
@@ -254,7 +210,7 @@
             }
         }
 
-        /* Layer 4: Grid Pattern with Pulse */
+        /* Static fine grid texture - subtle, non-animated */
         .grid-overlay {
             position: fixed;
             top: 0;
@@ -262,19 +218,14 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(255, 215, 0, 0.12) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 215, 0, 0.12) 1px, transparent 1px);
+                linear-gradient(rgba(201, 162, 74, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 162, 74, 0.05) 1px, transparent 1px);
             background-size: 100px 100px;
             pointer-events: none;
             z-index: -2;
         }
 
-        @keyframes gridPulse {
-            0%, 100% { opacity: 0.3; background-size: 100px 100px; }
-            50% { opacity: 0.5; background-size: 120px 120px; }
-        }
-
-        /* Layer 5: Spotlight Effect Following Mouse */
+        /* Mouse-follow spotlight - desktop only */
         .spotlight-overlay {
             position: fixed;
             top: 0;
@@ -282,58 +233,65 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(
-                circle 250px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                rgba(225, 198, 44, 0.525) 0%,
-                rgba(184, 158, 11, 0.6) 50%,
+                circle 340px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(201, 162, 74, 0.32) 0%,
+                rgba(201, 162, 74, 0.16) 40%,
+                rgba(139, 94, 46, 0.08) 65%,
                 transparent 100%
             );
             pointer-events: none;
             z-index: -1;
-            transition: background 0.1s ease;
-            opacity: 1;
+            transition: background 0.15s ease;
             will-change: background;
         }
 
-        @keyframes spotlightFade {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
+        /* Hero line-art illustration: was near-invisible against the dark background.
+           Lift its baseline visibility, then bloom further on hover/tap. */
+        .hero-art-img {
+            filter: drop-shadow(0 0 30px rgba(201, 162, 74, 0.35)) brightness(1.25) contrast(1.12);
+            transition: filter 0.4s ease;
         }
 
-        /* Layer 6: Animated Mesh Gradient */
-        .mesh-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(at 15% 15%, rgba(255, 215, 0, 0.05) 0px, transparent 50%),
-                radial-gradient(at 85% 20%, rgba(218, 165, 32, 0.04) 0px, transparent 50%),
-                radial-gradient(at 25% 75%, rgba(255, 215, 0, 0.06) 0px, transparent 50%),
-                radial-gradient(at 75% 85%, rgba(184, 134, 11, 0.05) 0px, transparent 50%),
-                radial-gradient(at 50% 50%, rgba(255, 215, 0, 0.03) 0px, transparent 50%);
-            background-size: 300% 300%;
-            animation: meshMove 25s ease infinite;
-            pointer-events: none;
-            z-index: -3;
+        .hero-art-glow {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            background: radial-gradient(circle at center, rgba(201, 162, 74, 0.28) 0%, transparent 70%);
             filter: blur(40px);
+            transform: scale(1.2);
         }
 
-        @keyframes meshMove {
-            0%, 100% { 
-                background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, 50% 50%;
+        @media (hover: hover) and (pointer: fine) {
+            .hero-art-link:hover .hero-art-img {
+                filter: drop-shadow(0 0 40px rgba(201, 162, 74, 0.55)) brightness(1.4) contrast(1.15);
             }
-            33% { 
-                background-position: 100% 0%, 0% 50%, 100% 100%, 50% 0%, 25% 75%;
-            }
-            66% { 
-                background-position: 0% 100%, 100% 100%, 50% 0%, 0% 50%, 75% 25%;
+            .hero-art-link:hover .hero-art-glow {
+                opacity: 1;
             }
         }
 
-        @keyframes diagonalSlide {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(80px) translateY(80px); }
+        /* Touch devices can't hover, so keep a gentle glow visible by default
+           and brighten it briefly on tap. */
+        @media (hover: none) and (pointer: coarse) {
+            .hero-art-glow {
+                opacity: 0.55;
+            }
+            .hero-art-link:active .hero-art-img {
+                filter: drop-shadow(0 0 40px rgba(201, 162, 74, 0.55)) brightness(1.4) contrast(1.15);
+            }
+            .hero-art-link:active .hero-art-glow {
+                opacity: 1;
+            }
+        }
+
+        /* Belt-and-braces: on narrow (phone-width) viewports, boost visibility
+           regardless of how the browser reports hover/pointer capability. */
+        @media (max-width: 768px) {
+            .hero-art-img {
+                filter: drop-shadow(0 0 35px rgba(201, 162, 74, 0.55)) brightness(1.45) contrast(1.2) !important;
+            }
+            .hero-art-glow {
+                opacity: 0.6 !important;
+            }
         }
 
         /* Event Slideshow Animation */
@@ -344,7 +302,7 @@
             overflow-y: hidden;
             scroll-behavior: smooth;
             scrollbar-width: thin;
-            scrollbar-color: rgba(184, 134, 11, 0.5) rgba(0, 0, 0, 0.3);
+            scrollbar-color: rgba(139, 94, 46, 0.5) rgba(0, 0, 0, 0.3);
             cursor: grab;
         }
 
@@ -363,12 +321,12 @@
         }
 
         .slideshow-wrapper::-webkit-scrollbar-thumb {
-            background: rgba(184, 134, 11, 0.5);
+            background: rgba(139, 94, 46, 0.5);
             border-radius: 4px;
         }
 
         .slideshow-wrapper::-webkit-scrollbar-thumb:hover {
-            background: rgba(184, 134, 11, 0.7);
+            background: rgba(139, 94, 46, 0.7);
         }
 
         .slideshow-track {
@@ -390,7 +348,7 @@
         }
 
         .slide-item {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+            background: linear-gradient(135deg, rgba(201, 162, 74, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
             backdrop-filter: blur(10px);
         }
 
@@ -432,9 +390,8 @@
             }
             
             .nav-link:active {
-                transform: translateY(-3px) scale(1.05);
-                text-shadow: 0 0 25px rgba(255, 215, 0, 0.7),
-                             0 2px 4px rgba(0, 0, 0, 0.5);
+                transform: translateY(-2px);
+                text-shadow: 0 0 6px rgba(201, 162, 74, 0.35);
             }
             
             .contact-btn:active::before {
@@ -443,10 +400,8 @@
             }
             
             .contact-btn:active {
-                transform: translateY(-4px) scale(1.05);
-                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6), 
-                            0 0 40px rgba(255, 215, 0, 0.4),
-                            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
             }
             
             .mobile-menu-item:active::before {
@@ -454,24 +409,23 @@
             }
             
             .mobile-menu-item:active {
-                border-left-color: #FFD700;
-                transform: translateX(8px);
-                text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-                box-shadow: inset 4px 0 0 #FFD700;
+                border-left-color: #C9A24A;
+                transform: translateX(6px);
+                box-shadow: inset 4px 0 0 #C9A24A;
             }
             
             .card-hover:active {
-                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
             }
             
             .explore:active {
-                transform: scale(1.05);
+                transform: translateY(-1px);
                 color: white;
-                background-color: #B8860B;
+                background-color: #8B5E2E;
             }
             
             .contact-button:active {
-                background-color: #B8860B;
+                background-color: #8B5E2E;
                 color: white;
             }
         }
@@ -479,8 +433,7 @@
         /* Enhanced Navbar Styling */
         nav {
             position: relative;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 
-                        0 0 20px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
         }
 
         nav::before {
@@ -489,31 +442,28 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 1px;
             background: linear-gradient(90deg, 
                 transparent 0%, 
-                rgba(255, 215, 0, 0.6) 20%, 
-                rgba(255, 215, 0, 1.0) 50%, 
-                rgba(255, 215, 0, 0.6) 80%, 
+                rgba(201, 162, 74, 0.5) 20%, 
+                rgba(201, 162, 74, 0.85) 50%, 
+                rgba(201, 162, 74, 0.5) 80%, 
                 transparent 100%);
-            animation: navbar-glow 3s ease-in-out infinite;
-        }
-
-        @keyframes navbar-glow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
         }
 
 
         /* Enhanced Tagline */
         .nav-tagline {
             font-family: 'Inter', sans-serif !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.1em !important;
-            color: #FFD700;
+            font-weight: 500 !important;
+            letter-spacing: 0.08em !important;
+            color: #E8D39D;
             position: relative;
             display: inline-block;
-            text-transform: uppercase;
+            text-transform: none !important;
+            font-style: italic;
+            opacity: 0.96;
+            text-shadow: 0 0 12px rgba(201, 162, 74, 0.18);
         }
         
         .nav-tagline::after {
@@ -522,22 +472,22 @@
             bottom: -4px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #FFD700, transparent);
-            opacity: 0.6;
+            width: 46%;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, #C9A24A, transparent);
+            opacity: 0.8;
         }
 
         /* Mobile Menu Enhanced */
         #mobile-menu {
-            backdrop-filter: blur(20px);
-            box-shadow: inset 0 1px 0 rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(14px);
+            box-shadow: inset 0 1px 0 rgba(201, 162, 74, 0.1);
         }
 
         /* Professional Navbar Enhancements */
         .nav-link {
             position: relative;
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.25s ease;
         }
 
         .nav-link::after {
@@ -547,11 +497,10 @@
             left: 50%;
             transform: translateX(-50%) scaleX(0);
             width: 90%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #FFD700 20%, #FFA500 50%, #FFD700 80%, transparent);
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+            height: 2px;
+            background: #C9A24A;
             border-radius: 2px;
-            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.25s ease;
         }
 
         .nav-link:hover::after {
@@ -559,9 +508,7 @@
         }
 
         .nav-link:hover {
-            transform: translateY(-3px) scale(1.05);
-            text-shadow: 0 0 25px rgba(255, 215, 0, 0.7),
-                         0 2px 4px rgba(0, 0, 0, 0.5);
+            color: #F0DCA6;
         }
 
         .logo-container {
@@ -569,11 +516,16 @@
             display: flex;
             align-items: center;
         }
-        
+
+        /* Give the golden/black logo mark some contrast against the dark navbar */
+        .logo-container img {
+            filter: drop-shadow(0 0 8px rgba(240, 220, 166, 0.45)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.25));
+        }
+
         /* Desktop navbar spacing enhancements */
         @media (min-width: 768px) {
             .logo-container {
-                margin-right: 2rem;
+                margin-right: 1.25rem;
                 flex-shrink: 0;
             }
             
@@ -583,15 +535,46 @@
             }
             
             .desktop-menu-wrapper {
-                margin-left: 2rem;
+                margin-left: 1rem;
                 flex-shrink: 0;
+            }
+        }
+
+        /* The tagline was overlapping the nav links between md and lg widths,
+           where there isn't enough room for logo + tagline + 6 links + button.
+           Hide it there and only bring it back once there's real space for it,
+           with overflow safeguards in case of odd viewport sizes in between. */
+        .nav-tagline-wrapper {
+            display: none;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .nav-tagline {
+            display: block;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 767px) {
+            .nav-tagline-wrapper {
+                display: flex;
+                flex: 1 1 auto;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .nav-tagline-wrapper {
+                display: flex;
+                flex: 1 1 auto;
             }
         }
 
         .contact-btn {
             position: relative;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.25s ease;
         }
 
         .contact-btn::before {
@@ -602,22 +585,20 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.2);
             transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
+            transition: width 0.5s ease, height 0.5s ease;
             z-index: 0;
         }
 
         .contact-btn:hover::before {
-            width: 350px;
-            height: 350px;
+            width: 300px;
+            height: 300px;
         }
 
         .contact-btn:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6), 
-                        0 0 40px rgba(255, 215, 0, 0.4),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .contact-btn > * {
@@ -626,7 +607,7 @@
         }
 
         .mobile-menu-item {
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.25s ease;
             border-left: 4px solid transparent;
             position: relative;
             overflow: hidden;
@@ -639,8 +620,8 @@
             top: 0;
             width: 0;
             height: 100%;
-            background: linear-gradient(90deg, rgba(255, 215, 0, 0.2) 0%, transparent 100%);
-            transition: width 0.4s ease;
+            background: linear-gradient(90deg, rgba(201, 162, 74, 0.15) 0%, transparent 100%);
+            transition: width 0.3s ease;
             z-index: -1;
         }
 
@@ -649,10 +630,8 @@
         }
 
         .mobile-menu-item:hover {
-            border-left-color: #FFD700;
-            transform: translateX(8px);
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-            box-shadow: inset 4px 0 0 #FFD700;
+            border-left-color: #C9A24A;
+            transform: translateX(6px);
         }
 
         /* Show spotlight ONLY on devices with mouse + hover (laptops & desktops) */
@@ -687,16 +666,14 @@
 
             .touch-streak-line {
                 position: absolute;
-                height: 3px;
+                height: 2px;
                 pointer-events: none;
                 background: linear-gradient(90deg, 
                     transparent 0%, 
-                    rgba(255, 215, 0, 0.6) 10%, 
-                    rgba(255, 215, 0, 1) 50%, 
-                    rgba(255, 215, 0, 0.6) 90%, 
+                    rgba(201, 162, 74, 0.5) 15%, 
+                    rgba(201, 162, 74, 0.85) 50%, 
+                    rgba(201, 162, 74, 0.5) 85%, 
                     transparent 100%);
-                box-shadow: 0 0 10px rgba(255, 215, 0, 0.9),
-                            0 0 20px rgba(255, 215, 0, 0.6);
                 border-radius: 2px;
                 transition: all 0.05s linear;
             }
@@ -704,7 +681,8 @@
             /* Mobile Brand Name Sizing */
             .nav-tagline {
                 font-size: 0.65rem !important;
-                letter-spacing: 0.08em !important;
+                letter-spacing: 0.05em !important;
+                font-style: italic;
             }
 
             @media (min-width: 400px) and (max-width: 768px) {
@@ -769,6 +747,54 @@
                 justify-content: center !important;
                 align-items: center !important;
             }
+
+            /* Tighter, more professional section rhythm on mobile */
+            section h2 {
+                margin-bottom: 0.75rem !important;
+            }
+
+            .card-hover,
+            .slide-item {
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35) !important;
+            }
+
+            .spotlight-overlay {
+                display: none !important;
+            }
+        }
+
+        /* ===================== Milestone Section (restrained, no animation) ===================== */
+        .milestone-section {
+            position: relative;
+            background: #14100B;
+            border: 1px solid rgba(201, 162, 74, 0.25);
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+        }
+
+        .milestone-label {
+            display: inline-block;
+            color: #C9A24A;
+            font-weight: 700;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .milestone-poster {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 5;
+            width: 100%;
+            max-width: 260px;
+            border: 1px dashed rgba(201, 162, 74, 0.35);
+            border-radius: 0.75rem;
+            background: rgba(201, 162, 74, 0.04);
+            color: rgba(201, 162, 74, 0.6);
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 1rem;
         }
     </style>
     <script>
@@ -776,9 +802,9 @@
             theme: {
                 extend: {
                     colors: {
-                        'golden': '#FFD700', // Primary golden color
-                        'dark-gold': '#d99a00',
-                        'blackish': '#0a0a0a',
+                        'golden': '#C9A24A', // Primary golden color
+                        'dark-gold': '#8B5E2E',
+                        'blackish': '#14100B',
                     },
                 }
             }
@@ -829,22 +855,25 @@
             initParallaxScroll();
         }
 
-        // Create floating particle elements
+        // Create floating particle elements (desktop only - kept minimal for performance/consistency on mobile)
         function createFloatingParticles() {
             const particleContainer = document.querySelector('.bg-particles');
             if (!particleContainer) return;
 
-            const particleCount = 40;
+            // Skip on small screens to avoid mobile clutter/inconsistency
+            if (window.innerWidth < 768) return;
+
+            const particleCount = 16;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 
                 // Random properties
-                const size = Math.random() * 4 + 2; // 2-6px
+                const size = Math.random() * 3 + 2; // 2-5px
                 const startX = Math.random() * 100; // 0-100%
-                const floatX = (Math.random() - 0.5) * 200; // -100 to 100px
-                const duration = Math.random() * 15 + 15; // 15-30s
+                const floatX = (Math.random() - 0.5) * 150; // -75 to 75px
+                const duration = Math.random() * 15 + 20; // 20-35s
                 const delay = Math.random() * 10; // 0-10s delay
                 
                 particle.style.width = `${size}px`;
@@ -984,13 +1013,10 @@
             }, { passive: true });
         }
 
-        // Parallax scroll effect for background layers
+        // Subtle parallax on the grid texture only (desktop) - kept minimal
         function initParallaxScroll() {
-            const meshGradient = document.querySelector('.mesh-gradient');
             const gridOverlay = document.querySelector('.grid-overlay');
-            const diagonalLines = document.querySelector('.diagonal-lines');
-
-            if (!meshGradient || !gridOverlay || !diagonalLines) return;
+            if (!gridOverlay || window.innerWidth < 768) return;
 
             let ticking = false;
 
@@ -998,43 +1024,9 @@
                 if (!ticking) {
                     window.requestAnimationFrame(() => {
                         const scrolled = window.pageYOffset;
-                        
-                        // Different parallax speeds for different layers
-                        meshGradient.style.transform = `translateY(${scrolled * 0.3}px)`;
-                        gridOverlay.style.transform = `translateY(${scrolled * 0.15}px)`;
-                        diagonalLines.style.transform = `translateY(${scrolled * 0.1}px) translateX(${scrolled * 0.05}px)`;
-                        
+                        gridOverlay.style.transform = `translateY(${scrolled * 0.1}px)`;
                         ticking = false;
                     });
-                    
-                    ticking = true;
-                }
-            });
-        }
-
-        // Parallax scroll effect for background layers
-        function initParallaxScroll() {
-            const meshGradient = document.querySelector('.mesh-gradient');
-            const gridOverlay = document.querySelector('.grid-overlay');
-            const diagonalLines = document.querySelector('.diagonal-lines');
-
-            if (!meshGradient || !gridOverlay || !diagonalLines) return;
-
-            let ticking = false;
-
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(() => {
-                        const scrolled = window.pageYOffset;
-                        
-                        // Different parallax speeds for different layers
-                        meshGradient.style.transform = `translateY(${scrolled * 0.3}px)`;
-                        gridOverlay.style.transform = `translateY(${scrolled * 0.15}px)`;
-                        diagonalLines.style.transform = `translateY(${scrolled * 0.1}px) translateX(${scrolled * 0.05}px)`;
-                        
-                        ticking = false;
-                    });
-                    
                     ticking = true;
                 }
             });
@@ -1042,33 +1034,28 @@
     </script>
 </head>
 <body class="text-gray-200 antialiased">
-    <!-- Enhanced Multi-Layer Background System -->
+    <!-- Background System (simplified) -->
     <div class="animated-bg-overlay"></div>
     <div class="bg-particles"></div>
     <div class="grid-overlay"></div>
     <div class="spotlight-overlay"></div>
-    <div class="mesh-gradient"></div>
-    <div class="diagonal-lines"></div>
 
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 border-b border-golden/30" style="background: linear-gradient(135deg, rgba(92, 67, 5, 0.95) 0%, rgba(10, 10, 10, 0.98) 50%, rgba(73, 61, 30, 0.95) 100%); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);">
+    <nav class="sticky top-0 z-50 border-b border-golden/30" style="background: linear-gradient(135deg, rgba(28, 21, 10, 0.97) 0%, rgba(11, 9, 6, 0.98) 50%, rgba(28, 21, 10, 0.97) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
         <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 sm:h-20 md:h-24">
                 <!-- Logo/Brand -->
                 <a href="#" class="flex-shrink-0 flex items-center logo-container">
                     <img src="druvatalks-logo.png" alt="DruvaTalks Logo" class="h-12 sm:h-14 md:h-12 lg:h-14 xl:h-16 w-auto">
                 </a>
-                
-                <!-- Center Tagline -->
-                <div class="flex justify-start px-2 min-w-0 nav-tagline-wrapper">
-                    <p class="nav-tagline text-[0.7rem] sm:text-sm md:text-sm lg:text-base xl:text-lg whitespace-nowrap">DruvaTalks: All Round Skill Hub</p>
-                </div>
+            
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex desktop-menu-wrapper">
                     <div class="flex items-baseline space-x-2 lg:space-x-3 xl:space-x-4">
                         <a href="#services" onclick="scrollToSection('services')" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Services</a>
                         <a href="#works" onclick="scrollToSection('works')" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Highlights</a>
+                        <a href="#webinars" onclick="scrollToSection('webinars')" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Webinars</a>
                         <a href="innovation-launchpad.html" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Students' Corner</a>
                         <a href="team.html" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Team</a>
                         <a href="#feedback" onclick="scrollToSection('feedback')" class="nav-link text-golden hover:text-white px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-medium whitespace-nowrap">Feedback</a>
@@ -1087,10 +1074,11 @@
         </div>
         
         <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-golden/30" style="background: linear-gradient(180deg, rgba(92, 67, 5, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);">
+        <div id="mobile-menu" class="hidden md:hidden border-t border-golden/30" style="background: linear-gradient(180deg, rgba(28, 21, 10, 0.98) 0%, rgba(11, 9, 6, 0.98) 100%);">
             <div class="px-3 pt-3 pb-4 space-y-2">
                 <a href="#services" onclick="scrollToSection('services'); toggleMenu();" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Services</a>
                 <a href="#works" onclick="scrollToSection('works'); toggleMenu();" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Highlights</a>
+                <a href="#webinars" onclick="scrollToSection('webinars'); toggleMenu();" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Webinars</a>
                 <a href="innovation-launchpad.html" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Students' Corner</a>
                 <a href="team.html" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Team</a>
                 <a href="#feedback" onclick="scrollToSection('feedback'); toggleMenu();" class="mobile-menu-item block text-golden hover:text-white px-4 py-3 rounded-md text-base font-medium touch-manipulation">Feedback</a>
@@ -1107,17 +1095,17 @@
                     
                     <!-- Left Column - Image -->
                     <div class="flex justify-center lg:justify-end order-2 lg:order-1">
-                        <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="relative group cursor-pointer">
-                            <img src="index-page-header.png" alt="DruvaTalks" class="w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain" style="filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3));">
-                            <!-- Background effect on hover -->
-                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="background: radial-gradient(circle at center, rgba(255, 215, 0, 0.15) 0%, transparent 70%); filter: blur(40px); transform: scale(1.2);"></div>
+                        <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="relative group cursor-pointer hero-art-link">
+                            <img src="index-page-header.png" alt="DruvaTalks" class="hero-art-img w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain">
+                            <!-- Golden glow that brightens the line-art on hover (desktop) / is always partly on (touch) -->
+                            <div class="hero-art-glow absolute inset-0 pointer-events-none"></div>
                         </a>
                     </div>
                     
                     <!-- Right Column - Content -->
                     <div class="text-center lg:text-left order-1 lg:order-2">
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight mb-4 sm:mb-6" style="text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);">
-                            Ignite Your <span class="text-golden">Potential</span>. Master Your World.
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight mb-4 sm:mb-6" style="text-shadow: 0 0 10px rgba(201, 162, 74, 0.2);">
+                            Welcome to <span class="text-golden">DruvaTalks</span> - All Round Skill Hub
                         </h1>
                         <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 sm:mb-10 max-w-2xl mx-auto lg:mx-0">
                             DruvaTalks provides high-impact, life-changing workshops in essential life skills, cutting-edge technology, and practical self-defense.
@@ -1131,6 +1119,30 @@
             </div>
         </section>
         
+        <!-- Major Announcement: IIT Guwahati x Techniche x Nexus -->
+        <section id="announcement" class="px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8 mb-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="milestone-section p-5 sm:p-8">
+                    <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-8">
+                        <img src="slideshow/iitg.jpeg" alt="IIT Guwahati poster" class="milestone-poster flex-shrink-0 object-cover rounded-xl border border-golden/30 shadow-lg shadow-golden/20">
+
+                        <!-- Content -->
+                        <div class="text-center sm:text-left">
+                            <span class="milestone-label">Major Milestone</span>
+                            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-1 mb-2 leading-snug">
+                                DruvaTalks is heading to <span class="text-golden">IIT Guwahati</span>
+                            </h2>
+                            <p class="text-sm sm:text-base text-gray-400 leading-relaxed">
+                                An offline session from <span class="text-golden">27-30 August</span>, as part of
+                                Techniche - IIT Guwahati's annual techno-management fest - in collaboration with
+                                <span class="text-golden">Nexus</span>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Services Section -->
         <section id="services" class="py-12 sm:py-16 md:py-20 lg:py-32 border-t border-golden/10">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1160,7 +1172,7 @@
                         </div>
                         
                         <!-- Description Section (Below Image) -->
-                        <div class="p-6 pt-0 bg-gradient-to-b from-blackish to-black/95">
+                        <div class="p-6 pt-0 bg-gradient-to-b from-blackish to-blackish">
                             <p class="text-gray-300 text-sm leading-relaxed">
                                 Workshops focused on communication, financial literacy, critical thinking, and effective leadership.
                             </p>
@@ -1186,7 +1198,7 @@
                         </div>
                         
                         <!-- Description Section (Below Image) -->
-                        <div class="p-6 pt-0 bg-gradient-to-b from-blackish to-black/95">
+                        <div class="p-6 pt-0 bg-gradient-to-b from-blackish to-blackish">
                             <p class="text-gray-300 text-sm leading-relaxed">
                                 Hands-on training in emerging technologies, digital tools, coding basics, and career path guidance.
                             </p>
@@ -1212,7 +1224,7 @@
                         </div>
                         
                         <!-- Description Section (Below Image) -->
-                        <div class="p-6 pt-0 bg-gradient-to-b from-blackish to-black/95">
+                        <div class="p-6 pt-0 bg-gradient-to-b from-blackish to-blackish">
                             <p class="text-gray-300 text-sm leading-relaxed">
                                 Workshops focusing on situational awareness, de-escalation tactics, and basic physical defense techniques.
                             </p>
@@ -1285,6 +1297,14 @@
                                 </div>
                             </a>
                             
+                            <!-- Event 6: Government Engineering College, Kannur -->
+                            <a href="#" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background-image: url('slideshow/kannur.jpeg'); background-size: cover; background-position: center;">
+                                <div class="slide-content">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 mt-16" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">Government Engineering College, Kannur</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">Click to View Session Highlights</p>
+                                </div>
+                            </a>
+
                             <!-- Duplicate slides for seamless loop -->
                             <a href="https://drive.google.com/drive/folders/1fh3Zn4QNqnq_q9RfO_S2CKYfZMCQuTaB" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background-image: url('slideshow/marian.jpg'); background-size: cover; background-position: center;">
                                 <div class="slide-content">
@@ -1306,6 +1326,77 @@
                                     <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">Click to View Technical Orientation</p>
                                 </div>
                             </a>
+
+                            <!-- Duplicate: Government Engineering College, Kannur (loop) -->
+                            <a href="#" target="_blank" class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden cursor-pointer relative overflow-hidden" style="background-image: url('slideshow/kannur.jpeg'); background-size: cover; background-position: center;">
+                                <div class="slide-content">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 mt-16" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">Government Engineering College, Kannur</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7);">Click to View Session Highlights</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Online Webinars Slideshow -->
+        <section id="webinars" class="py-8 sm:py-12 md:py-16 bg-blackish/40 border-t border-b border-golden/10 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-center mb-2 text-white">Online <span class="text-golden">Webinars</span></h2>
+                <p class="text-sm sm:text-base text-center text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto">
+                    Beyond our offline workshops, DruvaTalks also hosts online webinars - bringing the same quality guidance to a wider audience.
+                </p>
+
+                <!-- Slideshow Container -->
+                <div class="relative">
+                    <div class="slideshow-wrapper">
+                        <div class="slideshow-track flex gap-6 sm:gap-8" id="webinarSlideshow">
+                            <!-- Webinar 1: IIT Kanpur -->
+                            <div class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden relative overflow-hidden" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%), url('slideshow/iitk.jpeg'); background-size: cover; background-position: center; background-color: #14100B;">
+                                <div class="slide-content flex flex-col items-center justify-center h-40">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">IIT Kanpur</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9);">Online Webinar Session</p>
+                                </div>
+                            </div>
+
+                            <!-- Webinar 2: IEEE Student Branch, Aranmula Engineering College -->
+                            <div class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden relative overflow-hidden" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%), url('slideshow/aranmula.jpeg'); background-size: cover; background-position: center; background-color: #14100B;">
+                                <div class="slide-content flex flex-col items-center justify-center h-40">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">IEEE Student Branch</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9);">Aranmula Engineering College</p>
+                                </div>
+                            </div>
+
+                            <!-- Webinar 3: Adi Shankara -->
+                            <div class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden relative overflow-hidden" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%), url('slideshow/adisankara.jpeg'); background-size: cover; background-position: center; background-color: #14100B;">
+                                <div class="slide-content flex flex-col items-center justify-center h-40">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">Adi Shankara</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9);">Student Engagement Session</p>
+                                </div>
+                            </div>
+
+                            <!-- Webinar 4: TechCon -->
+                            <div class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden relative overflow-hidden" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%), url('webinars/techcon.jpg'); background-size: cover; background-position: center; background-color: #14100B;">
+                                <div class="slide-content flex flex-col items-center justify-center h-40">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">TechCon</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9);">Tech Conference</p>
+                                </div>
+                            </div>
+
+                            <!-- Duplicates for seamless loop -->
+                            <div class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden relative overflow-hidden" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%), url('slideshow/iitk.jpeg'); background-size: cover; background-position: center; background-color: #14100B;">
+                                <div class="slide-content flex flex-col items-center justify-center h-40">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">IIT Kanpur</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9);">Online Webinar Session</p>
+                                </div>
+                            </div>
+                            <div class="slide-item flex-shrink-0 w-64 sm:w-72 md:w-80 p-5 sm:p-6 rounded-xl border border-golden/40 text-center transform transition duration-300 hover:scale-105 hover:border-golden relative overflow-hidden" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%), url('slideshow/aranmula.jpeg'); background-size: cover; background-position: center; background-color: #14100B;">
+                                <div class="slide-content flex flex-col items-center justify-center h-40">
+                                    <h3 class="text-lg sm:text-xl font-semibold text-white mb-1" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8);">IEEE Student Branch</h3>
+                                    <p class="text-xs sm:text-sm text-white/90" style="text-shadow: 1px 1px 6px rgba(0,0,0,0.9);">Aranmula Engineering College</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1322,19 +1413,19 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
                     <!-- Stat 1 -->
-                    <div class="p-6 rounded-xl border border-golden/30 hover:bg-black/50 transition duration-300">
+                    <div class="p-6 rounded-xl border border-golden/30 hover:bg-blackish/50 transition duration-300">
                         <p class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 transition duration-300 hover:scale-105">15+</p>
                         <p class="text-lg sm:text-xl font-medium text-gray-300">Workshops Conducted</p>
                     </div>
 
                     <!-- Stat 2 -->
-                    <div class="p-6 rounded-xl border border-golden/30 hover:bg-black/50 transition duration-300">
+                    <div class="p-6 rounded-xl border border-golden/30 hover:bg-blackish/50 transition duration-300">
                         <p class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 transition duration-300 hover:scale-105">5K+</p>
                         <p class="text-lg sm:text-xl font-medium text-gray-300">Lives Empowered</p>
                     </div>
 
                     <!-- Stat 3 -->
-                    <div class="p-6 rounded-xl border border-golden/30 hover:bg-black/50 transition duration-300">
+                    <div class="p-6 rounded-xl border border-golden/30 hover:bg-blackish/50 transition duration-300">
                         <p class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-golden mb-2 transition duration-300 hover:scale-105">98%</p>
                         <p class="text-lg sm:text-xl font-medium text-gray-300">Attendee Satisfaction</p>
                     </div>
@@ -1363,15 +1454,15 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
                         
                         <!-- Left Column - Visual -->
-                        <div class="relative h-64 sm:h-80 lg:h-auto min-h-[300px] bg-gradient-to-br from-black/90 to-blackish/95 flex items-center justify-center p-8 border-b lg:border-b-0 lg:border-r border-golden/20">
-                            <img src="kihon.png" alt="KIHON VR Karate Sensei by DruvaTalks" class="w-full h-full object-contain max-w-md transition duration-300" style="filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 40px rgba(255, 215, 0, 0.4)) brightness(1.1) contrast(1.1);">
-                            <div class="absolute inset-0 bg-gradient-to-t from-blackish/50 to-transparent pointer-events-none"></div>
+                        <div class="relative h-64 sm:h-80 lg:h-auto min-h-[300px] flex items-center justify-center p-8 border-b lg:border-b-0 lg:border-r border-golden/20" style="background: radial-gradient(ellipse at center, rgba(201,162,74,0.14) 0%, #14100B 70%);">
+                            <img src="kihon.png" alt="KIHON VR Karate Sensei by DruvaTalks" class="w-full h-full object-contain max-w-md transition duration-300" style="filter: drop-shadow(0 0 24px rgba(201, 162, 74, 0.6)) drop-shadow(0 0 45px rgba(201, 162, 74, 0.3)) brightness(1.3) contrast(1.15);">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blackish/40 to-transparent pointer-events-none"></div>
                         </div>
 
                         <!-- Right Column - Content -->
                         <div class="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
                             <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
-                                KIHON – VR Karate Sensei
+                                KIHON - VR Karate Sensei
                             </h3>
                             
                             <p class="text-base sm:text-lg text-golden font-medium mb-4 sm:mb-6 italic">
@@ -1407,7 +1498,7 @@
                 <!-- Modal Header -->
                 <div class="sticky top-0 bg-blackish border-b border-golden/30 p-4 sm:p-6 flex justify-between items-start z-10">
                     <div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">KIHON – VR Karate Sensei</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">KIHON - VR Karate Sensei</h3>
                         <p class="text-sm sm:text-base text-golden italic">Reimagining online karate training</p>
                     </div>
                     <button onclick="document.getElementById('kihon-modal').classList.add('hidden')" class="text-gray-400 hover:text-golden transition duration-200 ml-4">
@@ -1417,8 +1508,8 @@
 
                 <!-- Modal Content -->
                 <div class="p-6 sm:p-8">
-                    <div class="mb-6">
-                        <img src="kihon.png" alt="KIHON VR Karate Sensei" class="w-full max-w-md mx-auto rounded-lg border border-golden/30" style="filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.3)) brightness(1.1) contrast(1.1);">
+                    <div class="mb-6 p-6 rounded-lg" style="background: radial-gradient(ellipse at center, rgba(201,162,74,0.14) 0%, #14100B 70%);">
+                        <img src="kihon.png" alt="KIHON VR Karate Sensei" class="w-full max-w-md mx-auto rounded-lg border border-golden/30" style="filter: drop-shadow(0 0 22px rgba(201, 162, 74, 0.55)) drop-shadow(0 0 40px rgba(201, 162, 74, 0.28)) brightness(1.3) contrast(1.15);">
                     </div>
 
                     <p class="text-base text-gray-300 mb-6 leading-relaxed">
@@ -1510,7 +1601,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-12 sm:py-16 md:py-20 lg:py-32 border-t border-golden/10 bg-black/50">
+        <section id="contact" class="py-12 sm:py-16 md:py-20 lg:py-32 border-t border-golden/10 bg-blackish/50">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl sm:text-4xl font-bold text-center mb-3 sm:mb-4 text-white">Get In <span class="text-golden">Touch</span></h2>
                 <p class="text-base sm:text-lg text-center text-gray-400 mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
