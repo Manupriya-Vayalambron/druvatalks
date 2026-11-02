@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STHIRA – AI-Powered Adaptive Housing for a Resilient India</title>
+<style>
+:root{--bg:#f6f7f8;--sf:#fff;--tx:#18222b;--mu:#56646f;--ac:#0f5e73;--ac2:#b4531f;--bd:#d9dee3;--hi:#e4f0f3;--ok:#1d7a4d;--no:#b3261e;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(60px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--sf);border-bottom:1px solid var(--bd);z-index:5}
+nav .w{display:flex;gap:22px;align-items:center;height:52px;overflow-x:auto}
+nav b{color:var(--ac);letter-spacing:.12em}nav a{color:var(--mu);text-decoration:none;font-size:14px;white-space:nowrap}nav a:hover{color:var(--ac)}
+header.hero{padding:56px 0 40px;background:var(--sf);border-bottom:1px solid var(--bd)}
+.eyebrow{font-size:13px;font-weight:600;color:var(--ac);letter-spacing:.06em;text-transform:uppercase}
+h1{font-size:clamp(28px,4.6vw,44px);line-height:1.15;margin:10px 0 14px;letter-spacing:-.01em}
+.lead{font-size:18px;color:var(--mu);max-width:720px;margin:0}
+.btn{display:inline-block;background:var(--ac);color:var(--sf);padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;margin:22px 10px 0 0}
+.btn.o{background:none;color:var(--ac);border:1px solid var(--ac)}
+section{padding:48px 0;border-bottom:1px solid var(--bd)}
+h2{font-size:26px;margin:0 0 6px}h3{font-size:16px;margin:0 0 4px}
+.sub{color:var(--mu);max-width:700px;margin:0 0 24px}
+.g{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.c{background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:16px}
+.c p{margin:0;color:var(--mu);font-size:14.5px}
+.pill{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:99px;margin-bottom:8px;background:var(--hi);color:var(--ac)}
+.pill.p{background:none;border:1px solid var(--bd);color:var(--mu)}
+.n{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--ac);color:var(--sf);align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:8px}
+.banner{background:var(--hi);border-left:3px solid var(--ac);padding:10px 14px;font-size:14px;margin-bottom:20px;border-radius:0 6px 6px 0}
+.pl{display:grid;gap:16px;grid-template-columns:minmax(0,290px) minmax(0,1fr);align-items:start}
+@media(max-width:800px){.pl{grid-template-columns:1fr}}
+.pl label{display:block;font-size:13px;font-weight:600;margin:14px 0 4px}.pl label:first-of-type{margin-top:0}
+.pl label span{font-weight:400;color:var(--mu)}
+select,input[type=range]{width:100%}
+select{padding:8px;border-radius:6px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font-size:15px}
+.st{display:flex;align-items:center;gap:8px;font-weight:700;margin:0 0 10px}.st .n{margin:0}
+.rb{display:flex;align-items:center;gap:10px;font-size:13px;margin:5px 0}
+.rb>span:first-child{width:80px}.rb i{flex:1;height:8px;background:var(--bd);border-radius:8px;overflow:hidden}.rb i b{display:block;height:100%}
+.rb>span:last-child{width:26px;text-align:right}
+ul.s{padding-left:18px;margin:4px 0;font-size:14.5px}ul.s li{margin-bottom:6px}
+.cc{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.cc button{text-align:left;font:inherit;font-size:13px;color:var(--tx);background:var(--bg);border:1.5px solid var(--bd);border-radius:8px;padding:12px;cursor:pointer}
+.cc button.on{border-color:var(--ac);background:var(--hi)}
+.cc b{display:block;font-size:15px}.cc .big{font-size:20px;font-weight:700;margin:4px 0}
+.ok{color:var(--ok);font-weight:600}.no{color:var(--no);font-weight:600}
+#cv{width:100%;height:380px;border-radius:8px;background:linear-gradient(var(--hi),var(--bg));position:relative;overflow:hidden;touch-action:none;cursor:grab}
+#cv canvas{display:block}
+.hint{position:absolute;left:10px;bottom:8px;font-size:12px;color:var(--mu);pointer-events:none}
+.two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:14px}
+.note{font-size:12.5px;color:var(--mu);margin:10px 0 0}
+svg.fp{width:100%;height:auto;max-height:300px}svg.fp text{fill:var(--tx);font-size:11px;font-family:system-ui}
+.tb{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}.tb span{font-size:13px;border:1px solid var(--bd);background:var(--sf);padding:5px 12px;border-radius:6px}
+.hg{display:grid;gap:32px;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center}
+@media(max-width:820px){.hg{grid-template-columns:1fr}}
+.art svg{width:100%;height:auto;display:block;border-radius:14px}
+.by{margin-top:26px;padding-top:14px;border-top:1px solid var(--bd);font-size:14px;color:var(--mu)}.by b{color:var(--ac)}
+.wv{animation:wv 6s linear infinite}@keyframes wv{to{transform:translateX(-60px)}}
+.rp{transform-box:fill-box;transform-origin:center;animation:rp 2.4s ease-out infinite}@keyframes rp{from{transform:scale(.6);opacity:.9}to{transform:scale(1.9);opacity:0}}
+@media (prefers-reduced-motion:reduce){.wv,.rp{animation:none}}
+footer{padding:30px 0 44px;color:var(--mu);font-size:14px}
+</style>
+</head>
+<body>
+<nav><div class="w"><b>STHIRA</b><a href="#overview">Overview</a><a href="#features">Features</a><a href="#planner">Planner demo</a><a href="#data">Data &amp; limits</a></div></nav>
+
+<header class="hero" id="overview"><div class="w hg"><div>
+<div class="eyebrow">Disaster-resilient housing · India</div>
+<h1>STHIRA: AI-powered adaptive housing</h1>
+<p class="lead">A location-adaptive platform that converts a map pin into a site and risk profile, combines it with household requirements and budget, and produces explainable housing recommendations with cost estimates and 3D visualization.</p>
+<a class="btn" href="#planner">Open planner demo</a><a class="btn o" href="#features">View features</a>
+<div class="by">Powered by <b>DruvaTalks</b></div>
+</div>
+<div class="art">
+<svg viewBox="0 0 440 340" role="img" aria-label="Illustration: a raised, resilient house on a mapped site with hazard indicators">
+<defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8eaf0"/><stop offset="1" stop-color="#f4f8fa"/></linearGradient>
+<pattern id="gd" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#b9ccd5" stroke-width=".7"/></pattern>
+<clipPath id="cp"><rect width="440" height="340" rx="14"/></clipPath></defs>
+<g clip-path="url(#cp)">
+<rect width="440" height="340" fill="url(#sk)"/><rect width="440" height="340" fill="url(#gd)" opacity=".6"/>
+<path d="M0 232 Q90 168 185 218 T360 204 T440 222 V340 H0Z" fill="#c6d6bc"/>
+<rect y="252" width="440" height="88" fill="#b4c7a8"/>
+<rect x="160" y="226" width="130" height="26" fill="#8c918d"/>
+<rect x="170" y="176" width="110" height="50" fill="#e8dcc6"/>
+<rect x="170" y="176" width="110" height="5" fill="#676c70"/>
+<rect x="184" y="192" width="22" height="18" fill="#35515f"/><rect x="244" y="192" width="22" height="18" fill="#35515f"/>
+<rect x="216" y="190" width="18" height="36" fill="#5a3d2b"/>
+<polygon points="156,176 294,176 268,140 182,140" fill="#b3532f"/>
+<path d="M225 74V138" stroke="#0f5e73" stroke-width="1.5" stroke-dasharray="3 4" fill="none"/>
+<line x1="120" y1="238" x2="330" y2="238" stroke="#1f5f99" stroke-dasharray="4 3"/><text x="334" y="241" font-family="system-ui" font-size="10" fill="#1f5f99">flood level</text>
+<path class="wv" d="M-60 246 q15 -8 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 V300 H-60Z" fill="#3b82c4" opacity=".38"/>
+<g transform="translate(225 56)"><circle class="rp" r="16" fill="none" stroke="#0f5e73" stroke-width="2"/><path d="M0 20 C-14 4 -12 -14 0 -14 C12 -14 14 4 0 20Z" fill="#0f5e73"/><circle cy="-3" r="4.5" fill="#fff"/></g>
+<g font-family="system-ui" font-size="11" fill="#18222b">
+<g transform="translate(20 24)"><rect width="92" height="22" rx="11" fill="#fff" stroke="#c7d3da"/><circle cx="12" cy="11" r="4" fill="#3b82c4"/><text x="24" y="15">Flood</text></g>
+<g transform="translate(20 52)"><rect width="92" height="22" rx="11" fill="#fff" stroke="#c7d3da"/><circle cx="12" cy="11" r="4" fill="#6b7a8a"/><text x="24" y="15">Cyclone</text></g>
+<g transform="translate(20 80)"><rect width="92" height="22" rx="11" fill="#fff" stroke="#c7d3da"/><circle cx="12" cy="11" r="4" fill="#9a7b4f"/><text x="24" y="15">Landslide</text></g>
+<g transform="translate(20 108)"><rect width="92" height="22" rx="11" fill="#fff" stroke="#c7d3da"/><circle cx="12" cy="11" r="4" fill="#b3532f"/><text x="24" y="15">Earthquake</text></g>
+<g transform="translate(20 136)"><rect width="92" height="22" rx="11" fill="#fff" stroke="#c7d3da"/><circle cx="12" cy="11" r="4" fill="#d9a441"/><text x="24" y="15">Drought</text></g>
+<g transform="translate(316 24)"><rect width="104" height="88" rx="8" fill="#fff" stroke="#c7d3da"/><text x="10" y="18" font-weight="600">Site risk</text>
+<text x="10" y="40" font-size="10" fill="#56646f">Flood</text><rect x="52" y="33" width="42" height="6" rx="3" fill="#e4e9ec"/><rect x="52" y="33" width="30" height="6" rx="3" fill="#b3261e"/>
+<text x="10" y="60" font-size="10" fill="#56646f">Cyclone</text><rect x="52" y="53" width="42" height="6" rx="3" fill="#e4e9ec"/><rect x="52" y="53" width="25" height="6" rx="3" fill="#b4531f"/>
+<text x="10" y="80" font-size="10" fill="#56646f">Quake</text><rect x="52" y="73" width="42" height="6" rx="3" fill="#e4e9ec"/><rect x="52" y="73" width="11" height="6" rx="3" fill="#1d7a4d"/></g>
+<text x="220" y="322" text-anchor="middle" fill="#56646f">Location → risk profile → resilient design</text>
+</g></g>
+</svg>
+</div>
+</div></header>
+
+<section id="features"><div class="w">
+<h2>Features</h2>
+<p class="sub">Each capability of the proposed platform, and where it appears in the demo below.</p>
+<div class="g">
+<div class="c"><span class="pill">In demo</span><h3>1. Site and risk profile</h3><p>A location is converted into hazard scores for flood, landslide, cyclone, drought, earthquake and heat. The demo uses sample location types in place of a live map pin.</p></div>
+<div class="c"><span class="pill">In demo</span><h3>2. Household inputs</h3><p>Plot dimensions, household size, accessibility needs and budget shape the design.</p></div>
+<div class="c"><span class="pill">In demo</span><h3>3. Explainable recommendations</h3><p>Each measure for configuration, materials and mitigation is listed with the risk that triggered it.</p></div>
+<div class="c"><span class="pill">In demo</span><h3>4. Alternative concepts</h3><p>Three concepts at different levels of protection, compared on cost, budget fit and estimated risk reduction.</p></div>
+<div class="c"><span class="pill">In demo</span><h3>5. Floor plan</h3><p>A schematic ground-floor layout sized to the household and plot.</p></div>
+<div class="c"><span class="pill">In demo</span><h3>6. 3D visualization</h3><p>An interactive three.js model that changes with the selected concept: plinth, roof form, walls, tank, ramp and more.</p></div>
+<div class="c"><span class="pill p">Planned</span><h3>7. Live data integration</h3><p>Terrain, climate and disaster-history data from IMD, ISRO, NDMA and state authorities.</p></div>
+<div class="c"><span class="pill p">Planned</span><h3>8. Professional validation</h3><p>Recommendations to be reviewed by qualified architects and structural engineers.</p></div>
+</div></div></section>
+
+<section id="planner"><div class="w">
+<h2>Planner demo</h2>
+<p class="sub">Change the inputs on the left. All results update together.</p>
+<div class="banner">Demonstration only. Hazard scores, rates and costs are sample values, not real assessments or quotations.</div>
+<div class="pl">
+<div class="c">
+<div class="st"><span class="n">1</span>Inputs</div>
+<label for="rg">Location type</label><select id="rg"></select>
+<label for="pw">Plot width <span id="pwv"></span></label><input type="range" id="pw" min="8" max="30" value="15">
+<label for="pd">Plot depth <span id="pdv"></span></label><input type="range" id="pd" min="8" max="30" value="18">
+<label for="fm">Household size <span id="fv"></span></label><input type="range" id="fm" min="1" max="8" value="4">
+<label for="bd">Budget <span id="bv"></span></label><input type="range" id="bd" min="5" max="60" value="22">
+<label for="ac">Accessibility</label><select id="ac"><option value="0">Standard</option><option value="1">Step-free, elder-friendly</option></select>
+</div>
+<div>
+<div class="c"><div class="st"><span class="n">2</span>Site risk profile</div><div id="rk"></div><p class="note">Score 0–100. Higher means greater exposure.</p></div>
+<div class="c" style="margin-top:14px"><div class="st"><span class="n">3</span>Concepts (select one)</div><div class="cc" id="cc"></div><p class="note" id="nt"></p></div>
+</div></div>
+
+<div class="two">
+<div class="c"><div class="st"><span class="n">4</span>Recommendations for selected concept</div><ul class="s" id="rc"></ul></div>
+<div class="c"><div class="st"><span class="n">5</span>Ground-floor plan (schematic)</div><div id="fp"></div><p class="note" id="fn"></p></div>
+</div>
+
+<div class="c" style="margin-top:14px"><div class="st"><span class="n">6</span>3D model of selected concept</div>
+<div id="cv"><span class="hint">Drag to rotate · scroll or pinch to zoom</span></div>
+<p class="note" id="lg"></p></div>
+</div></section>
+
+<section id="data"><div class="w">
+<h2>Data sources and limitations</h2>
+<p class="sub">Implementation can draw on governmental and open geospatial sources. Final recommendations are subject to professional architectural and structural validation.</p>
+<div class="tb"><span>IMD</span><span>ISRO</span><span>NDMA</span><span>State disaster-management authorities</span><span>Open geospatial data</span></div>
+</div></section>
+
+<footer><div class="w"><b>STHIRA</b> – AI-Powered Adaptive Housing for a Resilient India, an initiative by <b>DruvaTalks</b><br>Manupriya Dhanush Vayalambron · LBSITW</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+var D={
+coast:{n:"Coastal Kerala (sample)",r:{Flood:70,Landslide:25,Cyclone:60,Drought:30,Quake:25,Heat:50}},
+himal:{n:"Himalayan slope (sample)",r:{Flood:30,Landslide:80,Cyclone:10,Drought:20,Quake:75,Heat:20}},
+desert:{n:"Rajasthan arid zone (sample)",r:{Flood:10,Landslide:10,Cyclone:10,Drought:85,Quake:30,Heat:90}},
+plain:{n:"Brahmaputra floodplain (sample)",r:{Flood:90,Landslide:25,Cyclone:30,Drought:20,Quake:60,Heat:40}},
+kutch:{n:"Kutch seismic zone (sample)",r:{Flood:25,Landslide:10,Cyclone:35,Drought:60,Quake:85,Heat:70}}};
+var M={
+Flood:{a:"Raise the plinth above the reference flood level; place electrics and services higher.",m:"Water-resistant base and ground-floor finishes.",p:.10},
+Landslide:{a:"Anchored, terraced foundation with a retaining wall and slope drainage.",m:"Reinforced masonry or light steel frame.",p:.12},
+Cyclone:{a:"Hipped roof with tied-down anchorage; limit large openings on exposed sides.",m:"Impact-resistant shutters and reinforced roof connections.",p:.08},
+Drought:{a:"Rainwater harvesting tank and greywater reuse.",m:"Locally sourced, low-water materials.",p:.05},
+Quake:{a:"Compact, regular plan with ring beams at each floor.",m:"Reinforced, ductile detailing; light roof.",p:.12},
+Heat:{a:"Deep roof overhang, cross-ventilation and a cool roof.",m:"Insulated walls and light-coloured roof finish.",p:.06}};
+var CN=[["Essential","Addresses the highest risk only"],["Balanced","Addresses all risks scoring 50 or more"],["Fortified","Addresses all risks scoring 20 or more"]];
+var $=function(i){return document.getElementById(i)},sel=1,S={};
+var rg=$("rg");for(var k in D){var o=document.createElement("option");o.value=k;o.textContent=D[k].n;rg.appendChild(o)}
+function col(v){return v>=65?"var(--no)":v>=35?"var(--ac2)":"var(--ok)"}
+function lk(v){return "₹"+(v/100000).toFixed(1)+" lakh"}
+function calc(manual){
+var d=D[rg.value],keys=Object.keys(d.r),fam=+$("fm").value,bud=+$("bd").value*100000,acc=+$("ac").value,pw=+$("pw").value,pd=+$("pd").value;
+$("pwv").textContent="("+pw+" m)";$("pdv").textContent="("+pd+" m)";$("fv").textContent="("+fam+")";$("bv").textContent="(₹"+(bud/100000)+" lakh)";
+var area=200*fam+100,bm=area*.0929,cov=pw*pd*.5,fl=acc?1:(bm>cov?2:1),fp=bm/fl,w=Math.sqrt(fp*1.4),dp=fp/w;
+var sorted=keys.slice().sort(function(a,b){return d.r[b]-d.r[a]}),tot=keys.reduce(function(s,k){return s+d.r[k]},0);
+var cons=[0,1,2].map(function(i){
+var ap=keys.filter(function(k){return i==0?k==sorted[0]:d.r[k]>=(i==1?50:20)});
+var pr=ap.reduce(function(s,k){return s+M[k].p},0)+(acc?.04:0);
+return{ap:ap,cost:area*1800*(1+pr),red:Math.round(75*ap.reduce(function(s,k){return s+d.r[k]},0)/tot)}});
+S={d:d,keys:keys,area:area,fl:fl,w:w,dp:dp,pw:pw,pd:pd,acc:acc,fam:fam,cons:cons,bud:bud,cov:cov,bm:bm};
+if(!manual){sel=0;cons.forEach(function(c,i){if(c.cost<=bud)sel=i})}
+var h="";keys.forEach(function(k){var v=d.r[k];h+='<div class="rb"><span>'+k+'</span><i><b style="width:'+v+'%;background:'+col(v)+'"></b></i><span>'+v+'</span></div>'});
+$("rk").innerHTML=h;
+var cc="";cons.forEach(function(c,i){var ok=c.cost<=bud;
+cc+='<button data-i="'+i+'" class="'+(i==sel?"on":"")+'"><b>'+CN[i][0]+'</b>'+CN[i][1]+'<div class="big">'+lk(c.cost)+'</div>Risk reduction: '+c.red+'%<br><span class="'+(ok?"ok":"no")+'">'+(ok?"Within budget":"Over budget")+'</span></button>'});
+$("cc").innerHTML=cc;
+var any=cons.some(function(c){return c.cost<=bud});
+$("nt").textContent="Built-up area "+area+" sq ft at a sample rate of ₹1,800/sq ft, plus mitigation costs. The model shows the most protective concept within your budget; select another to compare."+(any?"":" The budget is below all concepts; consider a smaller home or phased construction.");
+[].forEach.call($("cc").children,function(b){b.onclick=function(){sel=+b.dataset.i;calc(true)}});
+var c=cons[sel],r="";
+c.ap.forEach(function(k){r+="<li><b>"+k+" risk ("+d.r[k]+"):</b> "+M[k].a+" <i>Materials: "+M[k].m+"</i></li>"});
+if(acc)r+="<li><b>Accessibility:</b> single-level living, ramped entry (1:12), wider doors, barrier-free bathroom.</li>";
+$("rc").innerHTML=r||"<li>No site-specific measures are triggered at this level. Standard good practice applies.</li>";
+plan();draw3();
+}
+function plan(){
+var w=S.w,d=S.dp,W=w*20,H=d*20,hb=Math.round(H*.5),n=Math.min(4,Math.max(1,Math.ceil(S.fam/2))),
+bw=W*.72/n,rm='';
+function R(x,y,a,b,t){rm+='<rect x="'+x+'" y="'+y+'" width="'+a+'" height="'+b+'" fill="var(--hi)" stroke="var(--ac)"/><text x="'+(x+a/2)+'" y="'+(y+b/2+4)+'" text-anchor="middle">'+t+'</text>'}
+R(0,hb,W*.6,H-hb,"Living / dining");R(W*.6,hb,W*.4,H-hb,"Kitchen");
+for(var i=0;i<n;i++)R(i*bw,0,bw,hb,"Bed "+(i+1));
+R(W*.72,0,W*.28,hb,S.acc?"Accessible bath":"Bath");
+rm+='<text x="'+(W*.6+W*.2)+'" y="'+(H+16)+'" text-anchor="middle" style="fill:var(--mu)">Entrance (front)</text>';
+$("fp").innerHTML='<svg class="fp" viewBox="-4 -4 '+(W+8)+' '+(H+24)+'">'+rm+'</svg>';
+var m="Footprint about "+w.toFixed(1)+" × "+d.toFixed(1)+" m, "+S.fl+" floor"+(S.fl>1?"s":"")+". Ground floor shown.";
+if(w>S.pw-3||d>S.pd-3)m+=" Warning: the footprint may not fit within typical setbacks for this plot.";
+if(S.acc&&S.bm>S.cov)m+=" Single-level plan exceeds typical 50% plot coverage.";
+$("fn").textContent=m}
+/* ---- three.js ---- */
+var T={};
+function init3(){
+var el=$("cv");
+if(!window.THREE){el.innerHTML='<p class="note" style="padding:20px">3D viewer could not load. Check your connection and reload.</p>';return}
+T.sc=new THREE.Scene();T.cam=new THREE.PerspectiveCamera(45,1,.1,300);
+T.re=new THREE.WebGLRenderer({antialias:true,alpha:true});T.re.setPixelRatio(Math.min(devicePixelRatio,2));
+el.insertBefore(T.re.domElement,el.firstChild);
+T.sc.add(new THREE.AmbientLight(0xffffff,.65));var dl=new THREE.DirectionalLight(0xffffff,.8);dl.position.set(12,20,14);T.sc.add(dl);
+T.g=new THREE.Group();T.sc.add(T.g);
+T.th=.7;T.ph=1.05;T.R=32;T.auto=true;
+var dn=false,lx=0,ly=0,pts={},pd0=0;
+el.addEventListener("pointerdown",function(e){pts[e.pointerId]=e;dn=true;T.auto=false;lx=e.clientX;ly=e.clientY;el.setPointerCapture(e.pointerId)});
+el.addEventListener("pointerup",function(e){delete pts[e.pointerId];pd0=0;dn=false});
+el.addEventListener("pointermove",function(e){
+pts[e.pointerId]=e;var ids=Object.keys(pts);
+if(ids.length==2){var a=pts[ids[0]],b=pts[ids[1]],dd=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);if(pd0){T.zoomed=true;T.R=Math.min(80,Math.max(8,T.R*pd0/dd))}pd0=dd;return}
+if(!dn)return;T.th-=(e.clientX-lx)*.008;T.ph=Math.min(1.45,Math.max(.2,T.ph-(e.clientY-ly)*.006));lx=e.clientX;ly=e.clientY});
+el.addEventListener("wheel",function(e){e.preventDefault();T.zoomed=true;T.R=Math.min(80,Math.max(8,T.R*(1+e.deltaY*.001)))},{passive:false});
+function rs(){var w=el.clientWidth,h=el.clientHeight;T.re.setSize(w,h);T.cam.aspect=w/h;T.cam.updateProjectionMatrix()}
+window.addEventListener("resize",rs);rs();
+(function loop(){requestAnimationFrame(loop);if(T.auto)T.th+=.003;
+var c=T.cam,R=T.R;c.position.set(R*Math.sin(T.ph)*Math.sin(T.th),R*Math.cos(T.ph)+1.5,R*Math.sin(T.ph)*Math.cos(T.th));c.lookAt(0,1.5,0);T.re.render(T.sc,c)})()}
+function L(c){return new THREE.MeshLambertMaterial({color:c,side:THREE.DoubleSide})}
+function mk(g,m,x,y,z){var o=new THREE.Mesh(g,m);o.position.set(x,y,z);T.g.add(o);return o}
+function draw3(){
+if(!T.g)return;
+while(T.g.children.length){var ch=T.g.children[0];T.g.remove(ch);if(ch.geometry)ch.geometry.dispose()}
+var w=S.w,d=S.dp,fl=S.fl,r=S.d.r,ap=S.cons[sel].ap,has=function(k){return ap.indexOf(k)>=0},B=THREE.BoxGeometry;
+var fL=r.Flood/100*1.2,ph=has("Flood")?fL+.4:.3;
+var gr=mk(new THREE.PlaneGeometry(90,90),L(0xc2cdb0),0,0,0);gr.rotation.x=-Math.PI/2;
+var pl=mk(new THREE.PlaneGeometry(S.pw,S.pd),L(0xdfe6cf),0,.015,0);pl.rotation.x=-Math.PI/2;
+var pg=new THREE.BufferGeometry().setFromPoints([[-1,-1],[1,-1],[1,1],[-1,1]].map(function(p){return new THREE.Vector3(p[0]*S.pw/2,.03,p[1]*S.pd/2)}));
+var ln=new THREE.LineLoop(pg,new THREE.LineBasicMaterial({color:0x556070}));T.g.add(ln);
+mk(new B(w,ph,d),L(0x8c918d),0,ph/2,0);
+var wl=L(0xe8dcc6),nw=Math.max(2,Math.min(6,Math.ceil(S.fam/2)+1));
+for(var f=0;f<fl;f++){
+mk(new B(w-.2,3,d-.2),wl,0,ph+1.5+3*f,0);
+if(has("Quake"))mk(new B(w+.1,.28,d+.1),L(0x676c70),0,ph+3*f+2.86,0);
+for(var j=0;j<nw;j++){var x=-w/2+w*(j+.5)/nw;if(!(f==0&&Math.abs(x)<1))mk(new B(1.2,1,.1),L(0x35515f),x,ph+1.7+3*f,d/2);mk(new B(1.2,1,.1),L(0x35515f),x,ph+1.7+3*f,-d/2)}}
+mk(new B(1,2.1,.12),L(0x5a3d2b),0,ph+1.05,d/2);
+var yb=ph+3*fl,o=has("Heat")?1.2:.4,rm=L(0xb3532f);
+if(has("Cyclone")){var cg=new THREE.ConeGeometry(Math.SQRT1_2,1,4);cg.rotateY(Math.PI/4);var rf=mk(cg,rm,0,yb+.8,0);rf.scale.set(w+2*o,1.6,d+2*o)}
+else{var sh=new THREE.Shape();sh.moveTo(-(w/2+o),0);sh.lineTo(w/2+o,0);sh.lineTo(0,1.8);sh.closePath();
+var eg=new THREE.ExtrudeGeometry(sh,{depth:d+2*o,bevelEnabled:false});eg.translate(0,0,-(d/2+o));mk(eg,rm,0,yb,0)}
+if(r.Flood>=35){var fp=mk(new THREE.PlaneGeometry(50,50),new THREE.MeshBasicMaterial({color:0x3b82c4,transparent:true,opacity:.28,side:THREE.DoubleSide}),0,fL,0);fp.rotation.x=-Math.PI/2}
+if(r.Landslide>=50){var hl=mk(new B(w+14,4,9),L(0x9aa58a),0,1,-d/2-6.5);hl.rotation.x=-.4}
+if(has("Landslide")){mk(new B(w+4,2,.4),L(0x7d7d78),0,1,-d/2-2.2);mk(new B(w+4,.06,.5),L(0x2f3b44),0,.04,-d/2-1.6)}
+if(has("Drought"))mk(new THREE.CylinderGeometry(.6,.6,1.6,20),L(0x3d7ea6),w/2+1.2,.8,-d/2+.8);
+if(S.acc){var Ln=Math.max(2,ph/.083),rp=mk(new B(1.2,.12,Ln),L(0xb9b4a6),0,ph/2,d/2+Ln/2);rp.rotation.x=Math.atan(ph/Ln)}
+T.Rt=Math.max(w,d,S.pw,S.pd)*1.3+10;if(!T.zoomed)T.R=T.Rt;
+var f=[];f.push("Plinth "+ph.toFixed(1)+" m");f.push(has("Cyclone")?"hipped roof":"gable roof");f.push(fl+" floor"+(fl>1?"s":""));
+if(has("Quake"))f.push("ring beams");if(has("Heat"))f.push("deep overhang");if(has("Drought"))f.push("rain tank");if(has("Landslide"))f.push("retaining wall + drain");if(S.acc)f.push("ramp 1:12");
+$("lg").textContent="Showing "+CN[sel][0]+" concept for "+S.fam+" people on a "+S.pw+" × "+S.pd+" m plot: "+f.join(", ")+"."+(r.Flood>=35?" Blue plane = illustrative reference flood level.":"")+(r.Landslide>=50?" Sloped mass behind the house = hillside.":"")}
+["rg","pw","pd","fm","bd","ac"].forEach(function(i){$(i).addEventListener("input",function(){calc()})});
+init3();calc();
+</script>
+</body>
+</html>
